@@ -20,6 +20,7 @@ use App\Models\Prestataire;
 use App\Models\Prestation;
 use App\Models\Specialite;
 use App\Models\TCandidat;
+use App\Models\TLibelleSpecialite;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -105,9 +106,9 @@ class HomeController extends Controller
     public function annuaireFormation()
     {
         return view('home.formation-home', [
-            'allCourses' => $this->courseService->all(),
-            'categories'=> Category::all(),
-            'level'=> Level::all()
+            'allCourses' => TCandidat::all(),
+            'categories'=> TLibelleSpecialite::all(),
+            'level' => []
          ]);
 
     }

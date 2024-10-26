@@ -21,8 +21,9 @@ class TCandidat extends Model
         'ville_id',
         'pays_id',
         'description',
-        'user_id'
-      
+        'user_id',
+        'visiteur'
+
     ];
 
     public function specialite() {
