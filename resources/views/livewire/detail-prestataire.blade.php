@@ -231,38 +231,34 @@
                                     <span class="text-success">Projets</span>
                                     :
                                 </h3>
-                                <div class="d-flex flex-column gap-3">
+                                {{-- <div class="d-flex flex-column gap-3">
                                     <!-- Liste des projets -->
                                     <div class="d-flex flex-column gap-4">
-
-                                        <div class="d-flex flex-column gap-1 border rounded p-3">
-                                            <h4 class="mb-1">Projet : Application de gestion des tâches</h4>
-                                            <div class="d-flex flex-row align-items-center gap-1">
-                                                <h3 class="mb-0 h2">1500.00</h3>
-                                                <small class="text-gray-800 fw-medium">/ Budget</small>
+                                        @foreach ($candidat->projets as $projet)
+                                            <div class="d-flex flex-column gap-1 border rounded p-3">
+                                                <h4 class="mb-1">Projet : {{ $projet->nom }}</h4> <!-- Remplacez "nom" par le champ approprié -->
+                                                <div class="d-flex flex-row align-items-center gap-1">
+                                                    <h3 class="mb-0 h2">{{ number_format($projet->budget, 2, '.', '') }}</h3> <!-- Remplacez "budget" par le champ approprié -->
+                                                    <small class="text-gray-800 fw-medium">/ Budget</small>
+                                                </div>
+                                                <ul class="list-unstyled mb-0 d-flex flex-column gap-2 mt-2">
+                                                    @foreach ($projet->features as $feature) <!-- Remplacez "features" par la relation appropriée -->
+                                                        <li class="d-flex flex-row gap-2">
+                                                            <span>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-video text-primary" viewBox="0 0 16 16">
+                                                                    <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"></path>
+                                                                    <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 0 0 0 2-2V4a2 0 0 0-2-2zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1z"></path>
+                                                                </svg>
+                                                            </span>
+                                                            <span>{{ $feature }}</span> <!-- Remplacez par le texte approprié -->
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
                                             </div>
-                                            <ul class="list-unstyled mb-0 d-flex flex-column gap-2 mt-2">
-                                                <li class="d-flex flex-row gap-2">
-                                                    <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-video text-primary" viewBox="0 0 16 16">
-                                                            <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"></path>
-                                                            <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 0 0 0 2-2V4a2 0 0 0-2-2zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1z"></path>
-                                                        </svg>
-                                                    </span>
-                                                    <span>Suivi en temps réel</span>
-                                                </li>
-                                                <li class="d-flex flex-row gap-2">
-                                                    <span>
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots-fill text-primary" viewBox="0 0 16 16">
-                                                            <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 0 0 1-2 2H4.414a1 1 0 0 0-.707.293L.854 15.146A.5.5 0 0 1 0 14.793zm5 4a1 1 0 1 0-2 0 1 1 0 0 0 2 0m4 0a1 1 0 1 0-2 0 1 1 0 0 0 2 0m3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2"></path>
-                                                        </svg>
-                                                    </span>
-                                                    <span>Collaboration d'équipe</span>
-                                                </li>
-                                            </ul>
-                                        </div>
+                                        @endforeach
                                     </div>
-                                </div>
+                                </div> --}}
+
                             </div>
                             <div class="d-flex flex-column gap-4 mt-4">
                                 <h3 class="mb-0">

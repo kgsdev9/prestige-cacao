@@ -27,6 +27,11 @@ class TCandidat extends Model
 
     ];
 
+
+    public function profilesocial() {
+        return $this->belongsTo(TSocialProfile::class);
+       }
+
     public function specialite() {
         return $this->belongsTo(TLibelleSpecialite::class, 'specialite_id');
        }
@@ -47,6 +52,11 @@ class TCandidat extends Model
     public function formations() {
 
         return $this->hasMany(TFormation::class, 'candidature_id');
+    }
+
+    public function projets() {
+
+        return $this->hasMany(TProjet::class, 'candidature_id');
     }
 
     public function competences() {
