@@ -1,3 +1,5 @@
+
+@section('title','Liste des candidats')
 <div>
     <div class="container py-5">
         <div class="row">

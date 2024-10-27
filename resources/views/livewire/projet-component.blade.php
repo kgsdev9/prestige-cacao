@@ -1,232 +1,108 @@
+@section('title', 'Mes réalisations')
 <div>
     <main>
         <section class="pt-5 pb-5">
             <div class="container">
+                @include('profiledashboard.base.header')
+
                 <div class="row mt-0 mt-md-4">
                     @include('profiledashboard.nav-bar')
-                    <div class="col-lg-9 col-md-12 col-12">
-
-                        <button wire:click="toggleForm" class="btn btn-primary mb-3">
-                            {{ $showForm ? 'Annuler' : 'Nouveau projet' }}
-                        </button>
-
-                        @if (Session::has('message'))
-                            <div class="alert alert-success">
-                                {{ Session::get('message') }}
+                    <div class="col-lg-9 col-md-8 col-12">
+                        <div class="card mb-4">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <h3 class="h4 mb-0">Liste de vos projets</h3>
+                                <button wire:click="toggleForm" class="btn btn-primary btn-sm">
+                                    {{ $showForm ? 'Annuler' : 'Ajouter un projet' }}
+                                </button>
                             </div>
-                        @endif
-                        <!-- Formulaire -->
-                        @if ($showForm)
-                        <div class="card mb-12">
-                            <div class="card-header border-bottom-0">
-                                <h3 class="mb-0">Nouveau projet</h3>
-                            </div>
-                            <div class="card-body">
-                                <form wire:submit.prevent="savePrestation">
 
-                                    <!-- Étape 1 : Informations générales -->
-                                    <div class="step" id="step1" style="display: {{ $currentStep === 1 ? 'block' : 'none' }};">
+                            @if (session()->has('message'))
+                                <div class="alert alert-success">{{ session('message') }}</div>
+                            @endif
 
-                                        <div class="form-floating mb-3">
-                                            <input type="text" class="form-control" wire:model="title" placeholder="Titre de la prestation">
-                                            <label for="title">Titre de la Prestation</label>
-                                            @error('title') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-
+                            @if($showForm)
+                                <div class="card p-3 mt-3 mx-2">
+                                    <h5 class="mb-3">{{ $projectId ? 'Modifier le projet' : 'Nouveau Projet' }}</h5>
+                                    <form wire:submit.prevent="{{ $projectId ? 'updateProject' : 'saveProject' }}">
                                         <div class="row">
-                                            <div class="col-md-3 mb-3">
-                                                <div class="form-floating">
-                                                    <input type="number" class="form-control" wire:model="prix" placeholder="Prix">
-                                                    <label for="prix">Prix</label>
-                                                    @error('prix') <span class="text-danger">{{ $message }}</span> @enderror
-                                                </div>
+                                            <div class="col-md-6 mb-3 form-floating">
+                                                <input type="text" class="form-control" id="title" placeholder=" " wire:model="title">
+                                                <label for="title">Titre du projet</label>
+                                                @error('title') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
 
-                                            <div class="col-md-5 mb-3">
-                                                <div class="form-floating">
-                                                    <select class="form-control" wire:model="category_id">
-                                                        <option value="">Choisir une catégorie</option>
-                                                        @foreach($categories as $value)
-                                                            <option value="{{ $value->id }}">{{ $value->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    <label for="category_id">Catégories</label>
-                                                </div>
-                                                @error('category_id') <span class="text-danger">{{ $message }}</span> @enderror
+                                            <div class="col-md-6 mb-3 form-floating">
+                                                <input type="text" class="form-control" id="lien_projet" placeholder=" " wire:model="lien_projet">
+                                                <label for="lien_projet">Lien du projet</label>
+                                                @error('lien_projet') <span class="text-danger">{{ $message }}</span> @enderror
                                             </div>
 
-                                            <div class="col-md-4 mb-3">
-                                                <div class="form-floating">
-                                                    <select class="form-control" wire:model="level_id">
-                                                        <option value="">Choisir un niveau</option>
-                                                        @foreach($levels as $value)
-                                                            <option value="{{ $value->id }}">{{ $value->name }}</option>
-                                                        @endforeach
-                                                    </select>
-                                                    <label for="level_id">Niveau</label>
-                                                </div>
-                                                @error('level_id') <span class="text-danger">{{ $message }}</span> @enderror
+                                            <div class="col-12 mb-3 form-floating">
+                                                <textarea class="form-control" placeholder=" " id="description" wire:model="description" style="height: 100px;"></textarea>
+                                                <label for="description">Description</label>
+                                                @error('description') <span class="text-danger">{{ $message }}</span> @enderror
+                                            </div>
+
+                                            <div class="col-md-6 mb-3 form-check">
+                                                <input type="checkbox" class="form-check-input" id="is_published" wire:model="is_published">
+                                                <label class="form-check-label" for="is_published">Publié</label>
                                             </div>
                                         </div>
 
-                                        <!-- Champ exercicescours -->
-                                        <div class="form-floating mb-3">
-                                            <select class="form-control" wire:model="exercicescours">
-                                                <option value="">Oui ou Non</option>
-                                                <option value="oui">Oui</option>
-                                                <option value="non">Non</option>
-                                            </select>
-                                            <label for="exercicescours">Exercices Cours</label>
-                                            @error('exercicescours') <span class="text-danger">{{ $message }}</span> @enderror
+                                        <div class="d-flex justify-content-end mt-3">
+                                            <button type="button" class="btn btn-secondary me-2" wire:click="toggleForm">Annuler</button>
+                                            <button type="submit" class="btn btn-primary">{{ $projectId ? 'Mettre à jour' : 'Enregistrer' }}</button>
                                         </div>
-
-                                        <!-- Champ supportcours -->
-                                        <div class="form-floating mb-3">
-                                            <select class="form-control" wire:model="supportcours">
-                                                <option value="">Oui ou Non</option>
-                                                <option value="oui">Oui</option>
-                                                <option value="non">Non</option>
-                                            </select>
-                                            <label for="supportcours">Support de Cours</label>
-                                            @error('supportcours') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-
-                                        <!-- Champ lien de la formation (URL vidéo) -->
-                                        <div class="form-floating mb-3">
-                                            <input type="url" class="form-control" wire:model="url_video" placeholder="Lien de la formation">
-                                            <label for="url_video">Lien de la Formation (URL Vidéo)</label>
-                                            @error('url_video') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-
-                                        <!-- Champ durée de la formation -->
-                                        <div class="form-floating mb-3">
-                                            <input type="number" class="form-control" wire:model="duration" placeholder="Durée de la formation (en heures)">
-                                            <label for="duration">Durée de la Formation (en heures)</label>
-                                            @error('duration') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-
-                                        <!-- Champ image de la formation -->
-                                        <div class="form-floating mb-3">
-                                            <input type="file" class="form-control" wire:model="image" placeholder="Image de la formation">
-                                            <label for="image">Image de la Formation</label>
-                                            @error('image') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-
-                                        <!-- Champ description -->
-                                        <div class="form-floating mb-3">
-                                            <textarea class="form-control" wire:model="description" rows="4" placeholder="Description"></textarea>
-                                            <label for="description">Décrivez le déroulement de la prestation</label>
-                                            @error('description') <span class="text-danger">{{ $message }}</span> @enderror
-                                        </div>
-
-                                        <button type="button" class="btn btn-primary" wire:click="nextStep">Suivant</button>
-                                    </div>
-
-                                    <!-- Étape 2 : Ajouter des séquences -->
-                                    <div class="step" id="step2" style="display: {{ $currentStep === 2 ? 'block' : 'none' }};">
-                                        <h2>Les différentes séquences de prestation</h2>
-                                        <table class="table table-bordered">
-                                            <thead>
+                                    </form>
+                                </div>
+                            @else
+                                <div class="table-responsive mt-3">
+                                    <table class="table mb-0 table-hover table-centered text-nowrap">
+                                        <thead class="table-light">
+                                            <tr>
+                                                <th>Titre</th>
+                                                <th>Description</th>
+                                                <th>Lien</th>
+                                                <th>Publié</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($this->listeProjet as $project)
                                                 <tr>
-                                                    <th>Titre de la séquence</th>
-                                                    <th>Durée</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($sequences as $index => $sequence)
-                                                <tr>
+                                                    <td>{{ $project->title }}</td>
+                                                    <td>{{ $project->description }}</td>
+                                                    <td><a href="{{ $project->lien_projet }}" target="_blank">{{ $project->lien_projet }}</a></td>
+                                                    <td>{{ $project->is_published ? 'Oui' : 'Non' }}</td>
+
                                                     <td>
-                                                        <input type="text" class="form-control" wire:model="sequences.{{ $index }}.title">
-                                                    </td>
-                                                    <td>
-                                                        <input type="number" class="form-control" wire:model="sequences.{{ $index }}.duration">
-                                                    </td>
-                                                    <td>
-                                                        <button type="button" class="btn btn-danger" wire:click="removeSequence({{ $index }})">Supprimer</button>
+                                                        <span class="dropdown dropstart">
+                                                            <a class="btn-icon btn btn-ghost btn-sm rounded-circle" href="#" role="button" id="dropdownMenu-{{ $project->id }}" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class="fe fe-more-vertical"></i>
+                                                            </a>
+                                                            <span class="dropdown-menu" aria-labelledby="dropdownMenu-{{ $project->id }}">
+                                                                <span class="dropdown-header">Options</span>
+                                                                <a class="dropdown-item" href="#" wire:click="editProject({{ $project->id }})">
+                                                                    <i class="fe fe-edit dropdown-item-icon"></i>
+                                                                    Modifier
+                                                                </a>
+                                                                <a class="dropdown-item" href="#" wire:click="deleteProject({{ $project->id }})">
+                                                                    <i class="fe fe-trash dropdown-item-icon"></i>
+                                                                    Supprimer
+                                                                </a>
+                                                            </span>
+                                                        </span>
                                                     </td>
                                                 </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                        <button type="button" class="btn btn-secondary" wire:click="addSequence">Ajouter une séquence</button>
-
-                                        <button type="button" class="btn btn-secondary" wire:click="prevStep">Précédent</button>
-                                        <button type="button" class="btn btn-primary" wire:click="nextStep">Suivant</button>
-                                    </div>
-
-                                    <!-- Étape 3 : Points à retenir -->
-                                    <div class="step" id="step3" style="display: {{ $currentStep === 3 ? 'block' : 'none' }};">
-                                        <h2>Ce que vous retirerez de ce cours</h2>
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Point à retenir</th>
-                                                    <th>Actions</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach($keyPoints as $index => $point)
-                                                <tr>
-                                                    <td><input type="text" class="form-control" wire:model="keyPoints.{{ $index }}.point"></td>
-                                                    <td><button type="button" class="btn btn-danger" wire:click="removeKeyPoint({{ $index }})">Supprimer</button></td>
-                                                </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
-                                        <button type="button" class="btn btn-secondary" wire:click="addKeyPoint">Ajouter un point</button>
-
-                                        <button type="button" class="btn btn-secondary" wire:click="prevStep">Précédent</button>
-                                        <button type="submit" class="btn btn-success">Enregistrer la formation</button>
-                                    </div>
-
-                                </form>
-
-
-
-                            </div>
-                        </div>
-                        @endif
-
-                        <!-- Table des prestations -->
-                        <div class="table-invoice table-responsive">
-                            <table class="table mb-0 text-nowrap table-centered table-hover">
-                                <thead class="table-light">
-                                    <tr>
-                                        <th scope="col">Titre</th>
-                                        <th scope="col">Lien </th>
-                                        <th scope="col">Description</th>
-                                        <th scope="col"></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($listeprojet as $value)
-                                    <tr>
-                                        <td>{{ $value->title }}</td>
-
-                                        <td>{{ $value->prix }} € - {{ $value->prix * 650 }} FCFA</td>
-                                        <td>{{ $value->description }}</td>
-                                        <td>
-                                            @if ($value->status == 'en attente')
-                                            <span class="badge bg-warning">En cours</span>
-                                            @elseif ($value->status == 'echec')
-                                            <span class="badge bg-danger">Echec</span>
-                                            @elseif ($value->status == 'effectue')
-                                            <span class="badge bg-success">Validée</span>
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <button wire:click="deletePrestation({{$value->id}})" class="fe fe-trash"></button>
-                                        </td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
 </div>

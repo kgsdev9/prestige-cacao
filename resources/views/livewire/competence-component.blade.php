@@ -1,3 +1,4 @@
+@section('title', 'Mon compétences')
 <div>
     <main>
         <section class="pt-5 pb-5">

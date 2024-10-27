@@ -7,7 +7,9 @@ use App\Models\TCompetenceCandidat;
 use App\Models\TExperience;
 use App\Models\TFormation;
 use App\Models\TLibelleSpecialite;
+use App\Models\Tpays;
 use App\Models\TTypeEmploi;
+use App\Models\TVille;
 use App\Models\User;
 use App\Notifications\AccountConfirmation;
 use Illuminate\Support\Facades\Hash;
@@ -24,6 +26,8 @@ class CvForm extends Component
     public $nom, $prenom, $email, $telephone, $whatsapp, $description, $specialite_id, $photo, $password;
     public $isWhatsApp = false; // Propriété pour le checkbox
     public $listespecialie;
+
+    public $ville_id , $pays_id;
     // Étape 2: Expérience
     public $experiences = [];
     public $job_title, $company_name, $employment_type, $location, $start_year, $end_year, $current_position;
@@ -44,6 +48,8 @@ class CvForm extends Component
             $rules = [
                 'nom' => 'required|string|max:255',
                 'password' => 'required',
+                'ville_id' => 'required',
+                'pays_id' => 'required',
                 'specialite_id' => 'required',
                 'prenom' => 'required|string|max:255',
                 'description' => 'required|string',
@@ -51,6 +57,7 @@ class CvForm extends Component
                 'telephone' => 'required|string|max:15',
                 'photo' => 'nullable|image|max:2048', // Optionnel : validation de l'image
             ];
+
         } elseif ($this->currentStep === 2) {
             $rules = [
                 'job_title' => 'nullable|string|max:255',
@@ -236,11 +243,11 @@ class CvForm extends Component
             'prenom' => $this->prenom,
             'photo' => $this->photo ? $this->photo->store('photos', 'public') : null,
             'codeprofile' => $this->generateUniqueCodeProfile(),
-            'email' => 'ss'.rand(100,34343),
+            'email' => $this->email,
             'telephone' => $this->telephone,
             'whattssap' => $whatsappNumber,
-            'ville_id' =>1,
-            'pays_id' =>1,
+            'ville_id' =>$this->ville_id,
+            'pays_id' =>$this->pays_id,
             'description'=> $this->description,
             'specialite_id'=> $this->specialite_id,
             'user_id'=> $user->id
@@ -365,11 +372,11 @@ class CvForm extends Component
         $validator->validate();
     }
 
-
-
     public function render()
     {
         $listetypeemploi = TTypeEmploi::all();
-        return view('livewire.cv-form', compact('listetypeemploi'));
+        $listevilles= TVille::all();
+        $listepays=Tpays::all();
+        return view('livewire.cv-form', compact('listetypeemploi', 'listevilles','listepays'));
     }
 }

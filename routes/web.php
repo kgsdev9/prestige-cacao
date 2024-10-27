@@ -140,8 +140,9 @@ Route::get('/experiences', ExperienceComponent::class)->name('experience.index')
 Route::get('/competences', CompetenceComponent::class)->name('competence.index');
 Route::get('/profile', ProflileComponent::class)->name('profile.index');
 Route::get('/formations', FormationComponent::class)->name('formation.index');
+Route::get('/projets', ProjetComponent::class)->name('projet.index');
 Route::get('/social-comptes', SocialAccompteComponent::class)->name('comptesocial.index');
-
+Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboard.users')->middleware('auth');
 
 Route::get('/nos-candidats', HomeCandidat::class)->name('candidat.index');
 

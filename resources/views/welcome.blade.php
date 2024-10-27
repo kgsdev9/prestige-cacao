@@ -1,4 +1,5 @@
 @extends('layout.layout')
+@section('title', 'Bienvenue sur Carriere pro plus')
 @section('content')
 <main>
         @livewire('section-recherche')

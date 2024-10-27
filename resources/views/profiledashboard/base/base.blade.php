@@ -1,4 +1,5 @@
 @extends('layout.layout')
+@section('title', 'Mon profile')
 @section('content')
 
 <main>

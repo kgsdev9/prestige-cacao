@@ -1,3 +1,5 @@
+@section('title', $candidat->nom)
+
 <div>
     <main>
         <!--hero section-->

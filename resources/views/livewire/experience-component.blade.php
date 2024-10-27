@@ -1,4 +1,5 @@
 
+@section('title', 'Mes Competences')
 <div>
     <main>
         <section class="pt-5 pb-5">
@@ -88,7 +89,7 @@
                                                 <th>Nom de l'entreprise</th>
                                                 <th>Localisation</th>
                                                 <th>Période</th>
-                                           
+
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>

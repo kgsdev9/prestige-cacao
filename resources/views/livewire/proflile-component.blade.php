@@ -1,3 +1,5 @@
+@section('title', 'Mon profile candidat')
+
 <div>
     <main>
         <section class="pt-5 pb-5">

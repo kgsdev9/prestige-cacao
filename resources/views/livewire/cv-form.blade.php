@@ -1,3 +1,5 @@
+@section('title', 'Je configure mon profile')
+
 <div class="container mt-4">
     <div class="row">
         <div class="col-12">
@@ -62,6 +64,32 @@
 
                 <div class="col-md-6 mb-3">
                     <div class="form-floating">
+                        <select wire:model="pays_id" class="form-select" id="pays_id" required>
+                            <option value="" selected>Sélectionnez un pays</option>
+                            @foreach($listepays as $pays)
+                                <option value="{{ $pays->id }}">{{ $pays->libellepays }}</option>
+                            @endforeach
+                        </select>
+                        <label for="pays_id">Pays</label>
+                        @error('pays_id') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
+                        <select wire:model="ville_id" class="form-select" id="ville_id" required>
+                            <option value="" selected>Sélectionnez une ville</option>
+                            @foreach($listevilles as $ville)
+                                <option value="{{ $ville->id }}">{{ $ville->libelleville }}</option>
+                            @endforeach
+                        </select>
+                        <label for="ville_id">Ville</label>
+                        @error('ville_id') <span class="text-danger">{{ $message }}</span> @enderror
+                    </div>
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <div class="form-floating">
                         <input type="file" wire:model="photo" class="form-control" id="photo">
                         <label for="photo">Photo</label>
                         <span class="text-muted small">(Facultatif)</span>
@@ -81,6 +109,7 @@
             <button class="btn btn-primary mt-2" wire:click="nextStep">Suivant</button>
         </div>
     </div>
+
 
 
 

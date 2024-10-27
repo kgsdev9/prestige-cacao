@@ -13,30 +13,43 @@
                 <span class="navbar-header">Menu</span>
                 <ul class="list-unstyled ms-n2 mb-4">
                     <!-- Nav item -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
+                    <li class="nav-item {{ request()->routeIs('dashboard.users') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('dashboard.users') }}">
                             <i class="fe fe-calendar nav-icon"></i>
+
                             Accueil
                         </a>
                     </li>
+
+
                     <!-- Nav item -->
                     <li class="nav-item {{ request()->routeIs('experience.index') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('experience.index') }}">
-                            <i class="fe fe-credit-card nav-icon"></i>
+                            <i class="fe fe-star nav-icon"></i>
+
                             Mes experiences
                         </a>
                     </li>
                     <!-- Nav item -->
                     <li class="nav-item {{ request()->routeIs('formation.index') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('formation.index') }}">
-                            <i class="fe fe-credit-card nav-icon"></i>
+                            <i class="fe fe-slack nav-icon"></i>
+
                             Mon Formations
                         </a>
                     </li>
                     <li class="nav-item {{ request()->routeIs('competence.index') ? 'active' : '' }}">
                         <a class="nav-link" href="{{ route('competence.index') }}">
-                            <i class="fe fe-credit-card nav-icon"></i>
+                            <i class="fe fe-check-circle nav-icon"></i>
                             Mon Competences
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->routeIs('projet.index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('projet.index') }}">
+                            <i class="fe fe-folder nav-icon"></i>
+
+                            Mon Projets
                         </a>
                     </li>
                     <!-- Nav item -->
