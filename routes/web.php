@@ -32,6 +32,7 @@ use App\Http\Livewire\ExperienceComponent;
 use App\Http\Livewire\FormationComponent;
 use App\Http\Livewire\PrestationComponent;
 use App\Http\Livewire\ProjetComponent;
+use App\Http\Livewire\SocialAccompteComponent;
 use App\Http\Middleware\AdminMddleware;
 
 /*
@@ -138,3 +139,4 @@ Route::get('/experiences', ExperienceComponent::class)->name('experience.index')
 Route::get('/competences', CompetenceComponent::class)->name('competence.index');
 Route::get('/profile', ProflileComponent::class)->name('profile.index');
 Route::get('/formations', FormationComponent::class)->name('formation.index');
+Route::get('/social-comptes', SocialAccompteComponent::class)->name('comptesocial.index');
