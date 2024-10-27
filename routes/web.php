@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\ProflileComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Auth\LoginController;
@@ -24,6 +25,7 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\AuthSocialController;
 use App\Http\Controllers\PrestationController;
 use App\Http\Controllers\SkillController;
+use App\Http\Livewire\CompetenceComponent;
 use App\Http\Livewire\CourseComponent;
 use App\Http\Livewire\DetailPrestataire;
 use App\Http\Livewire\ExperienceComponent;
@@ -133,4 +135,6 @@ Route::get('/detail/profile/candidat/{codeprofile}', DetailPrestataire::class)->
 Route::get('/renseigne-mes-informations', [HomeController::class, 'profileCandidat'])->name('information.candidat');
 
 Route::get('/experiences', ExperienceComponent::class)->name('experience.index');
+Route::get('/competences', CompetenceComponent::class)->name('competence.index');
+Route::get('/profile', ProflileComponent::class)->name('profile.index');
 Route::get('/formations', FormationComponent::class)->name('formation.index');

@@ -112,14 +112,21 @@
             </li>
             <!-- Nav item -->
             <li class="nav-item">
-              <a class="nav-link" href="payment-method.html">
+              <a class="nav-link" href="{{route('formation.index')}}">
                 <i class="fe fe-credit-card nav-icon"></i>
                 Mon Formations
               </a>
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('competence.index')}}">
+                  <i class="fe fe-credit-card nav-icon"></i>
+                  Mon Competences
+                </a>
+              </li>
             <!-- Nav item -->
             <li class="nav-item">
-              <a class="nav-link" href="invoice.html">
+              <a class="nav-link" href="#">
                 <i class="fe fe-clipboard nav-icon"></i>
                Mes Factures
               </a>
@@ -131,36 +138,28 @@
           <ul class="list-unstyled ms-n2 mb-0">
             <!-- Nav item -->
             <li class="nav-item">
-              <a class="nav-link" href="profile-edit.html">
+              <a class="nav-link" href="{{route('profile.index')}}">
                 <i class="fe fe-settings nav-icon"></i>
                 Edition Profile
               </a>
             </li>
-            <!-- Nav item -->
+
             <li class="nav-item">
-              <a class="nav-link" href="security.html">
-                <i class="fe fe-user nav-icon"></i>
-               Securite De Compte
-              </a>
-            </li>
-            <!-- Nav item -->
-            <li class="nav-item">
-              <a class="nav-link" href="social-profile.html">
+              <a class="nav-link" href="#">
                 <i class="fe fe-refresh-cw nav-icon"></i>
                Profile Social
               </a>
             </li>
 
-
             <li class="nav-item">
-              <a class="nav-link" href="delete-profile.html">
+              <a class="nav-link" href="#">
                 <i class="fe fe-trash nav-icon"></i>
                 Supprimer mon compte
               </a>
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="../index.html">
+              <a class="nav-link" href="#">
                 <i class="fe fe-power nav-icon"></i>
                 Déconnexion
               </a>

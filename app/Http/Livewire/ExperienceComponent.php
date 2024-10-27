@@ -48,7 +48,7 @@ class ExperienceComponent extends Component
         $iduser = Auth::user()->id;
         $candidat = TCandidat::where('user_id', $iduser)->first();
 
-        $this->validate();
+        // $this->validate();
 
         TExperience::create([
             'intitule' => $this->intitule,
