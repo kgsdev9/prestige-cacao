@@ -26,6 +26,8 @@ use App\Http\Controllers\PrestationController;
 use App\Http\Controllers\SkillController;
 use App\Http\Livewire\CourseComponent;
 use App\Http\Livewire\DetailPrestataire;
+use App\Http\Livewire\ExperienceComponent;
+use App\Http\Livewire\FormationComponent;
 use App\Http\Livewire\PrestationComponent;
 use App\Http\Livewire\ProjetComponent;
 use App\Http\Middleware\AdminMddleware;
@@ -129,3 +131,6 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 Route::get('/detail/profile/candidat/{codeprofile}', DetailPrestataire::class)->name('detail.candidat');
 
 Route::get('/renseigne-mes-informations', [HomeController::class, 'profileCandidat'])->name('information.candidat');
+
+Route::get('/experiences', ExperienceComponent::class)->name('experience.index');
+Route::get('/formations', FormationComponent::class)->name('formation.index');
