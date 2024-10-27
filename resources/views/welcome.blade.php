@@ -1,11 +1,9 @@
 @extends('layout.layout')
 @section('content')
-
 <main>
         @livewire('section-recherche')
-    <section class="py-4 py-lg-8 bg-">
-        <div class="container ">
-            <!--row-->
+    <section>
+        <div class="container">
             <div class="row">
                 <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
                     <div class="text-center mb-6 d-flex flex-column gap-2">
@@ -13,35 +11,25 @@
                         <p class="text-muted mx-xl-8">
                             Nos nouveaux talents, prêts pour leur prochaine opportunité !
                         </p>
-
                     </div>
                 </div>
             </div>
-            <!--row-->
             <div class="row g-4">
-
                 @foreach($listecanddiat as $candidat)
                 <div class="col-xxl-3 col-xl-3 col-md-6 col-12">
-                    <!--card-->
                     <div class="card rounded-4 card-bordered card-lift">
                         <div class="p-3 d-flex flex-column gap-3">
                             <div class="d-flex align-items-center">
-                                <!-- Avatar -->
                                 <a href="{{ route('detail.candidat', $candidat->codeprofile) }}" class="me-3">
                                     <img src="{{ asset('avatar.png') }}" alt="candidat 1" class="rounded-circle avatar-xl mb-3" style="width:70px; height:75px;">
                                 </a>
-
-                                <!-- Bouton Suivre -->
                                 <div>
-                                    <h5 class="mb-1">{{ $candidat->name }}</h5> <!-- Nom du candidat -->
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-patch-check-fill text-success" viewBox="0 0 16 16">
                                         <path d="M10.067.87a2.89 2.89 0 0 0-4.134 0l-.622.638-.89-.011a2.89 2.89 0 0 0-2.924 2.924l.01.89-.636.622a2.89 2.89 0 0 0 0 4.134l.637.622-.011.89a2.89 2.89 0 0 0 2.924 2.924l.89-.01.622.636a2.89 2.89 0 0 0 4.134 0l.622-.637.89.011a2.89 2.89 0 0 0 2.924-2.924l-.01-.89.636-.622a2.89 2.89 0 0 0 0-4.134l-.637-.622.011-.89a2.89 2.89 0 0 0-2.924-2.924l-.89.01zm.287 5.984-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7 8.793l2.646-2.647a.5.5 0 0 1 .708.708"></path>
                                     </svg>
 
                                 </div>
                             </div>
-
-                            <!--content-->
                             <div class="d-flex flex-column gap-4">
                                 <div class="d-flex flex-column gap-2">
                                     <div>
@@ -49,16 +37,14 @@
                                             <h3 class="mb-0">
                                                 <a href="" class="text-reset">{{ $candidat->nom }} {{ $candidat->prenom }}</a>
                                             </h3>
-
                                         </div>
                                         <span class="text-gray-800">{{ $candidat->specialite->libellespecialite }}</span>
                                     </div>
-
                                     <div class="d-flex align-items-center justify-content-between fs-6">
                                         <div>
-                                            <span>@ {{ $candidat->ville->libelleville }}</span>
+                                            <span>{{ $candidat->ville->libelleville }}</span>
                                             <div class="vr mx-2 text-gray-200"></div>
-                                            <span>{{ count($candidat->experiences) }} ans d'expérience</span>
+                                            <span>{{ count($candidat->experiences) }} ans d'exp</span>
                                         </div>
                                         <div class="d-flex gap-1 align-items-center lh-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" class="bi bi-star-fill text-warning" viewBox="0 0 16 16">
@@ -91,15 +77,12 @@
     </section>
 
 
-    <section class="bg-dark py-lg-8 py-6">
+    <section class="bg-dark py-lg-8 py-6 mt-4">
         <div class="container py-lg-6">
-            <!--row-->
             <div class="row">
                 <div class="col-xxl-6 offset-xxl-3 col-lg-8 offset-lg-2 col-12">
                     <div class="text-center mb-6 d-flex flex-column gap-2">
-                        <!--heading-->
                         <h2 class="mb-0 text-white h1">Les mentorés témoignent</h2>
-                        <!--para-->
                         <p class="mb-0 text-white">
                             Nous avons accompagné des milliers de personnes dans leur carrière.
                         </p>
@@ -109,13 +92,12 @@
             <div class="row gy-4">
                 <div class="col-lg-4 col-12 d-flex flex-column gap-4">
                     <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        <!--card-->
                         <div class="card card-light-primary rounded-4">
                             <!--card body-->
                             <div class="card-body d-flex flex-column gap-3">
                                 <!--img-->
                                 <div class="d-flex flex-row gap-3 align-items-center">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
                                     <h5 class="mb-0">Carrierre pro plus </h5>
                                 </div>
                                 <div>
@@ -125,7 +107,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-xl-row gap-2 align-items-center bg-light rounded-pill px-3 py-2">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
                                     <div>
                                         <h4 class="mb-0">Jean Serge AKE</h4>
                                         <span class="rounded-pill fs-6 px-2 text-success-emphasis bg-success-subtle border border-success">Commercial</span>
@@ -140,8 +122,8 @@
                         <div class="card card-light-primary rounded-4">
                             <div class="card-body d-flex flex-column gap-3">
                                 <div class="d-flex flex-row gap-3 align-items-center">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
-                                    <h5 class="mb-0">Brou Serge</h5>
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <h5 class="mb-0">Carrierre pro plus </h5>
                                 </div>
                                 <div>
                                     <p class="mb-0 fst-italic fs-5 pe-xxl-5">
@@ -149,7 +131,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-row gap-2 align-items-center bg-light rounded-pill px-3 py-2">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
                                     <div>
                                         <h4 class="mb-0">Jessica Lupien</h4>
                                         <span class="rounded-pill fs-6 px-2 text-success-emphasis bg-success-subtle border border-success">Mentor</span>
@@ -166,8 +148,8 @@
                         <div class="card card-light-primary rounded-4">
                             <div class="card-body d-flex flex-column gap-3">
                                 <div class="d-flex flex-row gap-3 align-items-center">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
-                                    <h5 class="mb-0">Bev Robertson</h5>
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <h5 class="mb-0">Carrierre pro plus </h5>
                                 </div>
                                 <div>
                                     <p class="mb-0 fst-italic fs-5 pe-xxl-5">
@@ -175,9 +157,9 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-row gap-2 align-items-center bg-light rounded-pill px-3 py-2">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
                                     <div>
-                                        <h4 class="mb-0">Andrew Lupien</h4>
+                                        <h4 class="mb-0">Koamenan Ange Djibi</h4>
                                         <span class="rounded-pill fs-6 px-2 text-success-emphasis bg-success-subtle border border-success">Mentor</span>
                                         <span class="fs-6">Stagiaire à Ecobank</span>
                                     </div>
@@ -189,8 +171,8 @@
                         <div class="card card-light-primary rounded-4">
                             <div class="card-body d-flex flex-column gap-3">
                                 <div class="d-flex flex-row gap-3 align-items-center">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
-                                    <h5 class="mb-0">Doris Esparza</h5>
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <h5 class="mb-0">Carrierre pro plus </h5>
                                 </div>
                                 <div>
                                     <p class="mb-0 fst-italic fs-5 pe-xxl-5">
@@ -198,11 +180,11 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-row gap-2 align-items-center bg-light rounded-pill px-3 py-2">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
                                     <div>
-                                        <h4 class="mb-0">James Anderson</h4>
+                                        <h4 class="mb-0">Marc Yvan Betti </h4>
                                         <span class="rounded-pill fs-6 px-2 text-success-emphasis bg-success-subtle border border-success">Mentor</span>
-                                        <span class="fs-6">UI/UX Designer chez Figma</span>
+                                        <span class="fs-6">UI/UX Designer</span>
                                     </div>
                                 </div>
                             </div>
@@ -214,8 +196,8 @@
                         <div class="card card-light-primary rounded-4">
                             <div class="card-body d-flex flex-column gap-3">
                                 <div class="d-flex flex-row gap-3 align-items-center">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
-                                    <h5 class="mb-0">Marlene Turner</h5>
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <h5 class="mb-0">Carrierre pro plus </h5>
                                 </div>
                                 <div>
                                     <p class="mb-0 fst-italic fs-5 pe-xxl-5">
@@ -223,11 +205,11 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-row gap-2 align-items-center bg-light rounded-pill py-2 px-3">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
                                     <div>
-                                        <h4 class="mb-0">Bernice Perry</h4>
+                                        <h4 class="mb-0">Pacou Ange Jonas</h4>
                                         <span class="rounded-pill fs-6 px-2 text-success-emphasis bg-success-subtle border border-success">Mentor</span>
-                                        <span class="fs-6">Analyste senior chez InstaCart</span>
+                                        <span class="fs-6">Carriste Chez Banaci</span>
                                     </div>
                                 </div>
                             </div>
@@ -237,8 +219,8 @@
                         <div class="card card-light-primary rounded-4">
                             <div class="card-body d-flex flex-column gap-3">
                                 <div class="d-flex flex-row gap-3 align-items-center">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
-                                    <h5 class="mb-0">Daniel Groleau</h5>
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <h5 class="mb-0">Carrierre pro plus </h5>
                                 </div>
                                 <div>
                                     <p class="mb-0 fst-italic fs-5 pe-xxl-5">
@@ -246,7 +228,7 @@
                                     </p>
                                 </div>
                                 <div class="d-flex flex-row gap-2 align-items-center bg-light rounded-pill py-2 px-3">
-                                    <img src="../assets/images/avatar/avatar-user.jpg" alt="avatar user" class="avatar avatar-md rounded-circle">
+                                    <img src="{{ asset('avatar.png') }}" alt="avatar user" class="avatar avatar-md rounded-circle">
                                     <div>
                                         <h4 class="mb-0">Patrice Long</h4>
                                         <span class="rounded-pill fs-6 px-2 text-success-emphasis bg-success-subtle border border-success">Mentor</span>

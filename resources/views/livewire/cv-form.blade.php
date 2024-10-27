@@ -139,12 +139,7 @@
                         @error('end_year') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>
                 </div>
-                <div class="col-md-12 mb-2">
-                    <div class="form-check">
-                        <input type="checkbox" wire:model="current_position" class="form-check-input" id="current_position">
-                        <label class="form-check-label" for="current_position">J'occupe actuellement ce poste</label>
-                    </div>
-                </div>
+
             </div>
             <button wire:click="addExperience" class="btn btn-primary btn-sm mt-2">Ajouter une expérience</button>
 
@@ -164,8 +159,10 @@
                                     <h5 class="card-title m-0">{{ $experience['job_title'] }}</h5>
                                     <p class="text-muted m-0">{{ $experience['company_name'] }}</p>
                                     <small class="text-muted">{{ $experience['start_year'] }} - {{ $experience['end_year'] }}</small>
+                                    <p class="text-muted">{{ $listetypeemploi->find($experience['employment_type'])->libelletypeemploi ?? 'N/A' }}</p>
                                 </div>
                                 <!-- Bouton supprimer -->
+
                                 <button wire:click="removeExperience({{ $index }})" class="btn btn-light btn-sm ms-auto" title="Supprimer">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
                                         <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 1 1 .708.707L8.707 8l2.647 2.646a.5.5 0 0 1-.707.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.707L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
@@ -226,10 +223,7 @@
                 </div>
             </div>
             <button wire:click="addFormation" class="btn btn-primary btn-sm mt-2">Ajouter une formation</button>
-
             <div class="d-flex flex-column gap-2">
-                <!-- Heading -->
-                <h3 class="mb-0">Formations</h3>
                 <div class="row mt-4">
                     @foreach($formations as $index => $formation)
                         <div class="col-md-4 mb-3">
@@ -262,7 +256,6 @@
 
 
             </div>
-
 
             <button class="btn btn-secondary mt-2" wire:click="previousStep">Précédent</button>
             <button class="btn btn-primary mt-2" wire:click="nextStep">Suivant</button>
@@ -302,7 +295,12 @@
             </div>
 
             <button class="btn btn-secondary mt-2" wire:click="previousStep">Précédent</button>
-            <button class="btn btn-primary mt-2" wire:click="saveProfile()">Soumettre</button>
+                                    <!-- Bouton de soumission -->
+            <button type="button" class="btn btn-primary" wire:click="saveProfile()" wire:loading.attr="disabled" wire:loading.class="disabled" wire:target="saveProfile">
+                <span wire:loading wire:target="saveProfile" class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                Soumettre
+            </button>
+
         </div>
     </div>
 </div>

@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Str;
-
+use Illuminate\Support\Facades\Validator;
 class CvForm extends Component
 {
     use WithFileUploads;
@@ -99,8 +99,52 @@ class CvForm extends Component
         }
     }
 
+
+    private function getExperienceData()
+    {
+        return [
+            'job_title' => $this->job_title,
+            'company_name' => $this->company_name,
+            'employment_type' => $this->employment_type,
+            'location' => $this->location,
+            'start_year' => $this->start_year,
+            'end_year' => $this->end_year,
+            'current_position' => $this->current_position,
+        ];
+    }
+    private function validateExperience()
+    {
+        $validator = Validator::make($this->getExperienceData(), [
+            'job_title' => 'required',
+            'company_name' => 'required',
+            'employment_type' => 'required',
+            'location' => 'required',
+            'start_year' => 'required|date_format:Y|before_or_equal:end_year',
+            'end_year' => 'required|date_format:Y|after_or_equal:start_year',
+            // 'current_position' => 'boolean',
+        ]);
+
+        // Ajouter des messages d'erreur personnalisés
+        $validator->setAttributeNames([
+            'job_title' => 'Titre du poste',
+            'company_name' => 'Nom de l\'entreprise',
+            'employment_type' => 'Type d\'emploi',
+            'location' => 'Emplacement',
+            'start_year' => 'Année de début',
+            'end_year' => 'Année de fin',
+            'current_position' => 'Poste actuel',
+        ]);
+
+        $validator->validate();
+    }
+
+
     public function addExperience()
     {
+
+        $this->validateExperience();
+
+
         $this->experiences[] = [
             'job_title' => $this->job_title,
             'company_name' => $this->company_name,
@@ -112,10 +156,14 @@ class CvForm extends Component
         ];
 
         $this->reset(['job_title', 'company_name', 'employment_type', 'location', 'start_year', 'end_year', 'current_position']);
+
+        $this->resetErrorBag(); // Efface les messages d'erreur
     }
 
     public function addFormation()
     {
+        $this->validateFormation();
+
         $this->formations[] = [
             'school_name' => $this->school_name,
             'degree' => $this->degree,
@@ -125,6 +173,8 @@ class CvForm extends Component
         ];
 
         $this->reset(['school_name', 'degree', 'field_of_study', 'start_year_formation', 'end_year_formation']);
+
+        $this->resetErrorBag(); // Efface les messages d'erreur
     }
 
 
@@ -283,6 +333,38 @@ class CvForm extends Component
             $this->experiences = array_values($this->experiences);
         }
     }
+
+
+    private function validateFormation()
+    {
+        $data = [
+            'school_name' => $this->school_name,
+            'degree' => $this->degree,
+            'field_of_study' => $this->field_of_study,
+            'start_year_formation' => $this->start_year_formation,
+            'end_year_formation' => $this->end_year_formation,
+        ];
+
+        $validator = Validator::make($data, [
+            'school_name' => 'required|string|max:255',
+            'degree' => 'required|string|max:255',
+            'field_of_study' => 'required|string|max:255',
+            'start_year_formation' => 'required|date_format:Y|before_or_equal:end_year_formation',
+            'end_year_formation' => 'nullable|date_format:Y|after_or_equal:start_year_formation',
+        ]);
+
+        // Ajouter des messages d'erreur personnalisés
+        $validator->setAttributeNames([
+            'school_name' => 'Nom de l\'école',
+            'degree' => 'Diplôme',
+            'field_of_study' => 'Domaine d\'étude',
+            'start_year_formation' => 'Année de début',
+            'end_year_formation' => 'Année de fin',
+        ]);
+
+        $validator->validate();
+    }
+
 
 
     public function render()

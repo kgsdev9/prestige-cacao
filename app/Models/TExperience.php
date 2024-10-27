@@ -24,4 +24,9 @@ class TExperience extends Model
         'description',
         't_candidat_id'
     ];
+
+    public function typeemploi()  {
+        return $this->belongsTo(TTypeEmploi::class);
+    }
+   
 }

@@ -1,5 +1,5 @@
 <div>
-    <section class="py-8 bg-white">
+    <section class="py-4 bg-white">
         <div class="container my-lg-8">
             <div class="row">
                 <div class="offset-xl-2 col-xl-8 col-lg-6 col-md-12">
@@ -7,7 +7,7 @@
                         <!-- Badge -->
                         <span class="badge bg-primary-soft rounded-pill fs-5">
                             <span class="fw-bold">Carriere Pro Plus</span>
-                            - Votre Partenaire de recrutement
+
                         </span>
                         <h1 class="display-3 ls-sm mt-2 fw-bold">Découvrez des talents exceptionnels</h1>
                         <p class="mb-6 h4 px-md-8">Carriere Pro Plus est une plateforme puissante qui met en avant des candidats qualifiés.</p>
