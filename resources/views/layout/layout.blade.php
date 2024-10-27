@@ -5,7 +5,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="author" content="VTP FORMATION" />
-<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon/favicon.ico" />
+<link rel="shortcut icon" type="image/x-icon" href="{{asset('logocarrierepro.jpg')}}" />
 <link href="{{asset('assets/fonts/feather/feather.css')}}" rel="stylesheet" />
 <link href="{{asset('assets/libs/bootstrap-icons/font/bootstrap-icons.min.css')}}" rel="stylesheet" />
 <link href="{{asset('assets/libs/simplebar/dist/simplebar.min.css')}}" rel="stylesheet" />
