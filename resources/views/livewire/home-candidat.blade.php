@@ -8,9 +8,33 @@
                     <nav class="navbar sidebar-courses navbar-expand-md navbar-light shadow-sm mb-4 mb-lg-0 sidenav">
                         <div class="navbar-collapse collapse" id="navbarNav">
                             <div class="side-nav me-auto flex-column navbar-nav">
-                                <p class="navbar-header nav-item mb-2 p-0 text-dark mt-4">
-                                    CATEGORIES
-                                </p>
+                                <p class="navbar-header nav-item mb-2 p-0 text-dark mt-4">CATEGORIES</p>
+
+                                <!-- Sélecteur de pays -->
+                                @can('admin')
+
+
+                                <div class="my-3">
+                                    <label for="countrySelect" class="form-label">Choisir un pays</label>
+                                    <select id="countrySelect" class="form-select" wire:model="selectedCountry">
+                                        <option value="">Sélectionner un pays</option>
+                                        @foreach ($countries as $country)
+                                            <option value="{{ $country->id }}">{{ $country->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <!-- Sélecteur de ville -->
+                                <div class="my-3">
+                                    <label for="citySelect" class="form-label">Choisir une ville</label>
+                                    <select id="citySelect" class="form-select" wire:model="selectedCity" wire:change="filterCandidates">
+                                        <option value="">Sélectionner une ville</option>
+                                        @foreach ($cities as $city)
+                                            <option value="{{ $city->id }}">{{ $city->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @endcan
                                 @foreach ($categories as $value)
                                     <div class="form-check my-1">
                                         <input
@@ -30,6 +54,7 @@
                     </nav>
                 </aside>
             </div>
+
 
             <div class="col-lg-9 col-sm-12">
                 <div class="d-flex align-items-center gap-2 mb-3">
