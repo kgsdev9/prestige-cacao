@@ -25,7 +25,7 @@
   <body class="bg-white">
     <nav class="navbar navbar-expand-lg">
         <div class="container px-0">
-            <a class="navbar-brand text-dark" href="/" >CARRIERE PRO PLUS </a>
+            <a class="navbar-brand text-dark" href="/" >CARRIERE </a>
             <div class="ms-auto d-flex align-items-center order-lg-3">
                 <div class="d-flex gap-2 align-items-center">
                     @guest
