@@ -8,12 +8,12 @@
               <!-- Card body -->
               <div class="card-body p-6 d-flex flex-column gap-4">
                 <div class="text-center">
-                  <a href="#" class="text-dark">VTP SAS </a>
+                  <a href="#" class="text-dark">CARRIERE PRO PLUS  </a>
                   <div class="d-flex flex-column gap-1">
                     <h1 class="mb-0 fw-bold text-center">Connexion</h1>
                     <span>
                       Vous n'avez pas de compte ?
-                      <a href="/" class="ms-1 text-dark">Inscrivez-vous</a>
+                      <a href="{{route('information.candidat')}}" class="ms-1 text-dark">Inscrivez-vous</a>
                     </span>
                   </div>
                 </div>
