@@ -32,11 +32,11 @@
                             @if($results->isNotEmpty())
                                 @foreach($results as $result)
                                     <a href="{{route('detail.candidat', $result->codeprofile)}}" class="btn btn-tag btn-sm">
-                                        {{ $result->id }}   {{ $result->nom }} {{ $result->prenom }} <!-- Affichage du nom et prénom -->
+                                       {{ $result->nom }} {{ $result->prenom }} <!-- Affichage du nom et prénom -->
                                     </a>
                                 @endforeach
                             @else
-                                <p class="text-center mt-4">Aucun résultat trouvé.</p>
+                                <p class="text-center mt-4"></p>
                             @endif
                         </div>
 
