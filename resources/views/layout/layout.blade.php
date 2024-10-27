@@ -184,9 +184,10 @@
                 document.getElementById("copyright").appendChild(document.createTextNode(new Date().getFullYear()));
                 </script>
             </span>
-            GROUP CARRIERE PRO PLUS
+            GROUP CARRIERE PRO PLUS  -    Une conception de KGS INFORMATIQUE
             </span>
         </div>
+
         <!-- Links -->
         <div class="col-12 col-lg-6">
             <nav class="nav nav-footer justify-content-center justify-content-md-start justify-content-lg-end">
