@@ -18,7 +18,7 @@
                                 <input type="text" wire:model.debounce.500ms="search" id="searchInput" class="form-control" placeholder="Rechercher par poste">
                             </div>
                             <div class="d-grid mb-3 col-md-4 col-12 ps-md-0">
-                                <button class="btn btn-success" type="submit" wire:loading.remove>
+                                <button class="btn btn-dark disabled" type="submit" wire:loading.remove>
                                     Rechercher
                                 </button>
                                 <button class="btn btn-success" type="button" wire:loading>
@@ -31,16 +31,14 @@
                         <div class="gap-2 d-flex flex-wrap justify-content-center mt-4">
                             @if($results->isNotEmpty())
                                 @foreach($results as $result)
-                                    <a href="#" class="btn btn-tag btn-sm">
-                                        {{ $result->specialite->libellespecialite ?? 'Inconnu' }} <!-- Vérifiez que specialite est chargé -->
+                                    <a href="{{route('detail.candidat', $result->codeprofile)}}" class="btn btn-tag btn-sm">
+                                        {{ $result->id }}   {{ $result->nom }} {{ $result->prenom }} <!-- Affichage du nom et prénom -->
                                     </a>
                                 @endforeach
                             @else
-                                <p class="text-center mt-4"></p>
+                                <p class="text-center mt-4">Aucun résultat trouvé.</p>
                             @endif
                         </div>
-
-
 
                     </div>
                 </div>
