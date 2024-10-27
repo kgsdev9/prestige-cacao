@@ -29,7 +29,7 @@ class TCandidat extends Model
     public function specialite() {
         return $this->belongsTo(TLibelleSpecialite::class, 'specialite_id');
        }
-
+       
 
        public function  ville()  {
         return $this->belongsTo(TVille::class);

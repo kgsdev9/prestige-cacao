@@ -30,6 +30,7 @@ use App\Http\Livewire\CourseComponent;
 use App\Http\Livewire\DetailPrestataire;
 use App\Http\Livewire\ExperienceComponent;
 use App\Http\Livewire\FormationComponent;
+use App\Http\Livewire\HomeCandidat;
 use App\Http\Livewire\PrestationComponent;
 use App\Http\Livewire\ProjetComponent;
 use App\Http\Livewire\SocialAccompteComponent;
@@ -111,7 +112,7 @@ Route::get('/comment-ca-marche', function() {
 });
 
 
-Route::get('/condtiondevente', function() {
+Route::get('/conditionutilisateur', function() {
     return view('home.condtiionutilisation');
 })->name('CGU');
 
@@ -140,3 +141,19 @@ Route::get('/competences', CompetenceComponent::class)->name('competence.index')
 Route::get('/profile', ProflileComponent::class)->name('profile.index');
 Route::get('/formations', FormationComponent::class)->name('formation.index');
 Route::get('/social-comptes', SocialAccompteComponent::class)->name('comptesocial.index');
+
+
+Route::get('/nos-candidats', HomeCandidat::class)->name('candidat.index');
+
+
+
+
+
+Route::get('/politiquedeconfidentialite', function() {
+    return view('home.politiquedeconfidentialise');
+})->name('politique.confidentialise');
+
+
+Route::get('/fac', function() {
+    return view('home.faq');
+})->name('fac');

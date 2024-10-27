@@ -2,38 +2,9 @@
 @section('content')
 
 <main>
-    <section class="py-8 bg-white">
-        <div class="container my-lg-8">
-            <div class="row">
-                <div class="offset-xl-2 col-xl-8 col-lg-6 col-md-12">
-                    <div class="mb-4 mb-xl-0 text-center">
-                        <!-- Badge -->
-                        <span class="badge bg-primary-soft rounded-pill fs-5">
-                            <span class="fw-bold">Carriere Pro Plus</span>
-                            - Votre Partenaire de recrutement
-                        </span>
-                        <!-- Titre principal -->
-                        <h1 class="display-3 ls-sm mt-2 fw-bold">Découvrez des talents exceptionnels</h1>
-                        <p class="mb-6 h4 px-md-8">Carriere Pro Plus est une plateforme puissante qui met en avant des candidats qualifiés et des profils personnalisés pour répondre aux besoins des entreprises.</p>
-
-                        <form class="row needs-validation text-start" novalidate="">
-                            <div class="mb-3 col-md-8 col-12 ps-md-0 position-relative">
-                                <label for="requestEmail" class="visually-hidden">Rechercher par poste</label>
-                                <input type="email" class="form-control" placeholder="Rechercher par poste" >
-                            </div>
-                            <div class="d-grid mb-3 col-md-4 col-12 ps-md-0">
-                                <button class="btn btn-success" type="submit">Rechercher</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-    <section class="py-6 py-lg-8 bg-">
-        <div class="container py-lg-6">
+        @livewire('section-recherche')
+    <section class="py-4 py-lg-8 bg-">
+        <div class="container ">
             <!--row-->
             <div class="row">
                 <div class="col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
@@ -56,7 +27,10 @@
                         <div class="p-3 d-flex flex-column gap-3">
                             <!--img-->
                             <a href="{{route('detail.candidat', $candidat->codeprofile)}}">
-                                <img src="{{asset('assets/images/avatar/avatar-14.jpg')}}" alt="candidat 1" class="img-fluid w-100 rounded-4">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="auto" fill="black" class="img-fluid w-100 rounded-4" viewBox="0 0 16 16">
+                                    <path d="M13 7a5 5 0 1 0-10 0 5 5 0 0 0 10 0zM1 14s1-1.5 4-1.5S8 14 8 14H1zm12 0s-1-1.5-4-1.5S8 14 8 14h5z"/>
+                                </svg>
+
                             </a>
                             <!--content-->
                             <div class="d-flex flex-column gap-4">
@@ -389,8 +363,6 @@
           </div>
         </div>
       </section>
-
-
 
 </main>
 

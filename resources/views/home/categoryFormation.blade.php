@@ -10,7 +10,6 @@
           <div class="col-lg-12 col-md-12 col-12">
             <div class="mb-5">
               <h2 class="mb-1">Formations Dispponible</h2>
-
             </div>
           </div>
         </div>
@@ -28,7 +27,7 @@
                         Publié par {{ $value->formateur->fullname }}
                     </p>
                     <div class="card-text text-muted small">
-                     
+
                         {{ Str::limit($value->url_video, 100) }}
                     </div>
 

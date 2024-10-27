@@ -70,11 +70,15 @@
                         </button>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('logout') }}">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                             <i class="fe fe-power nav-icon"></i>
                             Déconnexion
                         </a>
                     </li>
+
                 </ul>
             </div>
         </div>

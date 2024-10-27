@@ -12,4 +12,8 @@ class TLibelleSpecialite extends Model
     protected $fillable = [
         'libellespecialite',
     ];
+
+    public function candidats() {
+        return $this->hasMany(TCandidat::class);
+    }
 }

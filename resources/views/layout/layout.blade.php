@@ -45,10 +45,16 @@
                             <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6"></path>
                           </svg> Dashboard {{Auth::user()->name}}
                     </a>
-                    <a href="#" class="btn btn-dark d-none d-md-block btn-sm"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
-                        <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"></path>
-                        <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"></path>
-                      </svg> Déconnexion</a>
+                    <a href="#" class="btn btn-dark d-none d-md-block btn-sm" onclick="event.preventDefault(); document.getElementById('logout-form-btn').submit();">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-in-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M6 3.5a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-2a.5.5 0 0 0-1 0v2A1.5 1.5 0 0 0 6.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-8A1.5 1.5 0 0 0 5 3.5v2a.5.5 0 0 0 1 0z"></path>
+                            <path fill-rule="evenodd" d="M11.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H1.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"></path>
+                        </svg>
+                        Déconnexion
+                    </a>
+                    <form id="logout-form-btn" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                     @endguest
                 </div>
             </div>
@@ -63,10 +69,17 @@
             <!-- Collapse -->
             <div class="collapse navbar-collapse" id="navbar-default">
                 <ul class="navbar-nav mt-3 mt-lg-0 mx-xxl-auto">
-                    <li class="nav-item dropdown"><a class="nav-link" href="{{route('formation.annuaire')}}">NOS CANDIDATS</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link" href="{{route('home.categorie')}}">NOS CVS</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link" href="{{route('formateur.annuaire')}}">NOS PRESTATIONS</a></li>
-                    <li class="nav-item dropdown"><a class="nav-link " href="#" >QUI SOMMES NOUS ?</a></li>
+                    <li class="nav-item dropdown"><a class="nav-link" href="{{route('candidat.index')}}">NOS CANDIDATS</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">NOS CVS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">NOS PRESTATIONS</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">QUI SOMMES NOUS ?</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -107,17 +120,12 @@
             <span class="text-dark-stable">NOS PAGES</span>
             <ul class="list-unstyled mb-0 d-flex flex-column nav nav-footer nav-x-0">
                 <li>
-                <a href="#!" class="nav-link">LINKDNL</a>
+                <a href="https://www.linkedin.com/company/carriere-pro-plus/" class="nav-link">LINKEDIN</a>
                 </li>
 
                 <li>
-                    <a href="#!" class="nav-link">Facebook</a>
+                    <a href="https://web.facebook.com/carriereproplus/?_rdc=1&_rdr" class="nav-link">FACEBOOK</a>
                 </li>
-                <li>
-                    <a href="#!" class="nav-link">Instagram</a>
-                </li>
-
-
 
             </ul>
             </div>
@@ -153,7 +161,7 @@
                 </li>
                 <li>
                     Email:
-                    <span class="fw-semibold">vtp-sas@gmail.com</span>
+                    <span class="fw-semibold">carriereproplussupport@gmail.com</span>
                 </li>
                 </ul>
             </div>
@@ -183,8 +191,8 @@
         <div class="col-12 col-lg-6">
             <nav class="nav nav-footer justify-content-center justify-content-md-start justify-content-lg-end">
             <a class="nav-link active" href="{{route('CGU')}}">Conditions Générales d'Utilisation</a>
-            <a class="nav-link" href="#!">Politique de confidentialité</a>
-            <a class="nav-link" href="#!">Faq</a>
+            <a class="nav-link" href="{{route('politique.confidentialise')}}">Politique de confidentialité</a>
+            <a class="nav-link" href="{{route('fac')}}">Faq </a>
             </nav>
         </div>
         </div>
@@ -200,5 +208,40 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+    <script>
+        // Tableau des phrases à afficher
+        const phrases = [
+            {
+                title: "Confiez-nous votre recrutement",
+                description: "Nous vous aidons à trouver les meilleurs candidats adaptés à votre entreprise."
+            },
+            {
+                title: "Recherchez vos stagiaires",
+                description: "Carrière Pro Plus facilite la recherche de stagiaires talentueux pour vos projets."
+            },
+            {
+                title: "Des profils personnalisés pour chaque besoin",
+                description: "Nos candidats sont sélectionnés pour répondre précisément à vos attentes."
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function changeContent() {
+            // Obtenez les éléments du titre et de la description
+            const titleElement = document.getElementById('mainTitle');
+            const descriptionElement = document.getElementById('mainDescription');
+
+            // Changez le contenu
+            titleElement.textContent = phrases[currentIndex].title;
+            descriptionElement.textContent = phrases[currentIndex].description;
+
+            // Passez à la phrase suivante
+            currentIndex = (currentIndex + 1) % phrases.length; // Recommencer au début après le dernier
+        }
+
+        // Change le contenu toutes les 5 secondes
+        setInterval(changeContent, 5000);
+    </script>
   </body>
 </html>
