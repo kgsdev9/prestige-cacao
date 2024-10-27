@@ -17,6 +17,7 @@ class CreateTCandidatsTable extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom');
+            $table->boolean('is_active')->default('0');
             $table->string('photo')->nullable();
             $table->string('codeprofile');
             $table->string('email')->unique();

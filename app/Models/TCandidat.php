@@ -22,14 +22,15 @@ class TCandidat extends Model
         'pays_id',
         'description',
         'user_id',
-        'visiteur'
+        'visiteur',
+        'is_active'
 
     ];
 
     public function specialite() {
         return $this->belongsTo(TLibelleSpecialite::class, 'specialite_id');
        }
-       
+
 
        public function  ville()  {
         return $this->belongsTo(TVille::class);
