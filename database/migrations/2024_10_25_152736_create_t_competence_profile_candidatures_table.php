@@ -17,7 +17,7 @@ class CreateTCompetenceProfileCandidaturesTable extends Migration
             $table->id();
             $table->string('libellecompetence');
             $table->unsignedBigInteger('candidature_id');
-            $table->foreign('candidature_id')->references('id')->on('t_candidats');
+            $table->foreign('candidature_id')->references('id')->on('t_candidats')->onDelete('CASCADE');
             $table->timestamps();
         });
     }

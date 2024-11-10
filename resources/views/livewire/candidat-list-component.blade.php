@@ -53,11 +53,11 @@
                                                 <td>{{ $candidat->ville->libelleville ?? 'Non spécifié' }}</td>
                                                 <td>{{ $candidat->pays->libellepays ?? 'Non spécifié' }}</td>
                                                 <td>
-                                                    <a href="#" class="btn btn-outline-secondary btn-sm">cv</a>
+                                                    <a href="{{asset('sauvegarde/cv/candidat/'. $candidat->photo)}}" class="btn btn-outline-secondary btn-sm">cv</a>
                                                 </td>
                                                 <td class="pe-0 align-middle border-top-0">
-                                                    <a href="#" class="btn btn-outline-secondary btn-sm">Voir</a>
-                                                    <a href="#" class="btn btn-outline-danger btn-sm">Supprimer</a>
+                                                    <a href="{{route('detail.candidat', $candidat->codeprofile)}}" class="btn btn-outline-secondary btn-sm" target="_blank">Voir</a>
+                                                    <button wire:click="destroy({{$candidat->id}})" class="btn btn-outline-danger btn-sm">Supprimer</button>
                                                 </td>
                                             </tr>
                                         @endforeach

@@ -166,6 +166,12 @@ Route::get('/fac', function() {
 })->name('fac');
 
 
+Route::get('/quisommesnous', function() {
+    return view('home.about');
+})->name('about');
+
+
+
 Route::get('/gestion-job',GestionTJobComponent::class)->name('gestion.job')->middleware('auth');
 Route::get('/home-job',HomeJob::class)->name('home.job');
 Route::get('/home-job-detail/{slug}',HomeDetailJob::class)->name('detail.job');

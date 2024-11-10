@@ -63,6 +63,14 @@ class CandidatListComponent extends Component
         exit();
     }
 
+
+    public function destroy($id) {
+
+        TCandidat::find($id)->delete();
+        session()->flash('message', 'Candidat supprimée avec succès.');
+
+    }
+
     public function render()
     {
         return view('livewire.candidat-list-component', [

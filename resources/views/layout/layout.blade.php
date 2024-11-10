@@ -81,7 +81,7 @@
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">NOS PRESTATIONS</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">QUI SOMMES NOUS ?</a>
+                        <a class="nav-link" href="{{route('about')}}">QUI SOMMES NOUS ?</a>
                     </li>
 
                 </ul>
