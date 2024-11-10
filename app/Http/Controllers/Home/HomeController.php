@@ -11,7 +11,6 @@ use App\Services\TeacherService;
 use App\Services\CategoryService;
 use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Episode;
 use App\Models\CourseEssentielle;
 use App\Models\Episode as ModelsEpisode;
 use App\Models\Level;
@@ -42,37 +41,21 @@ class HomeController extends Controller
     public function detailPrestataire($id) {
 
         $prestataire = Prestataire::find($id);
-
         $listeskills = PerfomancePrestataire::where('prestataire_id', $prestataire->id)->get();
-
         $listeprestations = Prestation::where('prestaire_id', $prestataire->id)->get();
-
-
         return view('home.detailprestataire', compact('prestataire', 'listeskills', 'listeprestations'));
     }
 
 
     public function home() {
         return view('welcome', [
-            'listecanddiat'=> TCandidat::all(),
-        // 'allCourse' => $this->courseService->all(),
-        // 'randomCourse' => $this->courseService->randomCourse(),
-        // 'category' => $this->categoryService->categoryTakeRandom(),
-        // 'enVogue' => $this->categoryService->categoryenVogue()
+            'listecanddiat'=> TCandidat::orderByDesc('created_at')->take(8)->get(),
         ]);
     }
 
     public function profileCandidat() {
-        return view('home.profilecandidature', [
-            'listecanddiat'=> TCandidat::all(),
-        // 'allCourse' => $this->courseService->all(),
-        // 'randomCourse' => $this->courseService->randomCourse(),
-        // 'category' => $this->categoryService->categoryTakeRandom(),
-        // 'enVogue' => $this->categoryService->categoryenVogue()
-        ]);
+        return view('home.profilecandidature');
     }
-
-
 
 
     public function homeCategory() {

@@ -24,8 +24,9 @@ class HomeCandidat extends Component
 
     public function filterCandidates()
     {
+      
         // Logique pour filtrer les candidats en fonction des pays, villes et catégories sélectionnés
-        $this->allCourses = TC::when($this->selectedCountry, function($query) {
+        $this->allCourses = TCandidat::when($this->selectedCountry, function($query) {
                 return $query->where('country_id', $this->selectedCountry);
             })
             ->when($this->selectedCity, function($query) {

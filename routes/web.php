@@ -25,11 +25,14 @@ use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\AuthSocialController;
 use App\Http\Controllers\PrestationController;
 use App\Http\Controllers\SkillController;
+use App\Http\Livewire\CandidatListComponent;
 use App\Http\Livewire\CompetenceComponent;
 use App\Http\Livewire\CourseComponent;
 use App\Http\Livewire\DetailPrestataire;
 use App\Http\Livewire\ExperienceComponent;
 use App\Http\Livewire\FormationComponent;
+use App\Http\Livewire\GestionSpecialiteComponent;
+use App\Http\Livewire\GestionUserComponent;
 use App\Http\Livewire\HomeCandidat;
 use App\Http\Livewire\PrestationComponent;
 use App\Http\Livewire\ProjetComponent;
@@ -143,12 +146,10 @@ Route::get('/formations', FormationComponent::class)->name('formation.index');
 Route::get('/projets', ProjetComponent::class)->name('projet.index');
 Route::get('/social-comptes', SocialAccompteComponent::class)->name('comptesocial.index');
 Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboard.users')->middleware('auth');
-
 Route::get('/nos-candidats', HomeCandidat::class)->name('candidat.index');
-
-
-
-
+Route::get('/gestionspecialites',GestionSpecialiteComponent::class, 'index')->name('gestion.specialies')->middleware('auth');
+Route::get('/gestion-candidatures',CandidatListComponent::class, 'index')->name('gestion.listcandidat')->middleware('auth');
+Route::get('/gestion-utilisateurs', GestionUserComponent::class)->name('users.management');
 
 Route::get('/politiquedeconfidentialite', function() {
     return view('home.politiquedeconfidentialise');

@@ -25,6 +25,7 @@ class SocialAccompteComponent extends Component
         // Récupérer le candidat associé
         $candidat = TCandidat::where('user_id', $idUser)->first();
 
+
         // Récupérer candidature_id pour les profils sociaux
         if ($candidat) {
             $this->candidature_id = $candidat->id;

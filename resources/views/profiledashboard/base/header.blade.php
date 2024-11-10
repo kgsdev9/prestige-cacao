@@ -6,7 +6,7 @@
         <div class="d-flex align-items-end justify-content-between">
           <div class="d-flex align-items-center">
             <div class="me-2 position-relative d-flex justify-content-end align-items-end mt-n5">
-              <img src="../assets/images/avatar/avatar-3.jpg" class="avatar-xl rounded-circle border border-4 border-white" alt="avatar">
+              <img src="{{asset('avatar.png')}}" class="avatar-xl rounded-circle border border-4 border-white" alt="avatar">
             </div>
             <div class="lh-1">
               <h2 class="mb-0">

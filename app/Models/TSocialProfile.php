@@ -21,6 +21,6 @@ class TSocialProfile extends Model
 
     public function candidature()
     {
-        // return $this->belongsTo(Candidature::class);
+        return $this->belongsTo(TCandidat::class, 'candidature_id');
     }
 }

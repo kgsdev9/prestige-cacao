@@ -10,6 +10,9 @@
         <!-- Collapse navbar -->
         <div class="collapse navbar-collapse" id="sidenav">
             <div class="navbar-nav flex-column">
+                @can('is_candidat')
+
+
                 <span class="navbar-header">Menu</span>
                 <ul class="list-unstyled ms-n2 mb-4">
                     <!-- Nav item -->
@@ -93,6 +96,85 @@
                     </li>
 
                 </ul>
+                @endcan
+                @can('is_admin')
+                <span class="navbar-header">Espace Administration</span>
+                <ul class="list-unstyled ms-n2 mb-0">
+                    <!-- Nav item -->
+                    <li class="nav-item {{ request()->routeIs('profile.index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('profile.index') }}">
+                            <i class="fe fe-settings nav-icon"></i>
+                            Administration
+                        </a>
+                    </li>
+                    <li class="nav-item {{ request()->routeIs('gestion.specialies') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('gestion.specialies') }}">
+                            <i class="fe fe-list nav-icon"></i>
+                            Liste des specialites
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->routeIs('gestion.listcandidat') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('gestion.listcandidat') }}">
+                            <i class="fe fe-user nav-icon"></i>
+                            Liste des candidats
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->routeIs('users.management') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('users.management') }}">
+                            <i class="fe fe-user-plus nav-icon"></i>
+
+                            Liste des users
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->routeIs('comptesocial.index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('comptesocial.index') }}">
+                            <i class="fe fe-briefcase nav-icon"></i>
+
+                            Liste des jobs
+                        </a>
+                    </li>
+
+
+
+                    <li class="nav-item {{ request()->routeIs('comptesocial.index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('comptesocial.index') }}">
+                            <i class="fe fe-file-text nav-icon"></i>
+
+                            Liste des cvs
+                        </a>
+                    </li>
+
+                    <li class="nav-item {{ request()->routeIs('comptesocial.index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('comptesocial.index') }}">
+                            <i class="fe fe-share-2 nav-icon"></i>
+                            Liste des articles
+                        </a>
+                    </li>
+
+
+                    <li class="nav-item {{ request()->routeIs('comptesocial.index') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('comptesocial.index') }}">
+                            <i class="fe fe-edit nav-icon"></i>
+                            Liste des astuces
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        <a class="nav-link" href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                            <i class="fe fe-power nav-icon"></i>
+                            Déconnexion
+                        </a>
+                    </li>
+
+                </ul>
+
+                @endcan
             </div>
         </div>
     </nav>

@@ -29,11 +29,6 @@ class User extends Authenticatable  implements MustVerifyEmail
     ];
 
 
-    public function specialites()
-    {
-        return $this->belongsToMany(Specialite::class, 'user_specialite', 'user_id', 'specialite_id');
-    }
-
 
 
     /**

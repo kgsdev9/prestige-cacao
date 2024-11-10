@@ -91,7 +91,7 @@
                 <div class="col-md-6 mb-3">
                     <div class="form-floating">
                         <input type="file" wire:model="photo" class="form-control" id="photo">
-                        <label for="photo">Photo</label>
+                        <label for="photo">Partager nous votre cv </label>
                         <span class="text-muted small">(Facultatif)</span>
                         @error('photo') <span class="text-danger">{{ $message }}</span> @enderror
                     </div>

@@ -54,8 +54,8 @@
                                 </span>
                                 <span>
                                   <!--text-->
-                                  <span class="text-gray-800 fw-bold">5.0</span>
-                                  (16&nbsp;Reviews)
+                                  <span class="text-gray-800 fw-bold">{{$candidat->visiteur?? 0}}</span>
+                                  (&nbsp;visteur)
                                 </span>
                               </div>
                               <div class="d-flex flex-row gap-2 align-items-center lh-1">
@@ -100,7 +100,7 @@
                                   <path d="M5.921 11.9 1.353 8.62a.72.72 0 0 1 0-1.238L5.921 4.1A.716.716 0 0 1 7 4.719V6c1.5 0 6 0 7 8-2.5-4.5-7-4-7-4v1.281c0 .56-.606.898-1.079.62z"></path>
                                 </svg>
                               </span>
-                              Réponse automatique
+                              Whattssap
                             </span>
                           </div>
                         </div>
@@ -231,33 +231,20 @@
                                     <span class="text-success">Projets</span>
                                     :
                                 </h3>
-                                {{-- <div class="d-flex flex-column gap-3">
+                                <div class="d-flex flex-column gap-3">
                                     <!-- Liste des projets -->
                                     <div class="d-flex flex-column gap-4">
                                         @foreach ($candidat->projets as $projet)
                                             <div class="d-flex flex-column gap-1 border rounded p-3">
-                                                <h4 class="mb-1">Projet : {{ $projet->nom }}</h4> <!-- Remplacez "nom" par le champ approprié -->
+                                                <h4 class="mb-1">Projet : {{ $projet->title }}</h4>
                                                 <div class="d-flex flex-row align-items-center gap-1">
-                                                    <h3 class="mb-0 h2">{{ number_format($projet->budget, 2, '.', '') }}</h3> <!-- Remplacez "budget" par le champ approprié -->
-                                                    <small class="text-gray-800 fw-medium">/ Budget</small>
+                                                    <h5 class="mb-0 h2"><a href="{{ $projet->lien_projet }}" class="text-dark" target="_blank">Consulter le projet </a></h5>
                                                 </div>
-                                                <ul class="list-unstyled mb-0 d-flex flex-column gap-2 mt-2">
-                                                    @foreach ($projet->features as $feature) <!-- Remplacez "features" par la relation appropriée -->
-                                                        <li class="d-flex flex-row gap-2">
-                                                            <span>
-                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-video text-primary" viewBox="0 0 16 16">
-                                                                    <path d="M8 9.05a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"></path>
-                                                                    <path d="M2 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 0 0 0 2-2V4a2 0 0 0-2-2zm10.798 11c-.453-1.27-1.76-3-4.798-3-3.037 0-4.345 1.73-4.798 3H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1z"></path>
-                                                                </svg>
-                                                            </span>
-                                                            <span>{{ $feature }}</span> <!-- Remplacez par le texte approprié -->
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
+                                                <p>{{ $projet->description}}</p>
                                             </div>
                                         @endforeach
                                     </div>
-                                </div> --}}
+                                </div>
 
                             </div>
                             <div class="d-flex flex-column gap-4 mt-4">
@@ -267,7 +254,8 @@
                                 </h3>
                                 <div class="d-flex gap-3">
                                     <!-- Facebook -->
-                                    <a href="https://www.facebook.com/votreprofil" target="_blank" class="text-decoration-none">
+
+                                    <a href="https://www.facebook.com/{{$candidat->profilesocial($candidat->id)->facebook?? ''}}" target="_blank" class="text-decoration-none">
                                         <span class="d-flex justify-content-center align-items-center rounded-circle bg-light" style="width: 40px; height: 40px;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-facebook text-primary" viewBox="0 0 16 16">
                                                 <path d="M5 8V6h2V4a2 2 0 0 1 2-2h1v3h-1a1 1 0 0 0-1 1v2h2l-1 3H8v8H5V8z"/>
@@ -276,7 +264,7 @@
                                     </a>
 
                                     <!-- Twitter -->
-                                    <a href="https://twitter.com/votreprofil" target="_blank" class="text-decoration-none">
+                                    <a href="https://twitter.com/{{$candidat->profilesocial($candidat->id)->twitter?? ''}}" target="_blank" class="text-decoration-none">
                                         <span class="d-flex justify-content-center align-items-center rounded-circle bg-light" style="width: 40px; height: 40px;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-twitter text-info" viewBox="0 0 16 16">
                                                 <path d="M5 8V6h2V4a2 2 0 0 1 2-2h1v3h-1a1 1 0 0 0-1 1v2h2l-1 3H8v8H5V8z"/>
@@ -285,7 +273,7 @@
                                     </a>
 
                                     <!-- LinkedIn -->
-                                    <a href="https://www.linkedin.com/in/votreprofil" target="_blank" class="text-decoration-none">
+                                    <a href="https://www.linkedin.com/in/{{$candidat->profilesocial($candidat->id)->linkedin?? ''}} " target="_blank" class="text-decoration-none">
                                         <span class="d-flex justify-content-center align-items-center rounded-circle bg-light" style="width: 40px; height: 40px;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-linkedin text-primary" viewBox="0 0 16 16">
                                                 <path d="M0 1.146C0 .513.324 0 .72 0h14.56c.397 0 .72.513.72 1.146v13.708c0 .632-.324 1.146-.72 1.146H.72A.715.715 0 0 1 0 14.854V1.146zM5.625 5.291H3.49V12.72h2.134V5.291zm-1.067-3.067c-.713 0-1.292.58-1.292 1.292 0 .713.58 1.291 1.292 1.291.713 0 1.292-.578 1.292-1.291 0-.712-.579-1.292-1.292-1.292zm9.408 3.067h-2.007c-.935 0-1.385.53-1.385 1.236v1.378h2.476V9.9h-2.476v4.82h-2.134V9.9H6.6V7.91h1.454V7.527c0-2.01 1.226-3.117 3.027-3.117.878 0 1.633.065 1.85.094v2.138z"/>
@@ -294,7 +282,7 @@
                                     </a>
 
                                     <!-- Instagram -->
-                                    <a href="https://www.instagram.com/votreprofil" target="_blank" class="text-decoration-none">
+                                    <a href="https://www.instagram.com/{{$candidat->profilesocial($candidat->id)->instagram?? ''}}" target="_blank" class="text-decoration-none">
                                         <span class="d-flex justify-content-center align-items-center rounded-circle bg-light" style="width: 40px; height: 40px;">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-instagram text-danger" viewBox="0 0 16 16">
                                                 <path d="M8 5.667A2.333 2.333 0 1 0 8 10.333a2.333 2.333 0 0 0 0-4.666zM8 1.333c-1.875 0-2.125.008-2.862.041-.732.034-1.24.148-1.672.316a3.626 3.626 0 0 0-1.364.825 3.626 3.626 0 0 0-.825 1.364c-.168.432-.282.94-.316 1.672-.033.737-.041.987-.041 2.862s.008 2.125.041 2.862c.034.732.148 1.24.316 1.672a3.626 3.626 0 0 0 .825 1.364 3.626 3.626 0 0 0 1.364.825c.432.168.94.282 1.672.316.737.033.987.041 2.862.041s2.125-.008 2.862-.041c.732-.034 1.24-.148 1.672-.316a3.626 3.626 0 0 0 1.364-.825 3.626 3.626 0 0 0 .825-1.364c.168-.432.282-.94.316-1.672.033-.737.041-.987.041-2.862s-.008-2.125-.041-2.862c-.034-.732-.148-1.24-.316-1.672a3.626 3.626 0 0 0-.825-1.364 3.626 3.626 0 0 0-1.364-.825c-.432-.168-.94-.282-1.672-.316C10.125 1.34 9.875 1.333 8 1.333zm0 12.667c-1.758 0-2.017-.008-2.733-.041-.684-.033-.946-.142-1.167-.23-.352-.136-.604-.29-.846-.532a2.829 2.829 0 0 1-.532-.846c-.088-.221-.197-.483-.23-1.167-.033-.716-.041-.975-.041-2.733s.008-2.017.041-2.733c.033-.684.142-.946.23-1.167.136-.352.29-.604.532-.846a2.829 2.829 0 0 1 .846-.532c.221-.088.483-.197 1.167-.23.716-.033.975-.041 2.733-.041s2.017.008 2.733.041c.684.033.946.142 1.167.23.352.136.604.29.846.532.295.295.396.487.532.846.088.221.197.483.23 1.167.033.716.041.975.041 2.733s-.008 2.017-.041 2.733c-.033.684-.142.946-.23 1.167-.136.352-.29.604-.532.846a2.829 2.829 0 0 1-.846.532c-.221.088-.483.197-1.167.23-.716.033-.975.041-2.733.041z"/>

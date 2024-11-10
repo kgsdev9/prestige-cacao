@@ -27,6 +27,7 @@ class ProflileComponent extends Component
         // Récupérer l'utilisateur connecté
         $iduser = Auth::user()->id;
 
+
         // Récupérer le candidat associé à l'utilisateur
         $this->candidat = TCandidat::where('user_id', $iduser)->first();
 
@@ -73,6 +74,7 @@ class ProflileComponent extends Component
 
     public function render()
     {
+       
         // Passer la variable $candidat à la vue
         return view('livewire.proflile-component', [
             'candidat' => $this->candidat,

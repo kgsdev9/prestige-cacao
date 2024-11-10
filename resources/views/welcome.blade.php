@@ -61,7 +61,7 @@
 
                                         <div class="d-flex flex-row gap-1 align-items-center">
                                             <h4 class="mb-0"><i class="fe fe-eye"></i></h4>
-                                            <span class="fs-6">{{rand(1, 90)}}</span>
+                                            <span class="fs-6">{{$candidat->visiteur?? 0}}</span>
                                         </div>
                                     </div>
                                     <div>

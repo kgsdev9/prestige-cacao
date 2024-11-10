@@ -21,7 +21,7 @@ class CreateTCandidatsTable extends Migration
             $table->string('photo')->nullable();
             $table->string('codeprofile');
             $table->string('email')->unique();
-            $table->string('visiteur')->default(10);
+            $table->integer('visiteur')->default(10);
             $table->string('telephone');
             $table->string('whattssap')->nullable();
             $table->foreignId('specialite_id')

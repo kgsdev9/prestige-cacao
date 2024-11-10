@@ -28,13 +28,15 @@ class TCandidat extends Model
     ];
 
 
-    public function profilesocial() {
-        return $this->belongsTo(TSocialProfile::class);
-       }
+    public function profilesocial($candidat)
+    {
+      
+        return TSocialProfile::where('candidature_id', '=', $candidat)->first();
+    }
 
     public function specialite() {
         return $this->belongsTo(TLibelleSpecialite::class, 'specialite_id');
-       }
+    }
 
 
        public function  ville()  {
@@ -54,8 +56,15 @@ class TCandidat extends Model
         return $this->hasMany(TFormation::class, 'candidature_id');
     }
 
+
+    public function socialProfile() {
+
+        return $this->belongsTo(TSocialProfile::class, '');
+    }
+
     public function projets() {
 
+        // dd($this->hasMany(TProjet::class, 'candidature_id'));
         return $this->hasMany(TProjet::class, 'candidature_id');
     }
 

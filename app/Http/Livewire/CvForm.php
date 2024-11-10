@@ -229,6 +229,7 @@ class CvForm extends Component
         }
 
 
+
         $user = User::create([
             'name' => $this->nom,
             'email' => $this->email,
@@ -256,17 +257,17 @@ class CvForm extends Component
         // Save Experiences
         foreach ($this->experiences as $experience) {
             TExperience::create([
-                'intitule' => $experience['job_title'], // Assurez-vous d'utiliser les bons noms de champs
-                'typeemploi_id' => $experience['employment_type'], // ID du type d'emploi
+                'intitule' => $experience['job_title'], //
+                'typeemploi_id' => $experience['employment_type'],
                 'nom_entreprise' => $experience['company_name'],
                 'localisation' => $experience['location'],
-                'current_position' => $experience['current_position'] ? 1 : 0, // Convertir en binaire
-                'mois_debut' => $experience['start_month'] ?? null, // Si vous avez un champ pour le mois de début
-                'mois_fin' => $experience['end_month'] ?? null, // Idem pour la fin
+                'current_position' => $experience['current_position'] ? 1 : 0,
+                'mois_debut' => $experience['start_month'] ?? null,
+                'mois_fin' => $experience['end_month'] ?? null,
                 'annee_debut' => $experience['start_year'],
-                'annee_fin' => $experience['end_year'] ?? null, // Utiliser null si non spécifié
-                'description' => $experience['description'] ?? '', // Si vous avez un champ de description
-                't_candidat_id' => $candidat->id, // ID de la candidature
+                'annee_fin' => $experience['end_year'] ?? null,
+                'description' => $experience['description'] ?? '',
+                't_candidat_id' => $candidat->id,
             ]);
         }
 
@@ -275,12 +276,12 @@ class CvForm extends Component
         foreach ($this->formations as $formation) {
 
             TFormation::create([
-                'nom_ecole' => $formation['school_name'], // Nom de l'école
-                'diplome' => $formation['degree'], // Diplôme obtenu
-                'domaine_etudes' => $formation['field_of_study'], // Domaine d'étude
-                'annee_debut' => $formation['start_year_formation'], // Année de début
-                'annee_fin' => $formation['end_year_formation'] ?? null, // Année de fin, avec null par défaut
-                'candidature_id' => $candidat->id, // ID de la candidature
+                'nom_ecole' => $formation['school_name'],
+                'diplome' => $formation['degree'],
+                'domaine_etudes' => $formation['field_of_study'],
+                'annee_debut' => $formation['start_year_formation'],
+                'annee_fin' => $formation['end_year_formation'] ?? null,
+                'candidature_id' => $candidat->id,
             ]);
         }
 
@@ -298,8 +299,6 @@ class CvForm extends Component
 
         return redirect()->route('confirmated.compte');
 
-        // session()->flash('message', 'Candidature soumise avec succès.');
-        // $this->resetForm();
     }
 
     private function resetForm()
