@@ -32,7 +32,7 @@ class GestionTJobComponent extends Component
         $data = [
             'chat_id' => $chatId,
             'text' => $message,
-            'parse_mode' => 'HTML', // Format du message (peut être Markdown ou HTML)
+            'parse_mode' => 'HTML',
         ];
 
         // Envoie du message
@@ -68,7 +68,7 @@ class GestionTJobComponent extends Component
     // Ajouter ou modifier un emploi
     public function saveTJob()
     {
-        $this->validate();
+        // $this->validate();
 
         if ($this->tJobId) {
             // Mise à jour de l'emploi
@@ -76,7 +76,7 @@ class GestionTJobComponent extends Component
             $tJob->update([
                 'title' => $this->title,
                 'slug' => $this->slug,
-                'description' => $this->description,
+                'description' => $this->description ?? 'test',
                 't_libellespecialite' => $this->t_libellespecialite,
                 'visiteur' => $this->visiteur,
                 'typeemploi_id' => $this->typeemploi_id,
@@ -91,7 +91,7 @@ class GestionTJobComponent extends Component
             TJob::create([
                 'title' => $this->title,
                 'slug' => $this->slug,
-                'description' => $this->description,
+                'description' => $this->description ?? 'test',
                 't_libellespecialite' => $this->t_libellespecialite,
                 'visiteur' => $this->visiteur,
                 'typeemploi_id' => $this->typeemploi_id,

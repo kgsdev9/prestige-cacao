@@ -68,14 +68,12 @@
                         <div class="card card-bordered card-hover cursor-pointer h-100">
                           <!-- card body -->
                           <div class="card-body">
-                            <div class="mb-3 mb-md-0">
-                              <img src="../../assets/images/job/job-brand-logo/job-list-logo-1.svg" alt="Geeks Bootstrap 5 Template" class="icon-shape border rounded-circle">
-                            </div>
+
                             <div class="w-100 mt-3">
                               <div class="d-flex justify-content-between mb-4">
                                 <div>
                                   <h3 class="mb-1 fs-4">
-                                    <a href="job-single.html" class="text-inherit">{{$job->title}}</a>
+                                    <a href="{{route('detail.job', $job->slug)}}" class="text-inherit">{{$job->title}}</a>
                                     <span class="badge bg-danger-soft">{{ $job->created_at->diffForHumans() }}</span>
                                   </h3>
                                   <div>
@@ -104,7 +102,7 @@
                                 </div>
                               </div>
                               <div class="d-grid">
-                               <button class="btn btn-outline-dark btn-sm">Consulter</button>
+                               <a class="btn btn-outline-dark btn-sm" href="{{route('detail.job', $job->slug)}}">Consulter</a>
                               </div>
                             </div>
                           </div>

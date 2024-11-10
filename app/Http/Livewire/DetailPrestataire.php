@@ -24,25 +24,12 @@ class DetailPrestataire extends Component
     {
 
         $this->codeprofile = $codeprofile;
-        
         $this->candidat = TCandidat::where('codeprofile', $this->codeprofile)->firstOrFail();
         $this->candidatsSimilar = TCandidat::where('specialite_id', $this->candidat->specialite_id)
                                             ->where('codeprofile', '!=', $this->codeprofile) // Exclure le candidat actuel
                                             ->get();
 
-
     }
-
-
-
-
-
-
-
-
-
-
-
     public function render()
     {
         // Récupérer les données associées au prestataire

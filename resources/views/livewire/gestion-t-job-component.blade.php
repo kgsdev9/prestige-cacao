@@ -33,10 +33,9 @@
                                             @error('title') <span class="text-danger">{{ $message }}</span> @enderror
                                         </div>
 
-                                        <div class="form-floating mb-3">
-                                            <textarea class="form-control" id="description" placeholder=" " wire:model="description"></textarea>
-                                            <label for="description">Description</label>
-                                            @error('description') <span class="text-danger">{{ $message }}</span> @enderror
+                                        <div wire:ignore>
+                                            <input id="description" type="hidden" name="content" wire:model.defer="description">
+                                            <trix-editor input="description"></trix-editor>
                                         </div>
 
                                         <div class="form-floating mb-3">
@@ -168,3 +167,23 @@
         </section>
     </main>
 </div>
+
+
+
+<script>
+    document.addEventListener('livewire:load', function () {
+      
+        Livewire.hook('message.processed', (message, component) => {
+            if (component.fingerprint.name === 'gestion-t-job-component') {
+                const description = @this.get('description');
+                document.getElementById('description').value = description;
+                document.querySelector("trix-editor").editor.loadHTML(description);
+            }
+        });
+
+        // Écoute les changements dans l'éditeur Trix et met à jour Livewire
+        document.querySelector("trix-editor").addEventListener("trix-change", function(event) {
+            @this.set('description', document.getElementById('description').value);
+        });
+    });
+</script>

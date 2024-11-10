@@ -13,6 +13,9 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <link rel="stylesheet" href="{{asset('assets/css/theme.min.css')}}">
 <title>@yield('title')</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
+
 @livewireStyles
 <style>
     .form-control, .form-select {
