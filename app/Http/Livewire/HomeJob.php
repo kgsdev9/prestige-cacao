@@ -19,9 +19,9 @@ class HomeJob extends Component
 
     public function mount()
     {
-        $this->countries = TPays::all(); // Récupère tous les pays
-        $this->cities = TVille::all(); // Récupère toutes les villes
-        $this->jobs = TJob::all(); // Récupère tous les jobs par défaut
+        $this->countries = TPays::all();
+        $this->cities = TVille::all();
+        $this->jobs = TJob::all();
     }
 
     public function filterJobs()

@@ -9,7 +9,7 @@ use App\Models\TVille;
 use App\Models\TLibelleSpecialite;
 use App\Models\TTypeEmploi;
 use Livewire\WithPagination;
-
+use Illuminate\Support\Facades\Http;
 class GestionTJobComponent extends Component
 {
     use WithPagination;
@@ -17,6 +17,27 @@ class GestionTJobComponent extends Component
     public $title, $slug, $description, $t_libellespecialite, $visiteur, $typeemploi_id, $tville_id, $tpays_id, $tJobId = null;
     public $showForm = false;
     protected $paginationTheme = 'bootstrap';
+
+
+
+    public function sendMessageToTelegram($message)
+    {
+        $telegramToken = env('TELEGRAM_BOT_TOKEN');
+        $chatId = env('TELEGRAM_CHAT_ID');
+
+        // URL pour l'API Telegram
+        $url = "https://api.telegram.org/bot{$telegramToken}/sendMessage";
+
+        // Données du message
+        $data = [
+            'chat_id' => $chatId,
+            'text' => $message,
+            'parse_mode' => 'HTML', // Format du message (peut être Markdown ou HTML)
+        ];
+
+        // Envoie du message
+        return Http::post($url, $data);
+    }
 
     // Validation des champs du formulaire
     protected $rules = [
@@ -62,6 +83,8 @@ class GestionTJobComponent extends Component
                 'tville_id' => $this->tville_id,
                 'tpays_id' => $this->tpays_id,
             ]);
+
+            $this->sendMessageToTelegram("Emploi mis à jour : {$this->title}");
             $this->emit('toast', 'Emploi mis à jour avec succès');
         } else {
             // Création d'un nouvel emploi
@@ -75,6 +98,7 @@ class GestionTJobComponent extends Component
                 'tville_id' => $this->tville_id,
                 'tpays_id' => $this->tpays_id,
             ]);
+            $this->sendMessageToTelegram("Nouvel emploi ajouté : {$this->title}");
             $this->emit('toast', 'Emploi ajouté avec succès');
         }
 
