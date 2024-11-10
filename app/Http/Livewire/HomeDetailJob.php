@@ -14,7 +14,7 @@ class HomeDetailJob extends Component
     {
         $this->jobid = $slug;
         $this->job = TJob::where('slug', $this->jobid)->firstOrFail();
-
+        $this->job->increment('visiteur');
     }
     public function render()
     {

@@ -25,6 +25,7 @@ class CreateTJobsTable extends Migration
             $table->foreignId('tpays_id')->constrained('tpays')->onDelete('cascade');
             $table->foreignId('t_libellespecialite')->constrained('t_libelle_specialites')->onDelete('cascade');
             $table->timestamps();
+
         });
     }
 

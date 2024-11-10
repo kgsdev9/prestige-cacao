@@ -123,7 +123,7 @@
                                                     <th>ID</th>
                                                     <th>Titre</th>
                                                     <th>Spécialité</th>
-                                                    <th>Description</th>
+
                                                     <th>Pays</th>
                                                     <th>Ville</th>
                                                     <th>Type d'Emploi</th>
@@ -137,7 +137,7 @@
                                                         <td>{{ $job->id }}</td>
                                                         <td>{{ $job->title }}</td>
                                                         <td>{{ $job->specialite->libellespecialite ?? 'Non spécifié' }}</td>
-                                                        <td>{!! Str::limit($job->description, 100) !!}</td>
+                                                      
                                                         <td>{{ $job->pays->libellepays ?? 'Non spécifié' }}</td>
                                                         <td>{{ $job->ville->libelleville?? 'rien'}}</td>
                                                         <td>{{ $job->typeEmploi->libelletypeemploi ?? 'Non spécifié' }}</td>
@@ -172,7 +172,7 @@
 
 <script>
     document.addEventListener('livewire:load', function () {
-      
+
         Livewire.hook('message.processed', (message, component) => {
             if (component.fingerprint.name === 'gestion-t-job-component') {
                 const description = @this.get('description');

@@ -10,6 +10,7 @@ use App\Models\TLibelleSpecialite;
 use App\Models\TTypeEmploi;
 use Livewire\WithPagination;
 use Illuminate\Support\Facades\Http;
+use Str;
 class GestionTJobComponent extends Component
 {
     use WithPagination;
@@ -78,7 +79,6 @@ class GestionTJobComponent extends Component
                 'slug' => $this->slug,
                 'description' => $this->description ?? 'test',
                 't_libellespecialite' => $this->t_libellespecialite,
-                'visiteur' => $this->visiteur,
                 'typeemploi_id' => $this->typeemploi_id,
                 'tville_id' => $this->tville_id,
                 'tpays_id' => $this->tpays_id,
@@ -90,15 +90,18 @@ class GestionTJobComponent extends Component
             // Création d'un nouvel emploi
             TJob::create([
                 'title' => $this->title,
-                'slug' => $this->slug,
+                'slug' => $this->generateUniqueCodeProfile(),
                 'description' => $this->description ?? 'test',
                 't_libellespecialite' => $this->t_libellespecialite,
-                'visiteur' => $this->visiteur,
                 'typeemploi_id' => $this->typeemploi_id,
                 'tville_id' => $this->tville_id,
                 'tpays_id' => $this->tpays_id,
             ]);
-            $this->sendMessageToTelegram("Nouvel emploi ajouté : {$this->title}");
+            if(1 == 2)
+            {
+                $this->sendMessageToTelegram("Nouvel emploi ajouté : {$this->title}");
+            }
+
             $this->emit('toast', 'Emploi ajouté avec succès');
         }
 
@@ -133,6 +136,19 @@ class GestionTJobComponent extends Component
     {
         $this->showForm = !$this->showForm;
 
+    }
+
+    public function generateUniqueCodeProfile()
+    {
+        // Génère un identifiant unique avec le préfixe "c-" au lieu de "c/"
+        $code = 'c-' . Str::uuid();
+
+        // Assurez-vous que le code est unique dans la base de données
+        while (TJob::where('slug', $code)->exists()) {
+            $code = 'c-' . Str::uuid();
+        }
+
+        return $code;
     }
 
     public function render()

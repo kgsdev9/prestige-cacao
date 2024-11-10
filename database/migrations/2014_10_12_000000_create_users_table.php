@@ -18,7 +18,7 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->unsignedBigInteger('role_id');
-            $table->boolean('   ')->default('0');
+            $table->boolean('owner_id')->default('0');
             $table->boolean('suscribe_id')->default('0');
             $table->foreign('role_id')->references('id')->on('roles');
             $table->rememberToken();
