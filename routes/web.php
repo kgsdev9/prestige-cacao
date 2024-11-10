@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\GestionTJobComponent;
 use App\Http\Livewire\ProflileComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
@@ -31,6 +32,7 @@ use App\Http\Livewire\CourseComponent;
 use App\Http\Livewire\DetailPrestataire;
 use App\Http\Livewire\ExperienceComponent;
 use App\Http\Livewire\FormationComponent;
+use App\Http\Livewire\GestionArticleComponent;
 use App\Http\Livewire\GestionSpecialiteComponent;
 use App\Http\Livewire\GestionUserComponent;
 use App\Http\Livewire\HomeCandidat;
@@ -149,8 +151,9 @@ Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboar
 Route::get('/nos-candidats', HomeCandidat::class)->name('candidat.index');
 Route::get('/gestionspecialites',GestionSpecialiteComponent::class, 'index')->name('gestion.specialies')->middleware('auth');
 Route::get('/gestion-candidatures',CandidatListComponent::class, 'index')->name('gestion.listcandidat')->middleware('auth');
-Route::get('/gestion-utilisateurs', GestionUserComponent::class)->name('users.management');
 
+Route::get('/gestion-utilisateurs', GestionUserComponent::class)->name('users.management');
+Route::get('/gestion-articles', GestionArticleComponent::class)->name('articles.management');
 Route::get('/politiquedeconfidentialite', function() {
     return view('home.politiquedeconfidentialise');
 })->name('politique.confidentialise');
@@ -159,3 +162,6 @@ Route::get('/politiquedeconfidentialite', function() {
 Route::get('/fac', function() {
     return view('home.faq');
 })->name('fac');
+
+
+Route::get('/gestion-job',GestionTJobComponent::class)->name('gestion.job')->middleware('auth');

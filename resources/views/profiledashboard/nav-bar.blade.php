@@ -129,14 +129,17 @@
                         </a>
                     </li>
 
-                    <li class="nav-item {{ request()->routeIs('comptesocial.index') ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ route('comptesocial.index') }}">
+                    <li class="nav-item {{ request()->routeIs('gestion.job') ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ route('gestion.job') }}">
                             <i class="fe fe-briefcase nav-icon"></i>
 
                             Liste des jobs
                         </a>
                     </li>
 
+
+
+                    @can('is_encours')
 
 
                     <li class="nav-item {{ request()->routeIs('comptesocial.index') ? 'active' : '' }}">
@@ -161,7 +164,7 @@
                             Liste des astuces
                         </a>
                     </li>
-
+                    @endcan
                     <li class="nav-item">
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
