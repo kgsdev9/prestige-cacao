@@ -137,12 +137,12 @@
                                                     <tr>
                                                         <td>{{ $job->id }}</td>
                                                         <td>{{ $job->title }}</td>
-                                                        <td>{{ $job->specialite->libellespecialite ?? 'Non spécifié' }}</td> <!-- Affichage de la spécialité -->
-                                                        <td>{!! Str::limit($job->description, 100) !!}</td> <!-- Description avec limite de 100 caractères -->
-                                                        <td>{{ $job->pays->libellepays ?? 'Non spécifié' }}</td> <!-- Affichage du pays -->
-                                                        <td>{{ $job->ville->libelleville?? 'rien'}}</td> <!-- Affichage de la ville -->
-                                                        <td>{{ $job->typeEmploi->libelletypeemploi ?? 'Non spécifié' }}</td> <!-- Affichage du type d'emploi -->
-                                                        <td>{{ $job->visiteur ? 'Oui' : 'Non' }}</td>
+                                                        <td>{{ $job->specialite->libellespecialite ?? 'Non spécifié' }}</td>
+                                                        <td>{!! Str::limit($job->description, 100) !!}</td>
+                                                        <td>{{ $job->pays->libellepays ?? 'Non spécifié' }}</td>
+                                                        <td>{{ $job->ville->libelleville?? 'rien'}}</td>
+                                                        <td>{{ $job->typeEmploi->libelletypeemploi ?? 'Non spécifié' }}</td>
+                                                        <td>{{ $job->visiteur ?? 0}}</td>
                                                         <td>
                                                             <button wire:click="editTJob({{ $job->id }})" class="btn btn-warning btn-sm">Modifier</button>
                                                             <button wire:click="deleteTJob({{ $job->id }})" class="btn btn-danger btn-sm">Supprimer</button>
@@ -153,7 +153,6 @@
                                         </table>
                                     </div>
                                     <div class="pt-2 pb-4">
-                                        <!-- Pagination -->
                                         {{ $tJobs->links() }}
                                     </div>
                                 </div>

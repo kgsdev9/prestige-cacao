@@ -30,6 +30,10 @@ class TJob extends Model
         return $this->belongsTo(Tpays::class, 'tpays_id');
        }
 
+       public function  ttypejob()  {
+        return $this->belongsTo(TTypeEmploi::class, 'typeemploi_id');
+       }
+
        public function specialite() {
         return $this->belongsTo(TLibelleSpecialite::class, 't_libellespecialite');
     }

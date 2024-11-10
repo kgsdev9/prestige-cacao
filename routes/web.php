@@ -36,6 +36,7 @@ use App\Http\Livewire\GestionArticleComponent;
 use App\Http\Livewire\GestionSpecialiteComponent;
 use App\Http\Livewire\GestionUserComponent;
 use App\Http\Livewire\HomeCandidat;
+use App\Http\Livewire\HomeJob;
 use App\Http\Livewire\PrestationComponent;
 use App\Http\Livewire\ProjetComponent;
 use App\Http\Livewire\SocialAccompteComponent;
@@ -165,3 +166,4 @@ Route::get('/fac', function() {
 
 
 Route::get('/gestion-job',GestionTJobComponent::class)->name('gestion.job')->middleware('auth');
+Route::get('/home-job',HomeJob::class)->name('home.job');

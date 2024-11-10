@@ -71,7 +71,7 @@
                 <ul class="navbar-nav mt-3 mt-lg-0 mx-xxl-auto">
                     <li class="nav-item dropdown"><a class="nav-link" href="{{route('candidat.index')}}">NOS CANDIDATS</a></li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">NOS CVS</a>
+                        <a class="nav-link" href="{{route('home.job')}}" >JOBS </a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">NOS PRESTATIONS</a>
