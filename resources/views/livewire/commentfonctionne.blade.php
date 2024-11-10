@@ -37,6 +37,11 @@
                                             <input id="description" type="hidden" name="content" wire:model.defer="description">
                                             <trix-editor input="description"></trix-editor>
                                         </div>
+                                        <div class="form-floating mb-3">
+                                            <input type="text" class="form-control" id="slug" placeholder=" " wire:model="slug">
+                                            <label for="slug">Slug</label>
+                                            @error('slug') <span class="text-danger">{{ $message }}</span> @enderror
+                                        </div>
 
                                       <!-- Sélecteur pour Spécialité -->
                                         <div class="form-floating mb-3">
@@ -117,6 +122,7 @@
                                                     <th>ID</th>
                                                     <th>Titre</th>
                                                     <th>Spécialité</th>
+                                                    <th>Description</th>
                                                     <th>Pays</th>
                                                     <th>Ville</th>
                                                     <th>Type d'Emploi</th>
@@ -130,14 +136,13 @@
                                                         <td>{{ $job->id }}</td>
                                                         <td>{{ $job->title }}</td>
                                                         <td>{{ $job->specialite->libellespecialite ?? 'Non spécifié' }}</td>
+                                                        <td>{!! Str::limit($job->description, 100) !!}</td>
                                                         <td>{{ $job->pays->libellepays ?? 'Non spécifié' }}</td>
                                                         <td>{{ $job->ville->libelleville?? 'rien'}}</td>
                                                         <td>{{ $job->typeEmploi->libelletypeemploi ?? 'Non spécifié' }}</td>
                                                         <td>{{ $job->visiteur ?? 0}}</td>
                                                         <td>
-                                                            @can('is_progresss')
                                                             <button wire:click="editTJob({{ $job->id }})" class="btn btn-warning btn-sm">Modifier</button>
-                                                            @endcan
                                                             <button wire:click="deleteTJob({{ $job->id }})" class="btn btn-danger btn-sm">Supprimer</button>
                                                         </td>
                                                     </tr>
@@ -162,9 +167,24 @@
     </main>
 </div>
 <script>
-    document.addEventListener('trix-change', function(event) {
-        @this.set('description', event.target.value);
-    });
+   document.addEventListener('livewire:load', function () {
+    // Sélectionnez l'éditeur Trix
+    const trixEditor = document.querySelector("trix-editor");
+
+    if (trixEditor) {
+        // Charge la valeur de description dans l'éditeur Trix
+        @this.on('tJobUpdated', function(description) {
+            const trixEditor = document.querySelector("trix-editor");
+            trixEditor.editor.loadHTML(description);  // Charge la valeur de description dans Trix
+        });
+
+        // Mettre à jour la valeur de `description` dans Livewire à chaque changement
+        trixEditor.addEventListener('trix-change', function(event) {
+            @this.set('description', event.target.value);
+        });
+    }
+});
+
 
 
 </script>

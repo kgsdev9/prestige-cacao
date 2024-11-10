@@ -222,7 +222,8 @@ class CvForm extends Component
             'telephone' => 'nullable|string|max:20',
         ]);
 
-        if ($this->isWhatsApp) {
+        if ($this->isWhatsApp)
+        {
             $whatsappNumber = $this->telephone;
         } else {
             $whatsappNumber = $this->whatsapp;
@@ -238,11 +239,20 @@ class CvForm extends Component
         ]);
 
 
+        $image = null; // Initialiser la variable image à null
+
+        // Vérifiez si la photo est définie
+        if ($this->photo) {
+            // Si la photo est définie, générez le nom de fichier et stockez-la
+            $image = md5($this->photo . microtime()) . '.' . $this->photo->extension();
+            $this->photo->storeAs('cv/candidat', $image);
+        }
+
         // Save Candidate
         $candidat = TCandidat::create([
             'nom' => $this->nom,
             'prenom' => $this->prenom,
-            'photo' => $this->photo ? $this->photo->store('photos', 'public') : null,
+            'photo' => $image,
             'codeprofile' => $this->generateUniqueCodeProfile(),
             'email' => $this->email,
             'telephone' => $this->telephone,

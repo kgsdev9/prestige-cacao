@@ -16,6 +16,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/trix/1.3.1/trix.min.js"></script>
 
+
 @livewireStyles
 <style>
     .form-control, .form-select {
@@ -212,40 +213,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-    <script>
-        // Tableau des phrases à afficher
-        const phrases = [
-            {
-                title: "Confiez-nous votre recrutement",
-                description: "Nous vous aidons à trouver les meilleurs candidats adaptés à votre entreprise."
-            },
-            {
-                title: "Recherchez vos stagiaires",
-                description: "Carrière Pro Plus facilite la recherche de stagiaires talentueux pour vos projets."
-            },
-            {
-                title: "Des profils personnalisés pour chaque besoin",
-                description: "Nos candidats sont sélectionnés pour répondre précisément à vos attentes."
-            }
-        ];
 
-        let currentIndex = 0;
-
-        function changeContent() {
-            // Obtenez les éléments du titre et de la description
-            const titleElement = document.getElementById('mainTitle');
-            const descriptionElement = document.getElementById('mainDescription');
-
-            // Changez le contenu
-            titleElement.textContent = phrases[currentIndex].title;
-            descriptionElement.textContent = phrases[currentIndex].description;
-
-            // Passez à la phrase suivante
-            currentIndex = (currentIndex + 1) % phrases.length; // Recommencer au début après le dernier
-        }
-
-        // Change le contenu toutes les 5 secondes
-        setInterval(changeContent, 5000);
-    </script>
   </body>
 </html>

@@ -15,10 +15,9 @@ class GestionTJobComponent extends Component
 {
     use WithPagination;
 
-    public $title, $slug, $description, $t_libellespecialite, $visiteur, $typeemploi_id, $tville_id, $tpays_id, $tJobId = null;
+    public $title, $description, $slug, $t_libellespecialite, $visiteur, $typeemploi_id, $tville_id, $tpays_id, $tJobId = null;
     public $showForm = false;
     protected $paginationTheme = 'bootstrap';
-
 
 
     public function sendMessageToTelegram($message)
@@ -43,7 +42,6 @@ class GestionTJobComponent extends Component
     // Validation des champs du formulaire
     protected $rules = [
         'title' => 'required|string|max:255',
-        'slug' => 'required|string|unique:t_jobs,slug,',
         'description' => 'required|string',
         't_libellespecialite' => 'required',
         'typeemploi_id' => 'required|integer',
@@ -66,10 +64,12 @@ class GestionTJobComponent extends Component
         $this->showForm = false;
     }
 
+
+
     // Ajouter ou modifier un emploi
     public function saveTJob()
     {
-        // $this->validate();
+        $this->validate();
 
         if ($this->tJobId) {
             // Mise à jour de l'emploi
@@ -107,6 +107,8 @@ class GestionTJobComponent extends Component
 
         $this->resetForm();
     }
+
+
 
     // Modifier un emploi existant
     public function editTJob($id)
