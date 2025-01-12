@@ -15,7 +15,13 @@ class AuthController extends Controller
         //
     }
 
-    public function verificationAcount()  {
+    public function register()
+    {
+        return view('Auth.register');
+    }
+
+    public function verificationAcount()
+    {
 
         return view('Auth.verification');
     }

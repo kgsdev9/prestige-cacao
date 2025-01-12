@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTTypeEmploisTable extends Migration
+class CreateFormationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,11 @@ class CreateTTypeEmploisTable extends Migration
      */
     public function up()
     {
-        Schema::create('t_type_emplois', function (Blueprint $table) {
+        Schema::create('formations', function (Blueprint $table) {
             $table->id();
-            $table->string('libelletypeemploi');
+            $table->string('name');
+            $table->text('description');
+            $table->text('image');
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ class CreateTTypeEmploisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_type_emplois');
+        Schema::dropIfExists('formations');
     }
 }

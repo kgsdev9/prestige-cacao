@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\URL;
 use App\Http\Controllers\Controller;
 use App\Models\CourseEssentielle;
 use App\Models\Episode as ModelsEpisode;
+use App\Models\Formation;
 use App\Models\Level;
 use App\Models\PerfomancePrestataire;
 use App\Models\Prestataire;
@@ -24,21 +25,22 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    protected $courseService ;
+    protected $courseService;
     protected $categoryService;
     protected $teacherService;
-    public $codeCommande ;
+    public $codeCommande;
 
 
     public function __construct(CourseService $courseService, CategoryService $categoryService, TeacherService $teacherService)
     {
-        $this->courseService = $courseService ;
-        $this->categoryService = $categoryService ;
-        $this->teacherService = $teacherService ;
-        $this->codeCommande = rand(1230, 15000).'SAS-FORMATION' ;
+        $this->courseService = $courseService;
+        $this->categoryService = $categoryService;
+        $this->teacherService = $teacherService;
+        $this->codeCommande = rand(1230, 15000) . 'SAS-FORMATION';
     }
 
-    public function detailPrestataire($id) {
+    public function detailPrestataire($id)
+    {
 
         $prestataire = Prestataire::find($id);
         $listeskills = PerfomancePrestataire::where('prestataire_id', $prestataire->id)->get();
@@ -47,37 +49,41 @@ class HomeController extends Controller
     }
 
 
-    public function home() {
+    public function home()
+    {
         return view('welcome', [
-            'listecanddiat'=> TCandidat::orderByDesc('created_at')->take(8)->get(),
+            'listeformations' => Formation::all(),
         ]);
     }
 
-    public function profileCandidat() {
-        return view('home.profilecandidature');
+    public function profileCandidat()
+    {
+        return view('Auth.register');
     }
 
 
-    public function homeCategory() {
+    public function homeCategory()
+    {
         $category = Category::paginate(18);
         return view('home.categoryHome', compact('category'));
     }
 
 
-    public function boutiqueFormateur($slug) {
+    public function boutiqueFormateur($slug)
+    {
         $ec = Formateur::where('slug', $slug)->first();
-        $name =  $ec->fullname ;
+        $name =  $ec->fullname;
         $image = $ec->avatar;
         $url = URL::current();
         $shareComponent = \Share::page(
-           $url
+            $url
         )
-        ->facebook()
-        ->twitter()
-        ->linkedin()
-        ->telegram()
-        ->whatsapp()
-        ->reddit();
+            ->facebook()
+            ->twitter()
+            ->linkedin()
+            ->telegram()
+            ->whatsapp()
+            ->reddit();
         $query = Course::where('formateur_id', $ec->id)->get();
         return view('home.boutiqueFormateur', compact('query', 'name', 'image', 'shareComponent'));
     }
@@ -90,26 +96,28 @@ class HomeController extends Controller
     {
         return view('home.formation-home', [
             'allCourses' => TCandidat::all(),
-            'categories'=> TLibelleSpecialite::all(),
+            'categories' => TLibelleSpecialite::all(),
             'level' => []
-         ]);
-
+        ]);
     }
 
-    public function detailCommande($id) {
-      $commande  =  Order::find($id);
+    public function detailCommande($id)
+    {
+        $commande  =  Order::find($id);
 
-      return view('profiledashboard.orders.detail', compact('commande'));
+        return view('profiledashboard.orders.detail', compact('commande'));
     }
 
 
-    public function courseByCategory($id) {
-        $course = Course::where('category_id' ,$id)->get();
-        return view('home.categoryFormation',compact('course'));
+    public function courseByCategory($id)
+    {
+        $course = Course::where('category_id', $id)->get();
+        return view('home.categoryFormation', compact('course'));
     }
 
-    public function commande($id) {
-        if(Auth::check())  {
+    public function commande($id)
+    {
+        if (Auth::check()) {
             $course = Course::find($id);
         } else {
             return redirect()->route('auth.login');
@@ -118,35 +126,26 @@ class HomeController extends Controller
     }
 
 
-    public function detailCourse($id) {
+    public function detailCourse($id)
+    {
+        dd('ss');
         $course = Course::where('slug', $id)->first();
-        $listeepisode = ModelsEpisode::where('course_id', '=' ,$course->id)->get();
-        $listeensetielle = CourseEssentielle::where('course_id', '=' ,$course->id)->get();
-         return view('home.detailFormation', compact('course', 'listeepisode', 'listeensetielle'));
+        $listeepisode = ModelsEpisode::where('course_id', '=', $course->id)->get();
+        $listeensetielle = CourseEssentielle::where('course_id', '=', $course->id)->get();
+        return view('home.detailFormation', compact('course', 'listeepisode', 'listeensetielle'));
     }
 
-     public function annuaireFormateur() {
+    public function annuaireFormateur()
+    {
         return view('home.formateur', [
             'allFormateurs' => Prestataire::all(),
-            'allTags'=> Specialite::all()
+            'allTags' => Specialite::all()
         ]);
-     }
-
-     public function ordersListe(){
-        $commande = Order::where('user_id', Auth::user()->id)->get();
-        return view('profiledashboard.orders.liste', compact('commande'));
-     }
-
-
-
-
     }
 
-
-
-
-
-
-
-
-
+    public function ordersListe()
+    {
+        $commande = Order::where('user_id', Auth::user()->id)->get();
+        return view('profiledashboard.orders.liste', compact('commande'));
+    }
+}

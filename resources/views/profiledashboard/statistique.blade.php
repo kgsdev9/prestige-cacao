@@ -11,7 +11,7 @@
             <div class="p-4">
                 <span class="fs-6 text-uppercase fw-semibold">TOTAL COURS</span>
                 <h2 class="mt-4 fw-bold mb-1 d-flex align-items-center h1 lh-1">
-                  {{count($allCourseForTeacher)}}
+                  {{-- {{count($allCourseForTeacher)}} --}}
                 </h2>
 
             </div>

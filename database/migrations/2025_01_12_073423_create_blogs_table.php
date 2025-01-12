@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTFileCandidatsTable extends Migration
+class CreateBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,12 @@ class CreateTFileCandidatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('t_file_candidats', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('candidature_id');
-            $table->foreign('candidature_id')->references('id')->on('t_candidats');
-            $table->string('file');
+            $table->string('title');
+            $table->text('description');
+            $table->timestamp('publish_at')->nullable();
+            $table->integer('visiteur')->default(10);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ class CreateTFileCandidatsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('t_file_candidats');
+        Schema::dropIfExists('blogs');
     }
 }

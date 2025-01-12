@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Formation;
 use App\Models\TJob;
 use Livewire\Component;
 
@@ -13,8 +14,8 @@ class HomeDetailJob extends Component
     public function mount($slug)
     {
         $this->jobid = $slug;
-        $this->job = TJob::where('slug', $this->jobid)->firstOrFail();
-        $this->job->increment('visiteur');
+        $this->job = Formation::where('id', $this->jobid)->firstOrFail();
+        // $this->job->increment('visiteur');
     }
     public function render()
     {

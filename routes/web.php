@@ -74,14 +74,14 @@ Route::get('/profile-formateur', [ProfileController::class, 'profileFormateur'])
 Route::get('/formateur-store/{slug}-{id}', [HomeController::class, 'boutiqueFormateur'])->name('boutique.formateur');
 Route::resource('courses', CourseController::class);
 Route::get('/course/{slug}', [HomeController::class, 'detailCourse'])->name('detail.course');
-Route::get('/processinPayment', [PaymentController::class , 'createNewPayment'])->name('payment.form');
+Route::get('/processinPayment', [PaymentController::class, 'createNewPayment'])->name('payment.form');
 Route::get('/orders/user/liste', [HomeController::class, 'ordersListe'])->name('orders.users.liste');
 Route::get('/orders/{id}', [HomeController::class, 'detailCommande'])->name('orders.detail');
 Route::get('/prestation', [PrestationController::class, 'index'])->name('prestation.index');
 Route::get('/skills', [SkillController::class, 'index'])->name('skills.index');
 Route::get('/mesformations', CourseComponent::class)->name('formation.index')->middleware('auth');
 Route::get('/projets', ProjetComponent::class)->name('projet.index')->middleware('auth');
-Route::get('/sucess/creation', function() {
+Route::get('/sucess/creation', function () {
     return view('actions.sucessTeacher');
 });
 
@@ -100,13 +100,13 @@ Route::middleware([AdminMddleware::class])->group(function () {
 Route::resources([
     'category' => GestionCategoryController::class,
     'coupon' => GestionCouponController::class,
-    'episode'=> EpisodeController::class
+    'episode' => EpisodeController::class
 ]);
 
 
 Route::get('/cancel-payment', [PaymentController::class, 'cancelPayment'])->name('cancel.payment');
 Route::get('/sucess-payment', [PaymentController::class, 'sucessPayment'])->name('success.payment');
-Route::post('/process-payment', [PaymentController::class,'initialisePayment'])->name('process.checkout');
+Route::post('/process-payment', [PaymentController::class, 'initialisePayment'])->name('process.checkout');
 
 
 // GoogleLoginController redirect and callback urls
@@ -114,17 +114,17 @@ Route::get('/login/{google}', [AuthSocialController::class, 'redirectToGoogle'])
 Route::get('/login/{google}/callback', [AuthSocialController::class, 'handleGoogleCallback']);
 
 
-Route::get('/comment-ca-marche', function() {
+Route::get('/comment-ca-marche', function () {
     return view('home.commentcamarche');
 });
 
 
-Route::get('/conditionutilisateur', function() {
+Route::get('/conditionutilisateur', function () {
     return view('home.condtiionutilisation');
 })->name('CGU');
 
 
-Route::get('/confirmated_compte' , [AuthController::class, 'verificationAcount'])->name('confirmated.compte');;
+Route::get('/confirmated_compte', [AuthController::class, 'verificationAcount'])->name('confirmated.compte');;
 
 
 
@@ -141,7 +141,6 @@ Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'
 
 Route::get('/detail/profile/candidat/{codeprofile}', DetailPrestataire::class)->name('detail.candidat');
 
-Route::get('/renseigne-mes-informations', [HomeController::class, 'profileCandidat'])->name('information.candidat');
 
 Route::get('/experiences', ExperienceComponent::class)->name('experience.index');
 Route::get('/competences', CompetenceComponent::class)->name('competence.index');
@@ -150,28 +149,28 @@ Route::get('/formations', FormationComponent::class)->name('formation.index');
 Route::get('/projets', ProjetComponent::class)->name('projet.index');
 Route::get('/social-comptes', SocialAccompteComponent::class)->name('comptesocial.index');
 Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboard.users')->middleware('auth');
-Route::get('/nos-candidats', HomeCandidat::class)->name('candidat.index');
-Route::get('/gestionspecialites',GestionSpecialiteComponent::class, 'index')->name('gestion.specialies')->middleware('auth');
-Route::get('/gestion-candidatures',CandidatListComponent::class, 'index')->name('gestion.listcandidat')->middleware('auth');
+Route::get('/nos-formations', HomeCandidat::class)->name('candidat.index');
+Route::get('/gestionspecialites', GestionSpecialiteComponent::class, 'index')->name('gestion.specialies')->middleware('auth');
+Route::get('/gestion-candidatures', CandidatListComponent::class, 'index')->name('gestion.listcandidat')->middleware('auth');
 
 Route::get('/gestion-utilisateurs', GestionUserComponent::class)->name('users.management');
 Route::get('/gestion-articles', GestionArticleComponent::class)->name('articles.management');
-Route::get('/politiquedeconfidentialite', function() {
+Route::get('/politiquedeconfidentialite', function () {
     return view('home.politiquedeconfidentialise');
 })->name('politique.confidentialise');
 
 
-Route::get('/fac', function() {
+Route::get('/fac', function () {
     return view('home.faq');
 })->name('fac');
 
 
-Route::get('/quisommesnous', function() {
+Route::get('/quisommesnous', function () {
     return view('home.about');
 })->name('about');
 
 
 
-Route::get('/gestion-job',GestionTJobComponent::class)->name('gestion.job')->middleware('auth');
-Route::get('/home-job',HomeJob::class)->name('home.job');
-Route::get('/home-job-detail/{slug}',HomeDetailJob::class)->name('detail.job');
+Route::get('/gestion-job', GestionTJobComponent::class)->name('gestion.job')->middleware('auth');
+Route::get('/home-job', HomeJob::class)->name('home.job');
+Route::get('/home-job-detail/{slug}', HomeDetailJob::class)->name('detail.job');
