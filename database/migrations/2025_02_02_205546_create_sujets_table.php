@@ -17,8 +17,8 @@ class CreateSujetsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('document')->nullable();
-            $table->foreignId('annee_id')->constrained('annee_id')->onDelete('cascade');
-            $table->foreignId('matiere_id')->constrained()->onDelete('cascade');
+            $table->foreignId('annee_id')->constrained('annees')->onDelete('cascade');
+            $table->foreignId('matiere_id')->constrained('matieres')->onDelete('cascade');
             $table->enum('status', ['active', 'inactive'])->default('active');
             $table->timestamps();
         });
