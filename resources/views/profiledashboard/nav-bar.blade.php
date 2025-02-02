@@ -1,7 +1,6 @@
 <div class="navbar-nav flex-column mt-4 mt-lg-0 d-flex flex-column gap-3">
     <ul class="list-unstyled mb-0">
         <!-- Nav item -->
-
         <li class="nav-item">
             <a class="nav-link" href="{{ route('dashboard.users') }}">
                 <i class="fe fe-home nav-icon"></i>
@@ -19,136 +18,116 @@
         <li class="nav-item">
             <a class="nav-link" href="project-blank.html">
                 <i class="fe fe-edit nav-icon"></i>
-                My Projects
+                Mes Projets
             </a>
         </li>
         <!-- Nav item -->
-        <li class="nav-item nav-collapse">
-            <a class="nav-sub-link" data-bs-toggle="collapse" href="#collapseExample">
-                <i class="fe fe-help-circle nav-icon"></i>
-                My Quiz
+        <li class="nav-item">
+            <a class="nav-link" href="course-blank.html">
+                <i class="fe fe-book nav-icon"></i>
+                Mes Cours
             </a>
-            <div class="collapse" id="collapseExample">
-                <ul class="list-unstyled py-2 px-4">
-                    <li class="nav-item">
-                        <a class="nav-link" href="quiz-blank.html">Quiz</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="my-quiz.html">My Quiz</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="student-quiz-start.html">Quiz Single</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="quiz-result.html">Quiz Result</a>
-                    </li>
-                </ul>
-            </div>
         </li>
         <!-- Nav item -->
-        <li class="nav-item nav-collapse">
-            <a class="nav-sub-link" data-bs-toggle="collapse" href="#collapseCertificat">
+        <li class="nav-item">
+            <a class="nav-link" href="exams-blank.html">
+                <i class="fe fe-edit nav-icon"></i>
+                Mes Examens
+            </a>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+            <a class="nav-link" href="homework-blank.html">
                 <i class="fe fe-file-text nav-icon"></i>
-                Certificate
+                Mes Devoirs
             </a>
-            <div class="collapse py-2 px-4" id="collapseCertificat">
-                <ul class="list-unstyled">
-                    <li class="nav-item">
-                        <a class="nav-link" href="certificate-blank.html">Certificate</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="my-certificate.html">My Certificate</a>
-                    </li>
-                </ul>
-            </div>
         </li>
         <!-- Nav item -->
         <li class="nav-item">
-            <a class="nav-link" href="student-subscriptions.html">
+            <a class="nav-link" href="formations-blank.html">
+                <i class="fe fe-video nav-icon"></i>
+                Nos Formations
+            </a>
+        </li>
+        <!-- Nav item -->
+        <li class="nav-item">
+            <a class="nav-link" href="academic-year-blank.html">
                 <i class="fe fe-calendar nav-icon"></i>
-                Subscription
+                Année Académique
             </a>
         </li>
         <!-- Nav item -->
         <li class="nav-item">
-            <a class="nav-link" href="billing-info.html">
-                <i class="fe fe-info nav-icon"></i>
-                Billing Info
+            <a class="nav-link" href="teachers-blank.html">
+                <i class="fe fe-users nav-icon"></i>
+                Enseignants
             </a>
         </li>
         <!-- Nav item -->
         <li class="nav-item">
-            <a class="nav-link" href="payment-method.html">
-                <i class="fe fe-credit-card nav-icon"></i>
-                Payment
-            </a>
-        </li>
-        <!-- Nav item -->
-        <li class="nav-item">
-            <a class="nav-link" href="invoice.html">
-                <i class="fe fe-file nav-icon"></i>
-                Invoice
+            <a class="nav-link" href="articles-blank.html">
+                <i class="fe fe-file-text nav-icon"></i>
+                Mes Articles
             </a>
         </li>
     </ul>
     <!-- Navbar header -->
     <div class="d-flex flex-column gap-1">
-        <span class="navbar-header">Learn</span>
+        <span class="navbar-header">Apprentissage</span>
         <ul class="list-unstyled mb-0">
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="all-courses.html">
                     <i class="fe fe-youtube nav-icon"></i>
-                    All Courses
+                    Toutes les Cours
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="learning-path.html">
                     <i class="fe fe-trending-up nav-icon"></i>
-                    Learning path
+                    Parcours d'Apprentissage
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="dashboard-project.html">
                     <i class="fe fe-edit nav-icon"></i>
-                    Projects
+                    Projets
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="dashboard-quiz.html">
                     <i class="fe fe-credit-card nav-icon"></i>
-                    Quizzes
+                    Quiz
                 </a>
             </li>
         </ul>
     </div>
     <!-- Navbar header -->
     <div class="d-flex flex-column gap-1">
-        <span class="navbar-header">Account Settings</span>
+        <span class="navbar-header">Paramètres du Compte</span>
         <ul class="list-unstyled mb-0">
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="profile-edit.html">
                     <i class="fe fe-settings nav-icon"></i>
-                    Edit Profile
+                    Modifier le Profil
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="security.html">
                     <i class="fe fe-user nav-icon"></i>
-                    Security
+                    Sécurité
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="social-profile.html">
                     <i class="fe fe-refresh-cw nav-icon"></i>
-                    Social Profiles
+                    Profils Sociaux
                 </a>
             </li>
             <!-- Nav item -->
@@ -162,33 +141,34 @@
             <li class="nav-item">
                 <a class="nav-link" href="profile-privacy.html">
                     <i class="fe fe-lock nav-icon"></i>
-                    Profile Privacy
+                    Confidentialité du Profil
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="delete-profile.html">
                     <i class="fe fe-trash nav-icon"></i>
-                    Delete Profile
+                    Supprimer le Profil
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="linked-accounts.html">
                     <i class="fe fe-user nav-icon"></i>
-                    Linked Accounts
+                    Comptes Liés
                 </a>
             </li>
             <!-- Nav item -->
             <li class="nav-item">
                 <a class="nav-link" href="https://geeksui.codescandy.com/geeks/index.html">
                     <i class="fe fe-power nav-icon"></i>
-                    Sign Out
+                    Se Déconnecter
                 </a>
             </li>
         </ul>
     </div>
 </div>
+
 
 
 
