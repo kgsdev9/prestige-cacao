@@ -35,8 +35,8 @@
                                         <div class="col-xl-9 col-lg-6">
                                             <div class="d-flex flex-column gap-5 py-xl-3">
                                                 <div class="pe-xl-8">
-                                                    <h2 class="mb-0">Browse the ever-growing list of projects ideas and
-                                                        solutions.</h2>
+                                                    <h2 class="mb-0">Gestion des filieres
+                                                       </h2>
                                                     <p class="mb-0">
                                                         Building projects is the best way to learn. Engage with real-world
                                                         challenges using applications. Apply your knowledge to real
@@ -44,7 +44,7 @@
                                                     </p>
                                                 </div>
                                                 <div>
-                                                    <a href="#!" class="btn btn-dark">Get Started</a>
+                                                    <a href="#!" class="btn btn-dark">Création</a>
                                                 </div>
                                             </div>
                                         </div>

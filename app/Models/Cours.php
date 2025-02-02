@@ -5,11 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Formation extends Model
+class Cours extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'image'];
-
-    
+    protected $fillable = ['title', 'matiere_id', 'description', 'url', 'enseignant_id'];
 }
-

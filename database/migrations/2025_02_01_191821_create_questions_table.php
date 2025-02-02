@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBlogsTable extends Migration
+class CreateQuestionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateBlogsTable extends Migration
      */
     public function up()
     {
-        Schema::create('blogs', function (Blueprint $table) {
+        Schema::create('questions', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('image');
-            $table->text('description');
-            $table->timestamp('publish_at')->nullable();
-            $table->integer('visiteur')->default(10);
+            $table->foreignId('quiz_id')->constrained('quizzes')->onDelete('cascade');  // Crée la clé étrangère 'quiz_id', qui fait référence à la table 'quizzes'
+            $table->text('question');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateBlogsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('blogs');
+        Schema::dropIfExists('questions');
     }
 }

@@ -5,11 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Formation extends Model
+class Reponse extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'description', 'image'];
 
-    
+    protected $fillable =  ['question_id', 'reponse', 'correct'];
 }
-

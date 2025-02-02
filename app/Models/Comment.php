@@ -7,7 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-    use HasFactory; 
+    use HasFactory;
 
-    protected $fillable =  ['course_id', 'content', 'note'];
+    protected $fillable = [
+        'course_id',
+        'description',
+        'note'
+    ];
+
+    // Définir la relation avec le modèle Course
+    public function course()
+    {
+        return $this->belongsTo(Cours::class);
+    }
 }

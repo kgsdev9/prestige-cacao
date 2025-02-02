@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('title', 'Bienvenue sur Carriere pro plus')
+@section('title', 'Bienvenue sur institut roosvelet')
 @section('content')
     <main>
         <section class="py-xl-8 py-6">
@@ -60,7 +60,7 @@
                             </div>
                             <div class="d-grid d-md-flex flex-row gap-2">
                                 <a href="{{ route('auth.register') }}" class="btn btn-primary btn-lg">Inscrivez-vous</a>
-                                <a href="{{ route('candidat.index') }}" class="btn btn-outline-secondary btn-lg">Découvrir
+                                <a href="" class="btn btn-outline-secondary btn-lg">Découvrir
                                     nos
                                     formations</a>
                             </div>
