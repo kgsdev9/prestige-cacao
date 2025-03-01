@@ -2,7 +2,7 @@
 @section('title', 'Bienvenue sur institut roosvelet')
 @section('content')
     <main>
-        <section class="py-xl-8 py-6">
+        <section class="py-xl-8 py-8">
             <div class="container py-xl-6">
                 <div class="row align-items-center gy-6 gy-xl-0">
                     <div class="col-lg-5 col-xxl-5 col-12">
@@ -114,14 +114,14 @@
                             <div class="col-md-6 mt-8 mt-md-0">
                                 <div class="bg-warning d-flex justify-content-center rounded-4 position-relative"
                                     style="padding-bottom: 150px; padding-top: 100px">
-                                    <img src="./assets/images/landing-immigration/college-student-holding-laptop-pointing-right.png"
+                                    <img src="assets/images/avatar/college-student-holding-laptop-pointing-right.png"
                                         alt="" class="position-absolute bottom-0 me-8">
                                 </div>
                             </div>
                             <div class="col-md-6 flex-column justify-content-end d-none d-md-flex">
                                 <div class="bg-primary d-flex justify-content-center rounded-4 position-relative mx-5"
                                     style="padding-bottom: 150px; padding-top: 100px">
-                                    <img src="./assets/images/landing-immigration/front-view-young-man-going-university-with-bag.png"
+                                    <img src="assets/images/avatar/front-view-young-man-going-university-with-bag.png"
                                         alt="" class="position-absolute bottom-0">
                                 </div>
                             </div>

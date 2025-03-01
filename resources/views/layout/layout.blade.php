@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{ asset('admin/libs/simplebar/simplebar.min.css') }}">
     <!-- Theme CSS -->
     <link rel="stylesheet" href="{{ asset('assets/css/theme.min.css') }}">
-    <title>sss</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
     @livewireStyles
 </head>
 
@@ -46,8 +46,8 @@
                                             class="rounded-circle" />
                                     </div>
                                     <div class="ms-3 lh-1">
-                                        <h5 class="mb-1">{{ Auth::user()->name }}</h5>
-                                        <p class="mb-0">{{ Auth::user()->email }}</p>
+                                        <h5 class="mb-1">{{ Auth::user()->name ?? '' }}</h5>
+                                        <p class="mb-0">{{ Auth::user()->email ?? '' }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +128,8 @@
                         <i class="fe fe-search"></i>
                     </span>
                     <label for="search" class="visually-hidden"></label>
-                    <input type="search" id="search" class="form-control ps-6" placeholder="Rechercher un cours" />
+                    <input type="search" id="search" class="form-control ps-6"
+                        placeholder="Rechercher un cours" />
                 </form>
             </div>
         </div>
@@ -345,14 +346,14 @@
     <script src="{{ asset('assets/libs/@popperjs/core/dist/umd/popper.min.js') }}"></script>
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('assets/libs/simplebar/dist/simplebar.min.js') }}"></script>
-    <!-- Theme JS -->
     <script src="{{ asset('assets/js/theme.min.js') }}"></script>
     <script src="../assets/libs/tiny-slider/dist/min/tiny-slider.js"></script>
     <script src="../assets/js/vendors/tnsSlider.js"></script>
     <script src="../assets/libs/apexcharts/dist/apexcharts.min.js"></script>
-
     <script src="{{ asset('assets/js/vendors/navbar-nav.js') }}"></script>
-
+    <script src="{{ asset('assets/alpine.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @stack('script')
 </body>
 
 </html>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Filiere\FiliereController;
 use App\Http\Livewire\GestionTJobComponent;
 use App\Http\Livewire\ProflileComponent;
 use Illuminate\Support\Facades\Route;
@@ -25,6 +26,7 @@ use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\AuthSocialController;
 use App\Http\Controllers\Formation\FormationController;
+use App\Http\Controllers\Matiere\MatiereController;
 use App\Http\Controllers\PrestationController;
 use App\Http\Controllers\SkillController;
 use App\Http\Livewire\CandidatListComponent;
@@ -122,7 +124,8 @@ Route::get('/politiquedeconfidentialite', function () {
 
 Route::resource('users', UserController::class);
 Route::resource('formations', FormationController::class);
-
+Route::resource('filieres', FiliereController::class);
+Route::resource('matieres', MatiereController::class);
 
 Route::get('/fac', function () {
     return view('home.faq');
