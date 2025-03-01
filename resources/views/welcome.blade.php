@@ -2,7 +2,7 @@
 @section('title', 'Bienvenue sur institut roosvelet')
 @section('content')
     <main>
-        <section class="py-xl-8 py-8">
+        <section class="py-xl-8 py-8 ">
             <div class="container py-xl-6">
                 <div class="row align-items-center gy-6 gy-xl-0">
                     <div class="col-lg-5 col-xxl-5 col-12">

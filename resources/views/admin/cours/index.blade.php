@@ -1,9 +1,7 @@
 @extends('layout.layout')
 @section('title', 'Liste des cours')
 @section('content')
-    <main x-data="courseManagement()" x-init="init()" class="bg-light">
-
-
+    <main x-data="courseManagement()" class="bg-light">
         <div class="position-relative">
             <nav class="navbar navbar-expand-lg sidenav sidenav-navbar">
                 <a class="d-xl-none d-lg-none d-block text-inherit fw-bold" href="#">Menu</a>
@@ -21,7 +19,6 @@
 
         <div class="db-content">
             <div class="container mb-4">
-
                 <!-- Button to create new course -->
                 <div class="d-flex justify-content-between mb-3">
                     <h3>Liste des Cours</h3>
@@ -49,7 +46,8 @@
 
                                         <!-- Actions Buttons -->
                                         <div class="d-flex justify-content-between">
-                                            <a :href="course.url" target="_blank" class="btn btn-primary btn-sm">
+                                            <a :href="'/sauvegarde/cours/' + course.document" target="_blank"
+                                                class="btn btn-primary btn-sm">
                                                 Voir le cours
                                             </a>
                                             <div>
@@ -63,6 +61,7 @@
                                 </div>
                             </div>
                         </template>
+
                     </div>
 
                     <!-- Pagination -->
@@ -70,11 +69,14 @@
                         <nav aria-label="Page navigation">
                             <ul class="pagination">
                                 <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
-                                    <button class="page-link" @click="goToPage(currentPage - 1)">Précédent</button>
+                                    <button class="page-link" @click="goToPage(currentPage - 1)"
+                                        :disabled="currentPage === 1">Précédent</button>
                                 </li>
                                 <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
-                                    <button class="page-link" @click="goToPage(currentPage + 1)">Suivant</button>
+                                    <button class="page-link" @click="goToPage(currentPage + 1)"
+                                        :disabled="currentPage === totalPages">Suivant</button>
                                 </li>
+
                             </ul>
                         </nav>
                     </div>
@@ -99,15 +101,13 @@
                                         </div>
                                         <div class="mb-3">
                                             <label for="matiereId" class="form-label">Matière</label>
-                                            <select id="classe_id" x-model="formData.matiere_id" class="form-select"
+                                            <select id="matiereId" x-model="formData.matiere_id" class="form-select"
                                                 required>
-                                                <option value="">Choisir une Classe</option>
+                                                <option value="">Choisir une matière</option>
                                                 @foreach ($matieres as $matiere)
                                                     <option value="{{ $matiere->id }}">{{ $matiere->title }}</option>
                                                 @endforeach
                                             </select>
-
-
                                         </div>
 
                                         <div class="mb-3">
@@ -118,6 +118,11 @@
                                             <label for="courseUrl" class="form-label">URL</label>
                                             <input type="url" id="courseUrl" class="form-control" x-model="formData.url"
                                                 required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="courseDocument" class="form-label">Document (PDF)</label>
+                                            <input type="file" id="courseDocument" class="form-control"
+                                                @change="handleFileUpload" accept=".pdf">
                                         </div>
 
                                         <button type="submit" class="btn btn-primary"
@@ -161,7 +166,8 @@
                     matiere_id: '',
                     description: '',
                     url: '',
-                    enseignant_id: ''
+                    enseignant_id: '',
+                    document: null,
                 },
                 currentCourse: null,
 
@@ -186,6 +192,7 @@
                             description: this.currentCourse.description,
                             url: this.currentCourse.url,
                             enseignant_id: this.currentCourse.enseignant_id,
+                            document: null, // Optionally handle the document for editing
                         };
                     } else {
                         this.resetForm();
@@ -200,8 +207,14 @@
                         matiere_id: '',
                         description: '',
                         url: '',
-                        enseignant_id: ''
+                        enseignant_id: '',
+                        document: null,
                     };
+                },
+
+                handleFileUpload(event) {
+                    const file = event.target.files[0];
+                    this.formData.document = file;
                 },
 
                 async submitForm() {
@@ -215,6 +228,7 @@
                         formData.append('description', this.formData.description);
                         formData.append('url', this.formData.url);
                         formData.append('enseignant_id', this.formData.enseignant_id);
+                        formData.append('document', this.formData.document); // Include the document
                         formData.append('course_id', this.currentCourse ? this.currentCourse.id : null);
 
                         const response = await fetch('{{ route('cours.store') }}', {
@@ -278,6 +292,11 @@
                 filterCourses() {
                     this.totalPages = Math.ceil(this.courses.length / this.coursesPerPage);
                     this.currentPage = 1;
+                },
+
+                goToPage(page) {
+                    if (page < 1 || page > this.totalPages) return; // Prévenir les erreurs si on dépasse le nombre de pages
+                    this.currentPage = page;
                 },
 
                 deleteCourse(courseId) {

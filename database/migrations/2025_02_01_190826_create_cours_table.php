@@ -16,6 +16,7 @@ class CreateCoursTable extends Migration
         Schema::create('cours', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->string('document');
             $table->foreignId('matiere_id')->constrained('matieres')->onDelete('cascade');
             $table->text('description');
             $table->string('url')->nullable();
