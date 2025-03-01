@@ -1,7 +1,7 @@
 @extends('layout.layout')
 @section('title', 'Liste des cours')
 @section('content')
-    <main x-data="courseManagement()" class="bg-light">
+    <main x-data="courseManagement()" class="bg-light" x-init="init()">
         <div class="position-relative">
             <nav class="navbar navbar-expand-lg sidenav sidenav-navbar">
                 <a class="d-xl-none d-lg-none d-block text-inherit fw-bold" href="#">Menu</a>
@@ -157,7 +157,7 @@
                 enseignants: @json($enseignants),
                 searchTerm: '',
                 currentPage: 1,
-                coursesPerPage: 5,
+                coursesPerPage: 4,
                 totalPages: 0,
                 showModal: false,
                 isEdit: false,
@@ -299,6 +299,10 @@
                     this.currentPage = page;
                 },
 
+                init() {
+                    this.filterCourses();
+                    this.isLoading = false;
+                },
                 deleteCourse(courseId) {
                     Swal.fire({
                         title: 'Êtes-vous sûr?',

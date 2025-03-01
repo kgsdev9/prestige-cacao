@@ -30,6 +30,7 @@ use App\Http\Controllers\Formation\FormationController;
 use App\Http\Controllers\Matiere\MatiereController;
 use App\Http\Controllers\PrestationController;
 use App\Http\Controllers\SkillController;
+use App\Http\Controllers\Sujet\SujetController;
 use App\Http\Livewire\CandidatListComponent;
 use App\Http\Livewire\CompetenceComponent;
 use App\Http\Livewire\CourseComponent;
@@ -128,6 +129,7 @@ Route::resource('formations', FormationController::class);
 Route::resource('filieres', FiliereController::class);
 Route::resource('matieres', MatiereController::class);
 Route::resource('cours', CoursController::class);
+Route::resource('sujets', SujetController::class);
 
 Route::get('/fac', function () {
     return view('home.faq');
