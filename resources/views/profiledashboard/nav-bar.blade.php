@@ -16,14 +16,16 @@
         </li>
         <!-- Nav item -->
         <li class="nav-item">
-            <a class="nav-link" href="project-blank.html">
+            <a class="nav-link" href="{{ route('filieres.index') }}">
                 <i class="fe fe-edit nav-icon"></i>
-                Mes Projets
+                Filieres
             </a>
         </li>
+
+
         <!-- Nav item -->
         <li class="nav-item">
-            <a class="nav-link" href="course-blank.html">
+            <a class="nav-link" href="{{ route('cours.index') }}">
                 <i class="fe fe-book nav-icon"></i>
                 Mes Cours
             </a>

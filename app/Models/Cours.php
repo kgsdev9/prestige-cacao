@@ -9,4 +9,10 @@ class Cours extends Model
 {
     use HasFactory;
     protected $fillable = ['title', 'matiere_id', 'description', 'url', 'enseignant_id'];
+
+
+    public function matiere()
+    {
+        return $this->belongsTo(Matiere::class);
+    }
 }

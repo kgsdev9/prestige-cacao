@@ -1,5 +1,5 @@
 @extends('layout.layout')
-
+@section('title', 'Liste des users')
 @section('content')
     <div class="position-relative">
         <nav class="navbar navbar-expand-lg sidenav sidenav-navbar">

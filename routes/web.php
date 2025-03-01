@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\GestionFormateurController;
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\VerificationController;
 use App\Http\Controllers\AuthSocialController;
+use App\Http\Controllers\Cours\CoursController;
 use App\Http\Controllers\Formation\FormationController;
 use App\Http\Controllers\Matiere\MatiereController;
 use App\Http\Controllers\PrestationController;
@@ -126,6 +127,7 @@ Route::resource('users', UserController::class);
 Route::resource('formations', FormationController::class);
 Route::resource('filieres', FiliereController::class);
 Route::resource('matieres', MatiereController::class);
+Route::resource('cours', CoursController::class);
 
 Route::get('/fac', function () {
     return view('home.faq');
