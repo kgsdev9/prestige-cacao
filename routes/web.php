@@ -136,7 +136,7 @@ Route::get('/fac', function () {
 })->name('fac');
 
 
-Route::get('/quisommesnous', function () {
+Route::get('/about', function () {
     return view('home.about');
 })->name('about');
 
