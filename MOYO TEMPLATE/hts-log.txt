@@ -1,0 +1,19 @@
+HTTrack3.49-2+htsswf+htsjava launched on Sat, 15 Mar 2025 10:10:33 at https://around.createx.studio/index.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F  -%F  -%l "en, *" https://around.createx.studio/index.html -O1 "C:\My Web Sites\MOYO TEMPLATE" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+10:13:19	Error: 	"Bad Request" (400) at link https://www.googletagmanager.com/gtm.js?id= (from https://around.createx.studio/index.html)
+10:27:44	Error: 	"Not Found" (404) at link https://around.createx.studio/transparent (from https://around.createx.studio/index.html)
+10:27:52	Error: 	"Not Found" (404) at link https://around.createx.studio/+15262200459 (from https://around.createx.studio/landing-shop-v1.html)
+10:28:15	Error: 	"Not Found" (404) at link https://around.createx.studio/docs/typography.html (from https://around.createx.studio/docs/getting-started.html)
+10:28:39	Error: 	"Not Found" (404) at link https://around.createx.studio/components/" (from https://around.createx.studio/components/hotspots.html)
+10:28:39	Error: 	"Not Found" (404) at link https://around.createx.studio/assets/img/landing/shop/hero/bg.jpg (from https://around.createx.studio/components/parallax.html)
+10:28:39	Error: 	"Not Found" (404) at link https://around.createx.studio/assets/img/landing/shop/hero/01.png (from https://around.createx.studio/components/shop-components.html)
+10:28:39	Error: 	"Not Found" (404) at link https://around.createx.studio/docs/using-preprocessors.html (from https://around.createx.studio/docs/changelog.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 18 minutes 6 seconds : 1017 links scanned, 1008 files written (52430984 bytes overall) [43176496 bytes received at 39757 bytes/sec], 12670699 bytes transferred using HTTP compression in 356 files, ratio 22%
+(8 errors, 0 warnings, 0 messages)
