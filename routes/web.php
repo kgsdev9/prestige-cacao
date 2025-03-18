@@ -60,6 +60,9 @@ use App\Http\Middleware\AdminMddleware;
 */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
+Route::get('/devenir-membre', [HomeController::class, 'becomeMembre'])->name('become.membership');
+
+
 Route::get('/sucess/{name}', [ActionController::class, 'registerSuccess'])->name('register.sucess');
 Route::get('/register', [RegisterController::class, 'create'])->name('auth.register');
 Route::post('/post/user', [RegisterController::class, 'store'])->name('register');

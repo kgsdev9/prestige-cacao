@@ -58,10 +58,10 @@
                 <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
                     <div class="col-md-6 col-xl-5 offset-lg-1 order-md-2 pb-2 pb-md-0 mb-4 mb-md-0 aos-init"
                         data-aos="fade-left" data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
-                        <img class="d-dark-mode-none" src="assets/img/landing/saas-2/steps/01-light.png" width="525"
+                        <img class="d-dark-mode-none" src="{{ asset('moyo-card-jaune.jpg') }}" width="525"
                             alt="Image">
-                        <img class="d-none d-dark-mode-block" src="assets/img/landing/saas-2/steps/01-dark.png"
-                            width="525" alt="Image">
+                        <img class="d-none d-dark-mode-block" src="{{ asset('moyo-card-jaune.jpg') }}" width="525"
+                            alt="Image">
                     </div>
                     <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1 aos-init" data-aos="fade-right"
                         data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
@@ -101,7 +101,7 @@
                 <div class="row align-items-center position-relative pb-5 pb-lg-0 mb-1 mb-sm-2 mb-md-4 mb-lg-0">
                     <div class="col-md-6 col-xl-5 offset-xl-1 pb-2 pb-md-0 mb-4 mb-md-0 aos-init" data-aos="fade-right"
                         data-aos-duration="500" data-aos-offset="250" data-disable-parallax-down="md">
-                        <img class="d-dark-mode-none" src="assets/img/landing/saas-2/steps/02-light.png" width="473"
+                        <img class="d-dark-mode-none" src="{{ asset('moyo-green-card.jpg') }}" width="473"
                             alt="Image">
                         <img class="d-none d-dark-mode-block" src="assets/img/landing/saas-2/steps/02-dark.png"
                             width="473" alt="Image">
@@ -194,7 +194,9 @@
                     data-aos-offset="200" data-disable-parallax-down="md">
                     <h2 class="mb-lg-4">Avantages de la Carte d'Assurance Moyo</h2>
                     <p class="pb-1 pb-md-2 mb-xl-4">
-                        La carte d'assurance Moyo Assurance CI vous permet de scanner et visualiser vos cotisations automatiquement, en accédant directement à vos informations en ligne. Grâce à cette carte, vous bénéficiez de plusieurs avantages :
+                        La carte d'assurance Moyo Assurance CI vous permet de scanner et visualiser vos cotisations
+                        automatiquement, en accédant directement à vos informations en ligne. Grâce à cette carte, vous
+                        bénéficiez de plusieurs avantages :
                     </p>
                     <ul class="list-unstyled">
                         <li class="d-flex pt-1 mt-2">

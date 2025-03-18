@@ -56,10 +56,9 @@ class HomeController extends Controller
     }
 
 
-    public function homeCategory()
+    public function becomeMembre()
     {
-        $category = Category::paginate(18);
-        return view('home.categoryHome', compact('category'));
+        return view('home.becomemembre');
     }
 
 
