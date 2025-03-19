@@ -18,7 +18,7 @@
 
     <!-- Favicon et icônes -->
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{asset('flaticon-moyo.png')}}" sizes="32x32">
     <link rel="apple-touch-icon" href="assets/img/apple-icon-180x180.png">
 
     <!-- Import Google Fonts -->
