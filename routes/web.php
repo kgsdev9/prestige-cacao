@@ -1,51 +1,9 @@
 <?php
 
 use App\Http\Controllers\Filiere\FiliereController;
-use App\Http\Livewire\GestionTJobComponent;
-use App\Http\Livewire\ProflileComponent;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
-use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Admin\GestionCommande;
-use App\Http\Controllers\Auth\ActionController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Logout\LogoutController;
-use App\Http\Controllers\Courses\CourseController;
-use App\Http\Controllers\Admin\HomeAdminController;
-use App\Http\Controllers\Episode\EpisodeController;
-use App\Http\Controllers\Payment\PaymentController;
-use App\Http\Controllers\Profles\ProfileController;
-use App\Http\Controllers\Admin\GestionCouponController;
-use App\Http\Controllers\Users\UserController;
-use App\Http\Controllers\Admin\GestionCourseController;
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Formateur\FormateurController;
-use App\Http\Controllers\Admin\GestionCategoryController;
-use App\Http\Controllers\Admin\GestionFormateurController;
-use App\Http\Controllers\Auth\AuthController;
-use App\Http\Controllers\Auth\VerificationController;
-use App\Http\Controllers\AuthSocialController;
-use App\Http\Controllers\Cours\CoursController;
-use App\Http\Controllers\Formation\FormationController;
-use App\Http\Controllers\Matiere\MatiereController;
-use App\Http\Controllers\PrestationController;
-use App\Http\Controllers\SkillController;
-use App\Http\Controllers\Sujet\SujetController;
-use App\Http\Livewire\CandidatListComponent;
-use App\Http\Livewire\CompetenceComponent;
-use App\Http\Livewire\CourseComponent;
-use App\Http\Livewire\DetailPrestataire;
-use App\Http\Livewire\ExperienceComponent;
-use App\Http\Livewire\FormationComponent;
-use App\Http\Livewire\GestionArticleComponent;
-use App\Http\Livewire\GestionSpecialiteComponent;
-use App\Http\Livewire\GestionUserComponent;
-use App\Http\Livewire\HomeCandidat;
-use App\Http\Livewire\HomeDetailJob;
-use App\Http\Livewire\HomeJob;
-use App\Http\Livewire\ProjetComponent;
-use App\Http\Livewire\SocialAccompteComponent;
-use App\Http\Middleware\AdminMddleware;
+
 
 
 /*
@@ -62,78 +20,6 @@ use App\Http\Middleware\AdminMddleware;
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/devenir-membre', [HomeController::class, 'becomeMembre'])->name('become.membership');
 
-
-Route::get('/sucess/{name}', [ActionController::class, 'registerSuccess'])->name('register.sucess');
-Route::get('/register', [RegisterController::class, 'create'])->name('auth.register');
-Route::post('/post/user', [RegisterController::class, 'store'])->name('register');
-Route::get('/login', [LoginController::class, 'login'])->name('auth.login');
-Route::post('/login/User', [LoginController::class, 'loginForUser'])->name('post.login');
-Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
-Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboard.users')->middleware('auth');
-Route::post('/createNewTeacher', [FormateurController::class, 'store'])->name('post.new.formateur');
-
-
-Route::resources([
-    'category' => GestionCategoryController::class,
-    'coupon' => GestionCouponController::class,
-    'episode' => EpisodeController::class
-]);
-
-
-Route::get('/cancel-payment', [PaymentController::class, 'cancelPayment'])->name('cancel.payment');
-Route::get('/sucess-payment', [PaymentController::class, 'sucessPayment'])->name('success.payment');
-Route::post('/process-payment', [PaymentController::class, 'initialisePayment'])->name('process.checkout');
-
-
-// GoogleLoginController redirect and callback urls
-Route::get('/login/{google}', [AuthSocialController::class, 'redirectToGoogle'])->name('auth.google');
-Route::get('/login/{google}/callback', [AuthSocialController::class, 'handleGoogleCallback']);
-
-
-Route::get('/comment-ca-marche', function () {
-    return view('home.commentcamarche');
-});
-
-
-Route::get('/conditionutilisateur', function () {
-    return view('home.condtiionutilisation');
-})->name('CGU');
-
-
-Route::get('/confirmated_compte', [AuthController::class, 'verificationAcount'])->name('confirmated.compte');;
-
-
-
-
-
-Route::get('/email/verify/{id}/{hash}', [VerificationController::class, 'verify'])
-    ->name('verification.verify')
-    ->middleware(['signed', 'throttle:6,1']); // Ajout des middlewares "signed" et "throttle" pour limiter les requêtes
-
-
-
-
-// mes nouvelles routes
-
-Route::get('/detail/profile/candidat/{codeprofile}', DetailPrestataire::class)->name('detail.candidat');
-
-
-
-Route::get('/gestion-utilisateurs', GestionUserComponent::class)->name('users.management');
-Route::get('/gestion-articles', GestionArticleComponent::class)->name('articles.management');
-Route::get('/politiquedeconfidentialite', function () {
-    return view('home.politiquedeconfidentialise');
-})->name('politique.confidentialise');
-
-
-
-Route::resource('users', UserController::class);
-Route::resource('formations', FormationController::class);
-Route::resource('filieres', FiliereController::class);
-Route::resource('matieres', MatiereController::class);
-Route::resource('cours', CoursController::class);
-Route::resource('sujets', SujetController::class);
-
 Route::get('/fac', function () {
     return view('home.faq');
 })->name('fac');
@@ -143,6 +29,6 @@ Route::get('/about', function () {
     return view('home.about');
 })->name('about');
 
-
-
-Route::get('/home-job-detail/{slug}', HomeDetailJob::class)->name('detail.job');
+Route::get('/assurance-scolaire', function () {
+    return view('home.assurance');
+})->name('assurance.scolaire');

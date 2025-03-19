@@ -271,7 +271,7 @@
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Nos
                                 services</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Assurance scolaire</a>
+                                <li><a class="dropdown-item" href="{{route('assurance.scolaire')}}">Assurance scolaire</a>
                                 </li>
                                 <li><a class="dropdown-item" href="#">Encadrement</a></li>
                                 <li><a class="dropdown-item" href="#">Coaching</a></li>
@@ -307,7 +307,7 @@
                 <div class="col-md-4 col-lg-3 pb-2 pb-md-0 mb-4 mb-md-0">
                     <a class="navbar-brand text-nav py-0 mb-3 mb-md-4" href="#">
                         <span class="text-primary flex-shrink-0 me-2">
-                            <img src="{{ asset('logo-m-moyo.png') }}" style="height:60px;" alt=""> 
+                            <img src="{{ asset('logo-m-moyo.png') }}" style="height:60px;" alt="">
                         </span>
                         <span>oyo</span>
                     </a>
