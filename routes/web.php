@@ -32,3 +32,13 @@ Route::get('/about', function () {
 Route::get('/assurance-scolaire', function () {
     return view('home.assurance');
 })->name('assurance.scolaire');
+
+
+Route::get('/cotisations', function () {
+    return view('home.cotisation');
+})->name('cotisations.scolaire');
+
+
+Route::get('/conseils', function () {
+    return view('home.conseil');
+})->name('conseils.scolaire');

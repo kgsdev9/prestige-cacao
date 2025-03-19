@@ -18,7 +18,7 @@
 
     <!-- Favicon et icônes -->
     <link rel="manifest" href="manifest.json">
-    <link rel="icon" type="image/png" href="{{asset('flaticon-moyo.png')}}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ asset('flaticon-moyo.png') }}" sizes="32x32">
     <link rel="apple-touch-icon" href="assets/img/apple-icon-180x180.png">
 
     <!-- Import Google Fonts -->
@@ -271,17 +271,19 @@
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Nos
                                 services</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{route('assurance.scolaire')}}">Assurance scolaire</a>
+                                <li><a class="dropdown-item" href="{{ route('assurance.scolaire') }}">Assurance
+                                        scolaire</a>
                                 </li>
                                 <li><a class="dropdown-item" href="#">Encadrement</a></li>
                                 <li><a class="dropdown-item" href="#">Coaching</a></li>
-                                <li><a class="dropdown-item" href="#">Cotisation rentrée</a>
+                                <li><a class="dropdown-item" href="{{ route('cotisations.scolaire') }}">Cotisation
+                                        rentrée</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Conseils</a>
+                            <a class="nav-link" href="{{route('conseils.scolaire')}}">Conseils</a>
                         </li>
 
 
