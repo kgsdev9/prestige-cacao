@@ -18,20 +18,11 @@ class RegisterController extends Controller
     }
 
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    
+    public function registerForm()
     {
-        return view('Auth.register');
+        return view('auth.registersouscrive');
     }
 
     /**
@@ -40,9 +31,9 @@ class RegisterController extends Controller
     public function store(UserRequest $request, UserService $userService)
     {
 
-    $data =$userService->createUsser($request->all());
-    // NewsUserNotificationAdminJob::dispatch($data);
-    return redirect()->route('register.sucess', $data['name']);
+        $data = $userService->createUsser($request->all());
+        // NewsUserNotificationAdminJob::dispatch($data);
+        return redirect()->route('register.sucess', $data['name']);
     }
 
     /**

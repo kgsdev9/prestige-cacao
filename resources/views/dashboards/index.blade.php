@@ -17,13 +17,13 @@
                             <i class="ai-download me-2 ms-n1"></i>
                             Mes factures
                         </button>
-                        <select class="form-select">
-                            <option value="Last week">Ce mois</option>
-                            <option value="Last month">Last month</option>
-                            <option value="Last 3 months">Last 3 months</option>
-                            <option value="Last 6 months">Last 6 months</option>
-                            <option value="Last year">Last year</option>
-                        </select>
+
+                        <button class="btn btn-light me-3 me-sm-4" type="button">
+                            <i class="ai-download me-2 ms-n1"></i>
+                            Nouveau versement 
+                        </button>
+
+
                     </div>
                 </div>
                 <section class="card border-0 py-1 p-md-2 p-xl-3 p-xxl-4 mb-4">

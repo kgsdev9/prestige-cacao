@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
@@ -44,3 +45,7 @@ Route::get('/conseils', function () {
 })->name('conseils.scolaire');
 
 Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboard');
+
+
+Route::get('/registerForm', [RegisterController::class, 'registerForm'])->name('register.assurance');
+
