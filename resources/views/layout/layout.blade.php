@@ -252,7 +252,7 @@
                 <!-- Bouton d'action -->
                 <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="#">
                     <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
-                    Partenaire
+                    Mon Espace
                 </a>
 
                 <!-- Mobile menu toggler (Hamburger) -->
@@ -335,14 +335,15 @@
                         <div class="col mb-3 mb-md-0">
                             <ul class="nav flex-column">
                                 <li><a class="nav-link fw-normal py-1 px-0" href="#">Nos services</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Dévenir promoteur</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Investir</a></li>
                                 <li><a class="nav-link fw-normal py-1 px-0" href="#">Comment ça marche</a></li>
                                 <li><a class="nav-link fw-normal py-1 px-0" href="#">Avis clients</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">FAQ</a></li>
                             </ul>
                         </div>
                         <div class="col mb-4 mb-md-0">
                             <ul class="nav flex-column">
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Centre d'aide</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Fas</a></li>
                                 <li><a class="nav-link fw-normal py-1 px-0" href="#">Conditions générales</a>
                                 </li>
                                 <li><a class="nav-link fw-normal py-1 px-0" href="#">Mentions légales</a></li>

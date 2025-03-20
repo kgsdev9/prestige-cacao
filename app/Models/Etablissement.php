@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Ambassadeur extends Model
+class Etablissement extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'title',
-        'image',
-        'description',
-        'publish_at',
-        'visiteur'
+        'nom',
     ];
-    
 }
