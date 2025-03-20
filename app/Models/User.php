@@ -13,45 +13,31 @@ class User extends Authenticatable  implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
+
     protected $fillable = [
         'name',
+        'codesecret',
+        'qrcode',
         'email',
+        'email_verified_at',
         'password',
         'role_id',
-        'confirmation_at',
         'confirmated_at',
-        'suscribe_id'
     ];
 
-
-
-
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
     protected $hidden = [
         'password',
         'remember_token',
     ];
 
-
-    public function role() {
-        return $this->belongsTo(Role::class, 'role_id');
-    }
-
-    /**
-     * The attributes that should be cast.
-     *
-     * @var array<string, string>
-     */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'confirmated_at' => 'boolean',
     ];
+
+    // Relation avec le rôle
+    // public function role()
+    // {
+    //     return $this->belongsTo(Role::class);
+    // }
 }

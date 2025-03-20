@@ -10,6 +10,6 @@ class Etablissement extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nom',
+        'name',
     ];
 }

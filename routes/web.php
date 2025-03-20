@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Filiere\FiliereController;
+use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
 
@@ -42,3 +42,5 @@ Route::get('/cotisations', function () {
 Route::get('/conseils', function () {
     return view('home.conseil');
 })->name('conseils.scolaire');
+
+Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboard');
