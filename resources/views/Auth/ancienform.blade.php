@@ -64,12 +64,13 @@
                             </div>
                         </div>
 
-                        <div class="col-md-6 mb-4">
+                          <div class="col-md-6 mb-4">
                             <div class="form-floating">
                                 <input type="text" class="form-control" id="nb_enfant" x-model="formData.nb_enfant" required>
                                 <label for="nb_enfant">Nombre d'enfant</label>
                             </div>
                         </div>
+
 
                     </div>
                     <button type="button" class="btn btn-primary" @click="nextStep()">Suivant</button>
@@ -127,18 +128,57 @@
 
                 <!-- Step 3 -->
                 <div x-show="step === 3" style="display: none;">
-                    <h3 class="pb-3">Étape 3 : Conditions d'utilisation</h3>
+                    <h3 class="pb-3">Étape 3 : Ajout des enfants</h3>
+                    <div class="row">
+                        <div class="col-md-12 mb-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4>Enfants</h4>
+                                <button type="button" class="btn btn-success" @click="addChild()">Ajouter un enfant</button>
+                            </div>
+                        </div>
+
+                        <template x-for="(child, index) in formData.children" :key="index">
+                            <div class="col-md-6 mb-4">
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" :id="'enfant_nom_' + index" x-model="child.nom" placeholder="Nom" required>
+                                    <label :for="'enfant_nom_' + index">Nom de l'enfant</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" :id="'enfant_prenom_' + index" x-model="child.prenom" placeholder="Prénom" required>
+                                    <label :for="'enfant_prenom_' + index">Prénom de l'enfant</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" :id="'enfant_classe_' + index" x-model="child.classe" placeholder="Classe" required>
+                                    <label :for="'enfant_classe_' + index">Classe</label>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" :id="'enfant_etablissement_' + index" x-model="child.etablissement" placeholder="Établissement" required>
+                                    <label :for="'enfant_etablissement_' + index">Établissement</label>
+                                </div>
+                                <button type="button" class="btn btn-danger btn-sm mt-2" @click="removeChild(index)">
+                                    Retirer cet enfant
+                                </button>
+                            </div>
+                        </template>
+                    </div>
+                    <button type="button" class="btn btn-secondary" @click="previousStep()">Précédent</button>
+                    <button type="button" class="btn btn-primary" @click="nextStep()">Suivant</button>
+                </div>
+
+                <!-- Step 4 -->
+                <div x-show="step === 4" style="display: none;">
+                    <h3 class="pb-3">Étape 4 : Conditions d'utilisation</h3>
                     <div class="mb-4">
                         <p>Avant de finaliser votre inscription à l'assurance scolaire, vous devez accepter les conditions suivantes :</p>
                         <ul>
                             <li><strong>Droit d'adhésion</strong> : Un montant de 1000 FCFA (environ 1.22 €) est requis pour l'inscription.</li>
                             <li><strong>Participation aux programmes de suivi scolaire</strong> : Vous pouvez choisir de participer à un programme de suivi scolaire, qui inclut :</li>
                             <ul>
-                                <li>Rapports réguliers</li>
+                                <li>Rapports réguliers sur vos enfants</li>
                                 <li>Bulletins scolaires</li>
-                                <li>Attribution d'un répétiteur si nécessaire.</li>
+                                <li>Attribution d'un répétiteur si nécessaire (en cas d'absence de répétiteur).</li>
                             </ul>
-                            <li><strong>Participation à l'assurance scolaire</strong> : Vous pouvez souscrire à l'assurance scolaire, qui couvre :</li>
+                            <li><strong>Participation à l'assurance scolaire</strong> : Vous pouvez également souscrire à l'assurance scolaire, qui couvre :</li>
                             <ul>
                                 <li>Les fournitures scolaires</li>
                                 <li>Les frais de scolarité</li>
@@ -155,6 +195,7 @@
                     <button type="button" class="btn btn-secondary" @click="previousStep()">Précédent</button>
                     <button type="submit" class="btn btn-success" :disabled="!formData.acceptConditions">Confirmer l'inscription</button>
                 </div>
+
 
             </form>
         </div>
@@ -184,6 +225,7 @@
                 piece_avantPreview: null,
                 piece_arrierePreview: null,
                 photo_assurePreview: null,
+                children: [],
                 acceptConditions: false,
             },
             nextStep() {
@@ -195,10 +237,23 @@
                     }
                 } else if (this.step === 2) {
                     this.step = 3;
+                } else if (this.step === 3) {
+                    this.step = 4;
                 }
             },
             previousStep() {
                 if (this.step > 1) this.step--;
+            },
+            addChild() {
+                this.formData.children.push({
+                    nom: '',
+                    prenom: '',
+                    classe: '',
+                    etablissement: ''
+                });
+            },
+            removeChild(index) {
+                this.formData.children.splice(index, 1);
             },
             handleFileChange(event, type) {
                 const file = event.target.files[0];
