@@ -1,5 +1,3 @@
-
-
 @include('layout.head')
 
 <main class="page-wrapper">
@@ -24,29 +22,33 @@
                 </p>
 
 
-                <form id="multiStepForm" method="POST" enctype="multipart/form-data">
-
-
+                <div >
                     <div x-show="step === 1">
                         <h3 class="pb-3">Étape 1 : Informations personnelles</h3>
                         <div class="row row-cols-1 row-cols-sm-2">
                             <div class="col mb-4">
-                                <input type="text" class="form-control form-control-lg" placeholder="Nom" x-model="formData.nom" required>
+                                <input type="text" class="form-control form-control-lg" placeholder="Nom"
+                                    x-model="formData.nom" required>
                             </div>
                             <div class="col mb-4">
-                                <input type="text" class="form-control form-control-lg" placeholder="Prénom" x-model="formData.prenom" required>
+                                <input type="text" class="form-control form-control-lg" placeholder="Prénom"
+                                    x-model="formData.prenom" required>
                             </div>
                             <div class="col mb-4">
-                                <input type="email" class="form-control form-control-lg" placeholder="Email" x-model="formData.email" required>
+                                <input type="email" class="form-control form-control-lg" placeholder="Email"
+                                    x-model="formData.email" required>
                             </div>
                             <div class="col mb-4">
-                                <input type="tel" class="form-control form-control-lg" placeholder="Téléphone" x-model="formData.telephone" required>
+                                <input type="tel" class="form-control form-control-lg" placeholder="Téléphone"
+                                    x-model="formData.telephone" required>
                             </div>
                             <div class="col mb-4">
-                                <input type="text" class="form-control form-control-lg" placeholder="Adresse" x-model="formData.adresse" required>
+                                <input type="text" class="form-control form-control-lg" placeholder="Adresse"
+                                    x-model="formData.adresse" required>
                             </div>
                             <div class="col mb-4">
-                                <input type="number" class="form-control form-control-lg" placeholder="Nombre d'enfants" x-model="formData.nb_enfant" required>
+                                <input type="number" class="form-control form-control-lg"
+                                    placeholder="Nbre d'enfant au secondaire" x-model="formData.nb_enfant" required>
                             </div>
                         </div>
                         <button type="button" class="btn btn-primary w-100 mb-4" @click="nextStep()">Suivant</button>
@@ -60,25 +62,30 @@
                                 <label for="piece_avant" class="form-label">Photo de la pièce d'identité (avant)</label>
                                 <div class="upload-box" @click="triggerFileInput('piece_avant')">
                                     <template x-if="formData.piece_avantPreview">
-                                        <img :src="formData.piece_avantPreview" alt="Image Preview" class="image-preview">
+                                        <img :src="formData.piece_avantPreview" alt="Image Preview"
+                                            class="image-preview">
                                     </template>
                                     <template x-if="!formData.piece_avantPreview">
                                         <div class="image-placeholder">Ajouter une image</div>
                                     </template>
-                                    <input type="file" class="d-none" id="piece_avant" accept="image/*" @change="handleFileChange($event, 'piece_avant')">
+                                    <input type="file" class="d-none" id="piece_avant" accept="image/*"
+                                        @change="handleFileChange($event, 'piece_avant')">
                                 </div>
                             </div>
 
                             <div class="col mb-4">
-                                <label for="piece_arriere" class="form-label">Photo de la pièce d'identité (arrière)</label>
+                                <label for="piece_arriere" class="form-label">Photo de la pièce d'identité
+                                    (arrière)</label>
                                 <div class="upload-box" @click="triggerFileInput('piece_arriere')">
                                     <template x-if="formData.piece_arrierePreview">
-                                        <img :src="formData.piece_arrierePreview" alt="Image Preview" class="image-preview">
+                                        <img :src="formData.piece_arrierePreview" alt="Image Preview"
+                                            class="image-preview">
                                     </template>
                                     <template x-if="!formData.piece_arrierePreview">
                                         <div class="image-placeholder">Ajouter une image</div>
                                     </template>
-                                    <input type="file" class="d-none" id="piece_arriere" accept="image/*" @change="handleFileChange($event, 'piece_arriere')">
+                                    <input type="file" class="d-none" id="piece_arriere" accept="image/*"
+                                        @change="handleFileChange($event, 'piece_arriere')">
                                 </div>
                             </div>
 
@@ -86,53 +93,68 @@
                                 <label for="photo_assure" class="form-label">Photo de l'assuré</label>
                                 <div class="upload-box" @click="triggerFileInput('photo_assure')">
                                     <template x-if="formData.photo_assurePreview">
-                                        <img :src="formData.photo_assurePreview" alt="Image Preview" class="image-preview">
+                                        <img :src="formData.photo_assurePreview" alt="Image Preview"
+                                            class="image-preview">
                                     </template>
                                     <template x-if="!formData.photo_assurePreview">
                                         <div class="image-placeholder">Ajouter une image</div>
                                     </template>
-                                    <input type="file" class="d-none" id="photo_assure" accept="image/*" @change="handleFileChange($event, 'photo_assure')">
+                                    <input type="file" class="d-none" id="photo_assure" accept="image/*"
+                                        @change="handleFileChange($event, 'photo_assure')">
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-secondary w-100 mb-4" @click="previousStep()">Précédent</button>
-                        <button type="button" class="btn btn-primary w-100 mb-4" @click="nextStep()">Suivant</button>
+                        <button type="button" class="btn btn-secondary w-100 mb-4"
+                            @click="previousStep()">Précédent</button>
+                        <button type="button" class="btn btn-primary w-100 mb-4"
+                            @click="nextStep()">Suivant</button>
                     </div>
 
                     <div x-show="step === 3" style="display: none;">
                         <h3 class="pb-3">Étape 3 : Conditions d'utilisation</h3>
                         <div class="mb-4">
-                            <p>Avant de finaliser votre inscription à l'assurance scolaire, vous devez accepter les conditions suivantes :</p>
+                            <p>Avant de finaliser votre inscription à l'assurance scolaire, vous devez accepter les
+                                conditions suivantes :</p>
                             <ul>
-                                <li><strong>Droit d'adhésion</strong> : Un montant de 1000 FCFA (environ 1.22 €) est requis pour l'inscription.</li>
-                                <li><strong>Participation aux programmes de suivi scolaire</strong> : Vous pouvez choisir de participer à un programme de suivi scolaire.</li>
-                                <li><strong>Participation à l'assurance scolaire</strong> : Vous pouvez souscrire à l'assurance scolaire, qui couvre les frais scolaires.</li>
-                                <li><strong>Prêts sous condition</strong> : Les prêts sont accordés en fonction de vos cotisations mensuelles.</li>
+                                <li><strong>Droit d'adhésion</strong> : Un montant de 1000 FCFA (environ 1.22 €) est
+                                    requis pour l'inscription.</li>
+                                <li><strong>Participation aux programmes de suivi scolaire</strong> : Vous pouvez
+                                    choisir de participer à un programme de suivi scolaire.</li>
+                                <li><strong>Participation à l'assurance scolaire</strong> : Vous pouvez souscrire à
+                                    l'assurance scolaire, qui couvre les frais scolaires.</li>
+                                <li><strong>Prêts sous condition</strong> : Les prêts sont accordés en fonction de vos
+                                    cotisations mensuelles.</li>
                             </ul>
                             <textarea readonly rows="5" class="form-control" style="resize: none;">Les conditions générales de Moyo Assurance peuvent être consultées en détail sur notre site web.</textarea>
                         </div>
                         <div class="form-check mb-4">
-                            <input class="form-check-input" type="checkbox" id="acceptConditions" x-model="formData.acceptConditions">
-                            <label class="form-check-label" for="acceptConditions">J'accepte les conditions d'utilisation de Moyo Assurance.</label>
+                            <input class="form-check-input" type="checkbox" id="acceptConditions"
+                                x-model="formData.acceptConditions">
+                            <label class="form-check-label" for="acceptConditions">J'accepte les conditions
+                                d'utilisation de Moyo Assurance.</label>
                         </div>
-                        <button type="button" class="btn btn-secondary w-100 mb-4" @click="previousStep()">Précédent</button>
-                        <button type="submit" class="btn btn-success w-100 mb-4" :disabled="!formData.acceptConditions">Confirmer l'inscription</button>
+                        <button type="button" class="btn btn-secondary w-100 mb-4"
+                            @click="previousStep()">Précédent</button>
+                        <button type="button" @click="submitForm()" class="btn btn-success w-100 mb-4"
+                            :disabled="!formData.acceptConditions">Confirmer l'inscription</button>
                     </div>
 
-                </form>
+                </div>
 
             </div>
 
             <!-- Copyright -->
             <p class="nav w-100 fs-sm pt-5 mt-auto mb-5" style="max-width: 526px;">
                 <span class="text-body-secondary">&copy; Tous droits réservés. Fait par</span>
-                <a class="nav-link d-inline-block p-0 ms-1" href="https://myoo.com" target="_blank" rel="noopener">Myoo Assurance</a>
+                <a class="nav-link d-inline-block p-0 ms-1" href="https://myoo.com" target="_blank"
+                    rel="noopener">Moyo Assurance</a>
             </p>
 
         </div>
 
         <!-- Cover image -->
-        <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center" style="background-image: url(education-2.jpg);">
+        <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center"
+            style="background-image: url(education-2.jpg);">
         </div>
     </div>
 </main>
@@ -192,7 +214,60 @@
             },
             triggerFileInput(type) {
                 document.getElementById(type).click();
+            },
+
+            async submitForm() {
+                const formData = new FormData();
+
+                // Append form data fields
+                formData.append('nom', this.formData.nom);
+                formData.append('prenom', this.formData.prenom);
+                formData.append('email', this.formData.email);
+                formData.append('telephone', this.formData.telephone);
+                formData.append('adresse', this.formData.adresse);
+                formData.append('nb_enfant', this.formData.nb_enfant);
+
+                // Append files
+                if (this.formData.piece_avant) {
+                    formData.append('piece_avant', this.formData.piece_avant);
+                }
+                if (this.formData.piece_arriere) {
+                    formData.append('piece_arriere', this.formData.piece_arriere);
+                }
+                if (this.formData.photo_assure) {
+                    formData.append('photo_assure', this.formData.photo_assure);
+                }
+
+                try {
+                    const response = await fetch('{{ route('clients.store') }}', {
+                        method: 'POST',
+                        headers: {
+                            'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                        },
+                        body: formData,
+                    });
+
+                    if (response.ok) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Inscription réussie',
+                            showConfirmButton: false,
+                            timer: 1500,
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Erreur lors de l\'inscription',
+                            showConfirmButton: true,
+                        });
+                    }
+                } catch (error) {
+                    console.error('Erreur lors de la soumission du formulaire:', error);
+                }
             }
+
+
+
         };
     }
 </script>
@@ -224,5 +299,3 @@
         color: #888;
     }
 </style>
-
-

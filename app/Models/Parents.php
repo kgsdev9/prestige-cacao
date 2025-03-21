@@ -22,6 +22,9 @@ class Parents extends Model
         'telephone_2',
         'contact',
         'contact_urgent',
+        'piece_avant',
+        'piece_arriere',
+        'photo',
         'commune_id',
         'user_id',
         'adhesion'

@@ -2,11 +2,11 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Client\ClientController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
-
-
+use App\Http\Controllers\Promoteur\PromoteurController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +21,9 @@ use App\Http\Controllers\Home\HomeController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/devenir-membre', [HomeController::class, 'becomeMembre'])->name('become.membership');
+Route::get('/promoteur', [PromoteurController::class, 'becomePromoteur'])->name('become.promoteur');
+Route::resource('/clients', ClientController::class);
+
 
 Route::get('/fac', function () {
     return view('home.faq');
@@ -50,4 +53,3 @@ Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboar
 
 Route::get('/registerForm', [RegisterController::class, 'registerForm'])->name('register.assurance');
 Route::get('/login', [LoginController::class, 'loginForm'])->name('login.assurance');
-
