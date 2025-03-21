@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
@@ -48,4 +49,5 @@ Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboar
 
 
 Route::get('/registerForm', [RegisterController::class, 'registerForm'])->name('register.assurance');
+Route::get('/login', [LoginController::class, 'loginForm'])->name('login.assurance');
 

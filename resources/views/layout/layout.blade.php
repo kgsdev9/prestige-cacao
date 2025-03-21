@@ -136,7 +136,7 @@
                 </div>
 
                 <!-- Bouton d'action -->
-                <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="#">
+                <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="{{ route('login.assurance') }}">
                     <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
                     Mon Espace
                 </a>

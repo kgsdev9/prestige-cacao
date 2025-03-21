@@ -1,4 +1,7 @@
+
+
 @include('layout.head')
+
 <main class="page-wrapper">
     <div class="d-lg-flex position-relative h-100">
 
@@ -10,7 +13,7 @@
         </a>
 
         <!-- Sign up form -->
-        <div class="d-flex flex-column align-items-center w-lg-50 h-100 px-3 px-lg-5 pt-5">
+        <div class="d-flex flex-column align-items-center w-lg-50 h-100 px-3 px-lg-5 pt-5" x-data="formSteps()">
             <div class="w-100 mt-auto" style="max-width: 526px;">
                 <h1>Moyo Assurance L'Assurance Scolaire N°1</h1>
                 <p class="pb-3 mb-3 mb-lg-4">
@@ -20,51 +23,113 @@
                     éducation.
                 </p>
 
-                <form class="needs-validation" novalidate>
-                    <div class="row row-cols-1 row-cols-sm-2">
-                        <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="text" placeholder="Nom" required>
-                        </div>
-                        <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="text" placeholder="Prénom" required>
-                        </div>
-                        <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="email" placeholder="Email" required>
-                        </div>
-                        <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="tel" placeholder="Téléphone" required>
-                        </div>
-                        <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="number" placeholder="Nombre d'enfants"
-                                required>
-                        </div>
 
-                        <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="text" placeholder="Profession"
-                                required>
+                <form id="multiStepForm" method="POST" enctype="multipart/form-data">
+
+
+                    <div x-show="step === 1">
+                        <h3 class="pb-3">Étape 1 : Informations personnelles</h3>
+                        <div class="row row-cols-1 row-cols-sm-2">
+                            <div class="col mb-4">
+                                <input type="text" class="form-control form-control-lg" placeholder="Nom" x-model="formData.nom" required>
+                            </div>
+                            <div class="col mb-4">
+                                <input type="text" class="form-control form-control-lg" placeholder="Prénom" x-model="formData.prenom" required>
+                            </div>
+                            <div class="col mb-4">
+                                <input type="email" class="form-control form-control-lg" placeholder="Email" x-model="formData.email" required>
+                            </div>
+                            <div class="col mb-4">
+                                <input type="tel" class="form-control form-control-lg" placeholder="Téléphone" x-model="formData.telephone" required>
+                            </div>
+                            <div class="col mb-4">
+                                <input type="text" class="form-control form-control-lg" placeholder="Adresse" x-model="formData.adresse" required>
+                            </div>
+                            <div class="col mb-4">
+                                <input type="number" class="form-control form-control-lg" placeholder="Nombre d'enfants" x-model="formData.nb_enfant" required>
+                            </div>
                         </div>
-                        <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="text" placeholder="Adresse" required>
-                        </div>
-                        <div class="col mb-4">
-                            <input class="form-control form-control-lg" type="text" placeholder="Commune" required>
-                        </div>
+                        <button type="button" class="btn btn-primary w-100 mb-4" @click="nextStep()">Suivant</button>
                     </div>
-                    <button class="btn btn-lg btn-primary w-100 mb-4" type="submit">S'inscrire</button>
+
+                    <!-- Step 2 -->
+                    <div x-show="step === 2" style="display: none;">
+                        <h3 class="pb-3">Étape 2 : Téléchargement des photos</h3>
+                        <div class="row row-cols-1 row-cols-sm-2">
+                            <div class="col mb-4">
+                                <label for="piece_avant" class="form-label">Photo de la pièce d'identité (avant)</label>
+                                <div class="upload-box" @click="triggerFileInput('piece_avant')">
+                                    <template x-if="formData.piece_avantPreview">
+                                        <img :src="formData.piece_avantPreview" alt="Image Preview" class="image-preview">
+                                    </template>
+                                    <template x-if="!formData.piece_avantPreview">
+                                        <div class="image-placeholder">Ajouter une image</div>
+                                    </template>
+                                    <input type="file" class="d-none" id="piece_avant" accept="image/*" @change="handleFileChange($event, 'piece_avant')">
+                                </div>
+                            </div>
+
+                            <div class="col mb-4">
+                                <label for="piece_arriere" class="form-label">Photo de la pièce d'identité (arrière)</label>
+                                <div class="upload-box" @click="triggerFileInput('piece_arriere')">
+                                    <template x-if="formData.piece_arrierePreview">
+                                        <img :src="formData.piece_arrierePreview" alt="Image Preview" class="image-preview">
+                                    </template>
+                                    <template x-if="!formData.piece_arrierePreview">
+                                        <div class="image-placeholder">Ajouter une image</div>
+                                    </template>
+                                    <input type="file" class="d-none" id="piece_arriere" accept="image/*" @change="handleFileChange($event, 'piece_arriere')">
+                                </div>
+                            </div>
+
+                            <div class="col mb-4">
+                                <label for="photo_assure" class="form-label">Photo de l'assuré</label>
+                                <div class="upload-box" @click="triggerFileInput('photo_assure')">
+                                    <template x-if="formData.photo_assurePreview">
+                                        <img :src="formData.photo_assurePreview" alt="Image Preview" class="image-preview">
+                                    </template>
+                                    <template x-if="!formData.photo_assurePreview">
+                                        <div class="image-placeholder">Ajouter une image</div>
+                                    </template>
+                                    <input type="file" class="d-none" id="photo_assure" accept="image/*" @change="handleFileChange($event, 'photo_assure')">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary w-100 mb-4" @click="previousStep()">Précédent</button>
+                        <button type="button" class="btn btn-primary w-100 mb-4" @click="nextStep()">Suivant</button>
+                    </div>
+
+                    <div x-show="step === 3" style="display: none;">
+                        <h3 class="pb-3">Étape 3 : Conditions d'utilisation</h3>
+                        <div class="mb-4">
+                            <p>Avant de finaliser votre inscription à l'assurance scolaire, vous devez accepter les conditions suivantes :</p>
+                            <ul>
+                                <li><strong>Droit d'adhésion</strong> : Un montant de 1000 FCFA (environ 1.22 €) est requis pour l'inscription.</li>
+                                <li><strong>Participation aux programmes de suivi scolaire</strong> : Vous pouvez choisir de participer à un programme de suivi scolaire.</li>
+                                <li><strong>Participation à l'assurance scolaire</strong> : Vous pouvez souscrire à l'assurance scolaire, qui couvre les frais scolaires.</li>
+                                <li><strong>Prêts sous condition</strong> : Les prêts sont accordés en fonction de vos cotisations mensuelles.</li>
+                            </ul>
+                            <textarea readonly rows="5" class="form-control" style="resize: none;">Les conditions générales de Moyo Assurance peuvent être consultées en détail sur notre site web.</textarea>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="acceptConditions" x-model="formData.acceptConditions">
+                            <label class="form-check-label" for="acceptConditions">J'accepte les conditions d'utilisation de Moyo Assurance.</label>
+                        </div>
+                        <button type="button" class="btn btn-secondary w-100 mb-4" @click="previousStep()">Précédent</button>
+                        <button type="submit" class="btn btn-success w-100 mb-4" :disabled="!formData.acceptConditions">Confirmer l'inscription</button>
+                    </div>
+
                 </form>
 
             </div>
 
             <!-- Copyright -->
             <p class="nav w-100 fs-sm pt-5 mt-auto mb-5" style="max-width: 526px;">
-                <span class="text-body-secondary">&copy; Tous droits réservés. Propulsé par</span>
-                <a class="nav-link d-inline-block p-0 ms-1" href="https://moyo-ci.com/" target="_blank" rel="noopener">
-                    Moyo Assurance
-                </a>
+                <span class="text-body-secondary">&copy; Tous droits réservés. Fait par</span>
+                <a class="nav-link d-inline-block p-0 ms-1" href="https://myoo.com" target="_blank" rel="noopener">Myoo Assurance</a>
             </p>
 
         </div>
-
 
         <!-- Cover image -->
         <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center" style="background-image: url(education-2.jpg);">
@@ -73,3 +138,91 @@
 </main>
 
 @include('layout.script')
+
+<script>
+    function formSteps() {
+        return {
+            step: 1,
+            formData: {
+                nom: '',
+                prenom: '',
+                email: '',
+                telephone: '',
+                piece_avant: null,
+                piece_arriere: null,
+                photo_assure: null,
+                piece_avantPreview: null,
+                piece_arrierePreview: null,
+                photo_assurePreview: null,
+                acceptConditions: false,
+            },
+            nextStep() {
+                if (this.step === 1) {
+                    if (this.formData.nom && this.formData.prenom && this.formData.email && this.formData.telephone) {
+                        this.step = 2;
+                    } else {
+                        alert("Veuillez remplir tous les champs.");
+                    }
+                } else if (this.step === 2) {
+                    this.step = 3;
+                } else if (this.step === 3) {
+                    this.step = 3;
+                }
+            },
+            previousStep() {
+                if (this.step > 1) this.step--;
+            },
+            handleFileChange(event, type) {
+                const file = event.target.files[0];
+                const reader = new FileReader();
+
+                reader.onloadend = () => {
+                    if (type === 'piece_avant') {
+                        this.formData.piece_avantPreview = reader.result;
+                    } else if (type === 'piece_arriere') {
+                        this.formData.piece_arrierePreview = reader.result;
+                    } else if (type === 'photo_assure') {
+                        this.formData.photo_assurePreview = reader.result;
+                    }
+                };
+
+                if (file) {
+                    reader.readAsDataURL(file);
+                }
+            },
+            triggerFileInput(type) {
+                document.getElementById(type).click();
+            }
+        };
+    }
+</script>
+
+<style>
+    .upload-box {
+        position: relative;
+        width: 100%;
+        height: 150px;
+        border: 2px dashed #ddd;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        background-color: #f9f9f9;
+    }
+
+    .upload-box .image-preview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .upload-box .image-placeholder {
+        text-align: center;
+        font-size: 14px;
+        color: #888;
+    }
+</style>
+
+
