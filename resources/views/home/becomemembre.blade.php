@@ -116,7 +116,37 @@
                             <p>Avant de finaliser votre inscription à l'assurance scolaire, vous devez accepter les
                                 conditions suivantes :</p>
                             <ul>
-                                <li><strong>Droit d'adhésion</strong> : Un montant de 1000 FCFA (environ 1.22 €) est
+                                <li><strong>Droit d'adhésion</strong> : Un montant de 1000 FCFA (environ 1,52 €) est
+                                    requis pour l'inscription.</li>
+                                <li><strong>Participation aux programmes de suivi scolaire</strong> : Vous pouvez
+                                    choisir de participer à un programme de suivi scolaire.</li>
+                                <li><strong>Participation à l'assurance scolaire</strong> : Vous pouvez souscrire à
+                                    l'assurance scolaire, qui couvre les frais scolaires.</li>
+                                <li><strong>Prêts sous condition</strong> : Les prêts sont accordés en fonction de vos
+                                    cotisations mensuelles.</li>
+                            </ul>
+                            <textarea readonly rows="5" class="form-control" style="resize: none;">Les conditions générales de Moyo Assurance peuvent être consultées en détail sur notre site web.</textarea>
+                        </div>
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" id="acceptConditions"
+                                x-model="formData.acceptConditions">
+                            <label class="form-check-label" for="acceptConditions">J'accepte les conditions
+                                d'utilisation de Moyo Assurance.</label>
+                        </div>
+                        <button type="button" class="btn btn-secondary w-100 mb-4"
+                            @click="previousStep()">Précédent</button>
+                        <button type="button" @click="submitForm()" class="btn btn-success w-100 mb-4"
+                            :disabled="!formData.acceptConditions">Confirmer l'inscription</button>
+                        <p x-show="message" x-text="message" class="alert" :class="messageType"></p>
+                    </div>
+
+                    <div x-show="step === 4" style="display: none;">
+                        <h3 class="pb-3">Étape 3 : Conditions d'utilisation</h3>
+                        <div class="mb-4">
+                            <p>Avant de finaliser votre inscription à l'assurance scolaire, vous devez accepter les
+                                conditions suivantes :</p>
+                            <ul>
+                                <li><strong>Droit d'adhésion</strong> : Un montant de 1000 FCFA (environ 1,52 €) est
                                     requis pour l'inscription.</li>
                                 <li><strong>Participation aux programmes de suivi scolaire</strong> : Vous pouvez
                                     choisir de participer à un programme de suivi scolaire.</li>
@@ -253,9 +283,17 @@
 
                     if (response.ok) {
                         this.message = result.message;
-                        this.messageType = 'alert-success'; // Affiche en vert
+                        if (result.existe) {
+                            this.messageType = 'alert-danger';
+                        } else {
+                            this.messageType = 'alert-success ';
+                            window.location.href = "/success";
+
+                        }
+
                     } else {
-                        this.message = 'Une erreur est survenue.';
+                        this.message =
+                            'Désolé, notre serveur rencontre un problème. Veuillez réessayer dans 2 minutes.';
                         this.messageType = 'alert-danger'; // Affiche en rouge
                     }
                 } catch (error) {

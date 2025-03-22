@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use App\Notifications\NotificationSuccesRegister;
 
 class ClientController extends Controller
 {
@@ -36,11 +37,11 @@ class ClientController extends Controller
         $codesecret = User::generateUniqueCodeSecret();
         $codepromotion = Parents::generateUniquePromotion();
         $user = User::where('email', $request->email)->first();
-
+        $telephone = Parents::where('telephone', $request->telephone)->first();
         // Générer le QR code à partir du code secret
         // $qrcode = User::generateUniqueQRCode($codesecret);
 
-        if (!$user) {
+        if (!$user && !$telephone) {
             $user = User::create([
                 'name' => $request->nom,
                 'codesecret' => $codesecret,
@@ -50,37 +51,31 @@ class ClientController extends Controller
                 'role_id' => 1,
             ]);
 
+            $client = Parents::create([
+                'nom' => $request->nom,
+                'prenom' => $request->prenom,
+                'code_affiliation' => $codepromotion,
+                'piece_parent' => $request->piece_parent,
+                'nombre_enfant' => $request->nb_enfant,
+                'adresse' => $request->adresse,
+                'telephone' => $request->telephone,
+                'telephone_1' => $request->telephone_1,
+                'piece_avant' => $request->piece_avant,
+                'piece_arriere' => $request->piece_arriere,
+                'photo' => $request->photo,
+                'user_id' => $user->id,
+            ]);
 
-            $telephone = Parents::where('telephone', $request->telephone)->first();
+            $client->user->notify(new NotificationSuccesRegister($client));
 
-            if (!$telephone) {
-                $client = Parents::create([
-                    'nom' => $request->nom,
-                    'prenom' => $request->prenom,
-                    'code_affiliation' => $codepromotion,
-                    'piece_parent' => $request->piece_parent,
-                    'nombre_enfant' => $request->nb_enfant,
-                    'adresse' => $request->adresse,
-                    'telephone' => $request->telephone,
-                    'telephone_1' => $request->telephone_1,
-                    'piece_avant' => $request->piece_avant,
-                    'piece_arriere' => $request->piece_arriere,
-                    'photo' => $request->photo,
-                    'user_id' => $user->id,
-                ]);
-
-                return response()->json([
-                    'message' => 'Parent créé avec succès!',
-                ], 201);
-            } else {
-
-                return response()->json([
-                    'message' => 'Ce numero de télephone a deja été utilisé pour une inscription, veuillez contacter notre service client pour une pris en charge!',
-                ], 201);
-            }
+            return response()->json([
+                'message' => 'Parent créé avec succès!',
+                'existe' => false
+            ], 201);
         } else {
             return response()->json([
-                'message' => 'Vous existe deja dans notre base de données!',
+                'message' => 'Vous êtes déjà enregistré dans notre base de données. Veuillez contacter notre service client pour toute assistance.!',
+                'existe' => true
             ], 201);
         }
     }

@@ -23,7 +23,7 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/devenir-membre', [HomeController::class, 'becomeMembre'])->name('become.membership');
 Route::get('/promoteur', [PromoteurController::class, 'becomePromoteur'])->name('become.promoteur');
 Route::resource('/clients', ClientController::class);
-
+Route::get('/success', [HomeController::class, 'successRegister'])->name('register.success');
 
 Route::get('/fac', function () {
     return view('home.faq');

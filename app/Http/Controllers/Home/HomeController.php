@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Home;
+
 use App\Http\Controllers\Controller;
 
 
@@ -14,11 +15,14 @@ class HomeController extends Controller
         ]);
     }
 
-  
+
     public function becomeMembre()
     {
         return view('home.becomemembre');
     }
 
-
+    public function successRegister()
+    {
+        return view('success.register');
+    }
 }

@@ -8,7 +8,8 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
-use SimpleSoftwareIO\QrCode\Facades\QrCode; 
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
+
 class User extends Authenticatable  implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -25,7 +26,7 @@ class User extends Authenticatable  implements MustVerifyEmail
         'confirmated_at',
     ];
 
-
+  
     public static function generateUniqueCodeSecret()
     {
         // On commence avec la génération d'un code de 4 chiffres
