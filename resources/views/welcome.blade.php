@@ -1,5 +1,4 @@
 @extends('layout.layout')
-
 @section('content')
     <section class="bg-secondary py-5">
         <div class="container text-center pt-5 mt-lg-4 mt-xl-5">
@@ -40,34 +39,21 @@
                 <div class="text-center px-xxl-4">
                     <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path class="text-warning"
-                            d="M38.0625 6.25C19.9063 6.25 6.75 21.0625 6.75 37.5C6.75 42.75 8.28125 48.1562 10.9688 53.0938C11.4688 53.9062 11.5312 54.9375 11.1875 55.9062L9.09375 62.9062C8.625 64.5937 10.0625 65.8438 11.6562 65.3438L17.9688 63.4688C19.6875 62.9062 21.0312 63.625 22.6281 64.5938C27.1906 67.2812 32.875 68.6562 38 68.6562C53.5 68.6562 69.25 56.6875 69.25 37.4062C69.25 20.7812 55.8125 6.25 38.0625 6.25Z"
-                            fill="currentColor"></path>
-                        <path class="text-primary" fill-rule="evenodd" clip-rule="evenodd"
-                            d="M37.9411 41.5306C35.7224 41.4993 33.9411 39.7181 33.9411 37.4993C33.9411 35.3118 35.7536 33.4993 37.9411 33.5305C40.1599 33.5305 41.9411 35.3118 41.9411 37.5306C41.9411 39.7181 40.1599 41.5306 37.9411 41.5306ZM23.5312 41.5303C21.3438 41.5303 19.5312 39.7178 19.5312 37.5303C19.5312 35.3115 21.3125 33.5303 23.5312 33.5303C25.75 33.5303 27.5312 35.3115 27.5312 37.5303C27.5312 39.7178 25.75 41.499 23.5312 41.5303ZM48.3458 37.5303C48.3458 39.7178 50.1271 41.5303 52.3458 41.5303C54.5646 41.5303 56.3458 39.7178 56.3458 37.5303C56.3458 35.3115 54.5646 33.5303 52.3458 33.5303C50.1271 33.5303 48.3458 35.3115 48.3458 37.5303Z"
-                            fill="currentColor"></path>
+                        <!-- Bouclier -->
+                        <path class="text-warning" d="M38 6L14 17V35C14 50 23 60 38 68C53 60 62 50 62 35V17L38 6Z"
+                            fill="currentColor" />
+                        <!-- Livre ouvert (symbole d'éducation) -->
+                        <path class="text-primary" d="M28 30H36V44H28V30ZM40 30H48V44H40V30Z" fill="currentColor" />
+                        <!-- Chapeau de graduation -->
+                        <path class="text-dark" d="M38 16L52 22L38 28L24 22L38 16ZM38 30V36" stroke="currentColor"
+                            stroke-width="2" />
                     </svg>
                     <h3 class="h4 mb-2">Assurances scolaires</h3>
-                    <p>Nous proposons des services d'assurance scolaire pour couvrir tous les risques liés à la
-                        scolarité de vos enfants. Soyez sereins avec notre couverture complète.</p>
+                    <p>Nous proposons des services d'assurance scolaire pour couvrir tous les risques liés à la scolarité de
+                        vos enfants. Soyez sereins avec notre couverture complète.</p>
                 </div>
             </div>
-            <div class="col">
-                <div class="text-center px-xxl-4">
-                    <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75"
-                        fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path class="text-primary"
-                            d="M32.2274 17.3606C32.3865 17.6845 32.4916 18.0315 32.5387 18.3881L33.4088 31.3253L33.8407 37.8279C33.8452 38.4966 33.9501 39.161 34.1521 39.7997C34.6737 41.0388 35.9286 41.8263 37.2939 41.7714L58.0979 40.4106C58.9988 40.3958 59.8688 40.7327 60.5164 41.3473C61.0561 41.8594 61.4045 42.5294 61.5143 43.25L61.5511 43.6876C60.6902 55.6086 51.9349 65.5516 40.0386 68.1183C28.1424 70.685 15.9433 65.263 10.0647 54.7961C8.36996 51.7552 7.31141 48.4128 6.95119 44.9651C6.80071 43.9445 6.73445 42.9136 6.75306 41.8825C6.73448 29.1018 15.8358 18.0525 28.576 15.3888C30.1094 15.1501 31.6126 15.9618 32.2274 17.3606Z"
-                            fill="currentColor"></path>
-                        <path class="text-warning"
-                            d="M40.7178 6.25268C54.9674 6.6152 66.9438 16.862 69.249 30.6635L69.227 30.7654L69.1641 30.9135L69.1729 31.32C69.1402 31.8586 68.9323 32.3768 68.5739 32.7954C68.2006 33.2314 67.6906 33.5283 67.129 33.6436L66.7865 33.6906L42.7841 35.2458C41.9857 35.3245 41.1907 35.0671 40.597 34.5375C40.1022 34.0962 39.7859 33.5004 39.6965 32.8585L38.0855 8.89094C38.0574 8.8099 38.0574 8.72204 38.0855 8.641C38.1075 7.98035 38.3983 7.35587 38.8929 6.90709C39.3876 6.45831 40.0448 6.22262 40.7178 6.25268Z"
-                            fill="currentColor"></path>
-                    </svg>
-                    <h3 class="h4 mb-2">Encadrement scolaire</h3>
-                    <p>Nous proposons des services d'encadrement scolaire adaptés pour chaque élève, afin de les
-                        aider à progresser dans leurs études avec un suivi personnalisé.</p>
-                </div>
-            </div>
+
             <div class="col">
                 <div class="text-center px-xxl-4">
                     <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75"
@@ -79,12 +65,88 @@
                             d="M23.719 29.6179L17.0009 33.9344L20.3478 45.8032L30.5159 43.9441L34.907 31.0164C35.1438 29.6983 33.8291 28.2963 32.5116 28.5329L23.719 29.6179Z"
                             fill="currentColor"></path>
                     </svg>
-                    <h3 class="h4 mb-2">Contribution de la diaspora</h3>
-                    <p>Les membres de la diaspora peuvent également cotiser pour financer les frais scolaires de
-                        leurs proches en Afrique. Une manière simple et efficace de soutenir la scolarité à
-                        distance.</p>
+                    <h3 class="h4 mb-2">Encadrement scolaire</h3>
+                    <p>Nous proposons des services d'encadrement scolaire adaptés pour chaque élève, afin de les
+                        aider à progresser dans leurs études avec un suivi personnalisé.</p>
                 </div>
             </div>
+
+            <div class="col">
+                <div class="text-center px-xxl-4">
+                    <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Icône représentant une tirelire avec une pièce -->
+                        <path class="text-warning"
+                            d="M38 6C21 6 8 17 8 31C8 38 12 44 18 48V56H28V48H48V56H58V48C64 44 68 38 68 31C68 17 55 6 38 6ZM38 42C32 42 28 38 28 34C28 30 32 26 38 26C44 26 48 30 48 34C48 38 44 42 38 42Z"
+                            fill="currentColor" />
+                        <!-- Pièce qui tombe dans la tirelire -->
+                        <circle class="text-primary" cx="38" cy="20" r="5" fill="currentColor" />
+                    </svg>
+                    <h3 class="h4 mb-2">Cotisations scolaires</h3>
+                    <p>Épargnez progressivement pour les frais scolaires de vos enfants et planifiez vos dépenses à l’avance
+                        pour éviter le stress de la rentrée !</p>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="text-center px-xxl-4">
+                    <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="text-primary"
+                            d="M32.2274 17.3606C32.3865 17.6845 32.4916 18.0315 32.5387 18.3881L33.4088 31.3253L33.8407 37.8279C33.8452 38.4966 33.9501 39.161 34.1521 39.7997C34.6737 41.0388 35.9286 41.8263 37.2939 41.7714L58.0979 40.4106C58.9988 40.3958 59.8688 40.7327 60.5164 41.3473C61.0561 41.8594 61.4045 42.5294 61.5143 43.25L61.5511 43.6876C60.6902 55.6086 51.9349 65.5516 40.0386 68.1183C28.1424 70.685 15.9433 65.263 10.0647 54.7961C8.36996 51.7552 7.31141 48.4128 6.95119 44.9651C6.80071 43.9445 6.73445 42.9136 6.75306 41.8825C6.73448 29.1018 15.8358 18.0525 28.576 15.3888C30.1094 15.1501 31.6126 15.9618 32.2274 17.3606Z"
+                            fill="currentColor"></path>
+                        <path class="text-warning"
+                            d="M40.7178 6.25268C54.9674 6.6152 66.9438 16.862 69.249 30.6635L69.227 30.7654L69.1641 30.9135L69.1729 31.32C69.1402 31.8586 68.9323 32.3768 68.5739 32.7954C68.2006 33.2314 67.6906 33.5283 67.129 33.6436L66.7865 33.6906L42.7841 35.2458C41.9857 35.3245 41.1907 35.0671 40.597 34.5375C40.1022 34.0962 39.7859 33.5004 39.6965 32.8585L38.0855 8.89094C38.0574 8.8099 38.0574 8.72204 38.0855 8.641C38.1075 7.98035 38.3983 7.35587 38.8929 6.90709C39.3876 6.45831 40.0448 6.22262 40.7178 6.25268Z"
+                            fill="currentColor"></path>
+                    </svg>
+
+
+                    <h3 class="h4 mb-2">Contribution de la diaspora</h3>
+                    <p>Les membres de la diaspora peuvent cotiser pour les frais scolaires de leurs proches en Côte
+                        d'Ivoire. Avec nous, évitez les arnaques et bénéficiez d'une gestion transparente et d'états de
+                        paiement clairs pour garantir la bonne réception des fonds.</p>
+
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="text-center px-xxl-4">
+                    <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="text-warning"
+                            d="M38.0625 6.25C19.9063 6.25 6.75 21.0625 6.75 37.5C6.75 42.75 8.28125 48.1562 10.9688 53.0938C11.4688 53.9062 11.5312 54.9375 11.1875 55.9062L9.09375 62.9062C8.625 64.5937 10.0625 65.8438 11.6562 65.3438L17.9688 63.4688C19.6875 62.9062 21.0312 63.625 22.6281 64.5938C27.1906 67.2812 32.875 68.6562 38 68.6562C53.5 68.6562 69.25 56.6875 69.25 37.4062C69.25 20.7812 55.8125 6.25 38.0625 6.25Z"
+                            fill="currentColor"></path>
+                        <path class="text-primary" fill-rule="evenodd" clip-rule="evenodd"
+                            d="M37.9411 41.5306C35.7224 41.4993 33.9411 39.7181 33.9411 37.4993C33.9411 35.3118 35.7536 33.4993 37.9411 33.5305C40.1599 33.5305 41.9411 35.3118 41.9411 37.5306C41.9411 39.7181 40.1599 41.5306 37.9411 41.5306ZM23.5312 41.5303C21.3438 41.5303 19.5312 39.7178 19.5312 37.5303C19.5312 35.3115 21.3125 33.5303 23.5312 33.5303C25.75 33.5303 27.5312 35.3115 27.5312 37.5303C27.5312 39.7178 25.75 41.499 23.5312 41.5303ZM48.3458 37.5303C48.3458 39.7178 50.1271 41.5303 52.3458 41.5303C54.5646 41.5303 56.3458 39.7178 56.3458 37.5303C56.3458 35.3115 54.5646 33.5303 52.3458 33.5303C50.1271 33.5303 48.3458 35.3115 48.3458 37.5303Z"
+                            fill="currentColor"></path>
+                    </svg>
+                    <h3 class="h4 mb-2">Communication </h3>
+                    <p>Nous favorisons une communication fluide entre les parents et les élèves. En cas de litige, nous
+                        facilitons les échanges pour résoudre les problèmes, renforçant ainsi la relation parent-enfant et
+                        garantissant un environnement éducatif harmonieux.</p>
+                </div>
+            </div>
+
+
+            <div class="col">
+                <div class="text-center px-xxl-4">
+                    <svg class="d-inline-block mb-3 mb-md-4" width="76" height="75" viewBox="0 0 76 75"
+                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="text-primary"
+                            d="M62.2797 36.3917C59.9969 33.7259 58.9596 31.4158 58.9596 27.4911V26.1567C58.9596 21.0423 57.7825 17.7471 55.2233 14.4519C51.2789 9.33435 44.6387 6.25 38.1382 6.25H37.8618C31.498 6.25 25.0658 9.19272 21.0531 14.1025C18.3542 17.4638 17.0404 20.9007 17.0404 26.1567V27.4911C17.0404 31.4158 16.0714 33.7259 13.7203 36.3917C11.9903 38.3556 11.4375 40.8797 11.4375 43.6116C11.4375 46.3466 12.3351 48.9368 14.1365 51.0423C16.4876 53.5665 19.8077 55.1779 23.1992 55.458C28.1095 56.0182 33.0198 56.2291 38.0016 56.2291C42.9802 56.2291 47.8905 55.8766 52.8039 55.458C56.1923 55.1779 59.5124 53.5665 61.8635 51.0423C63.6618 48.9368 64.5625 46.3466 64.5625 43.6116C64.5625 40.8797 64.0097 38.3556 62.2797 36.3917Z"
+                            fill="currentColor"></path>
+                        <path class="text-warning"
+                            d="M44.277 60.0886C42.7148 59.755 33.1954 59.755 31.6332 60.0886C30.2977 60.397 28.8535 61.1146 28.8535 62.6883C28.9312 64.1895 29.8101 65.5145 31.0276 66.3549L31.0245 66.358C32.5991 67.5855 34.4471 68.366 36.382 68.6461C37.4131 68.7877 38.4629 68.7814 39.5313 68.6461C41.4631 68.366 43.3111 67.5855 44.8857 66.358L44.8826 66.3549C46.1001 65.5145 46.9791 64.1895 47.0567 62.6883C47.0567 61.1146 45.6125 60.397 44.277 60.0886Z"
+                            fill="currentColor"></path>
+                    </svg>
+                    <h3 class="h4 mb-2">Rapports Détailés</h3>
+                    <p>Les parents reçoivent des rapports réguliers sur les résultats, le comportement et la progression de
+                        leur enfant, favorisant ainsi une meilleure collaboration et un suivi personnalisé.</p>
+
+                </div>
+            </div>
+
+
         </div>
     </section>
 
@@ -103,8 +165,8 @@
                         scolaire, de coaching parental, d'applications éducatives, ainsi que de paiement des
                         cotisations et des prêts.</p>
                     <div class="d-none d-md-flex justify-content-center">
-                        <svg class="text-warning ms-n4" width="200" height="211" viewBox="0 0 200 211" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
+                        <svg class="text-warning ms-n4" width="200" height="211" viewBox="0 0 200 211"
+                            fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M198.804 194.488C189.279 189.596 179.529 185.52 169.407 182.07L169.384 182.049C169.227 181.994 169.07 181.939 168.912 181.884C166.669 181.139 165.906 184.546 167.669 185.615C174.053 189.473 182.761 191.837 189.146 195.695C156.603 195.912 119.781 196.591 91.266 179.049C62.5221 161.368 48.1094 130.695 56.934 98.891C84.5539 98.7247 112.556 84.0176 129.508 62.667C136.396 53.9724 146.193 35.1448 129.773 30.2717C114.292 25.6624 93.7109 41.8875 83.1971 51.3147C70.1109 63.039 59.63 78.433 54.2039 95.0087C52.1221 94.9842 50.0776 94.8683 48.0703 94.6608C30.1803 92.8027 11.2197 83.6338 5.44902 65.1074C-1.88449 41.5699 14.4994 19.0183 27.9202 1.56641C28.6411 0.625793 27.2862 -0.561638 26.5419 0.358501C13.4588 16.4098 -0.221091 34.5242 0.896608 56.5659C1.8218 74.6941 14.221 87.9401 30.4121 94.2058C37.7076 97.0203 45.3454 98.5003 53.0334 98.8449C47.8679 117.532 49.2961 137.487 60.7729 155.283C87.7615 197.081 139.616 201.147 184.786 201.155L174.332 206.827C172.119 208.033 174.345 211.287 176.537 210.105C182.06 207.125 187.582 204.122 193.084 201.144C193.346 201.147 195.161 199.887 195.423 199.868C197.08 198.548 193.084 201.144 195.528 199.81C196.688 199.192 197.846 198.552 199.006 197.935C200.397 197.167 200.007 195.087 198.804 194.488ZM60.8213 88.0427C67.6894 72.648 78.8538 59.1566 92.1207 49.0388C98.8475 43.9065 106.334 39.2953 114.188 36.1439C117.295 34.8947 120.798 33.6609 124.168 33.635C134.365 33.5511 136.354 42.9911 132.638 51.031C120.47 77.4222 86.8639 93.9837 58.0983 94.9666C58.8971 92.6666 59.783 90.3603 60.8213 88.0427Z"
                                 fill="currentColor"></path>
@@ -261,7 +323,7 @@
             </div>
         </div>
 
-        <section class="container mt-n3 mt-sm-n2 pb-5 mb-md-2 mb-lg-3 mb-xl-4 mb-xxl-5 mt-4">
+        <section class="container mt-5 mt-sm-4 pb-5 mb-md-2 mb-lg-3 mb-xl-4 mb-xxl-5 mt-4">
             <h2 class="h1 text-center pb-3 pb-lg-4">Témoignages </h2>
 
             <!-- Swiper slider -->
@@ -288,7 +350,7 @@
                         <div class="card border-0 mb-4">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img class="rounded-circle" src="{{ asset('avatargarcon.png') }}" width="60"
+                                    <img class="rounded-circle" src="{{ asset('avis-moyo/avatr-home-A.jpg') }}" width="60"
                                         alt="Kouadio N’guessan">
                                     <div class="ps-3">
                                         <div class="h6 mb-1">Kouadio N’guessan</div>
@@ -309,7 +371,7 @@
                         <div class="card border-0 mb-4">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img class="rounded-circle" src="{{ asset('avatarfemme.png') }}" width="60"
+                                    <img class="rounded-circle" src="{{ asset('avis-moyo/image-avis-1.jpg') }}" width="60"
                                         alt="Awa Traoré">
                                     <div class="ps-3">
                                         <div class="h6 mb-1">Awa Traoré</div>
@@ -330,7 +392,7 @@
                         <div class="card border-0 mb-4">
                             <div class="card-body">
                                 <div class="d-flex align-items-center mb-3">
-                                    <img class="rounded-circle" src="{{ asset('avatargarcon.png') }}" width="60"
+                                    <img class="rounded-circle" src="{{ asset('avis-moyo/avatar-home-3.jpg') }}" width="60"
                                         alt="Brahima Coulibaly">
                                     <div class="ps-3">
                                         <div class="h6 mb-1">Brahima Coulibaly</div>
