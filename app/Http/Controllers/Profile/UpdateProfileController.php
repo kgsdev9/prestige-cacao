@@ -1,26 +1,20 @@
 <?php
 
-namespace App\Http\Controllers\Cotisation;
+namespace App\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CotisationController extends Controller
+class UpdateProfileController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function myProfile()
     {
-        return view('dashboards.cotisations.index');
+        return view('dashboards.profile.myprofile');
     }
 
     /**

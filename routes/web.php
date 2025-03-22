@@ -3,10 +3,15 @@
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Client\ClientController;
+use App\Http\Controllers\Cotisation\CotisationController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Home\HomeController;
+use App\Http\Controllers\Pret\PretController;
+use App\Http\Controllers\Profile\UpdateProfileController;
 use App\Http\Controllers\Promoteur\PromoteurController;
+use App\Http\Controllers\Rapport\RapportController;
+use App\Http\Controllers\Statistique\StatistiqueController;
 
 /*
 |----------------------------------------------------------------------
@@ -54,6 +59,14 @@ Route::get('/login/form', [LoginController::class, 'loginForm'])
 //Route::resource('/clients', ClientController::class)->middleware('signed');
 
 Route::resource('/clients', ClientController::class);
+Route::resource('/cotisation', CotisationController::class);
+Route::resource('/prets', PretController::class);
+Route::resource('/rapports', RapportController::class);
+Route::resource('/statistiques', StatistiqueController::class);
+Route::get('/update/profile', [UpdateProfileController::class, 'myProfile'])->name('profile.update');
+
+
+
 // Page de succès après inscription
 Route::get('/success/{user}', [HomeController::class, 'successRegister'])
     ->name('register.success')

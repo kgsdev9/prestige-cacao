@@ -1,18 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Cotisation;
+namespace App\Http\Controllers\Rapport;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class CotisationController extends Controller
+class RapportController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -20,9 +14,8 @@ class CotisationController extends Controller
      */
     public function index()
     {
-        return view('dashboards.cotisations.index');
+        return view('dashboards.rapports.index');
     }
-
     /**
      * Show the form for creating a new resource.
      *

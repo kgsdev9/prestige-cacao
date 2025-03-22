@@ -6,7 +6,7 @@
 
 
 
-<body x-data="beginPage()" x-init="init()">
+<body >
     <a class="position-fixed top-50 bg-light text-dark fw-medium border rounded-pill shadow text-decoration-none"
         href="#customizer" data-bs-toggle="offcanvas"
         style="right: -1.75rem; margin-top: -1rem; padding: .25rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;">
