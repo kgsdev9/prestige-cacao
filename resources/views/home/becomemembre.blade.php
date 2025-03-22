@@ -22,7 +22,7 @@
                 </p>
 
 
-                <div >
+                <div>
                     <div x-show="step === 1">
                         <h3 class="pb-3">Étape 1 : Informations personnelles</h3>
                         <div class="row row-cols-1 row-cols-sm-2">
@@ -137,6 +137,7 @@
                             @click="previousStep()">Précédent</button>
                         <button type="button" @click="submitForm()" class="btn btn-success w-100 mb-4"
                             :disabled="!formData.acceptConditions">Confirmer l'inscription</button>
+                        <p x-show="message" x-text="message" class="alert" :class="messageType"></p>
                     </div>
 
                 </div>
@@ -178,6 +179,10 @@
                 photo_assurePreview: null,
                 acceptConditions: false,
             },
+
+            message: '',
+            messageType: '',
+
             nextStep() {
                 if (this.step === 1) {
                     if (this.formData.nom && this.formData.prenom && this.formData.email && this.formData.telephone) {
@@ -218,8 +223,6 @@
 
             async submitForm() {
                 const formData = new FormData();
-
-                // Append form data fields
                 formData.append('nom', this.formData.nom);
                 formData.append('prenom', this.formData.prenom);
                 formData.append('email', this.formData.email);
@@ -227,7 +230,6 @@
                 formData.append('adresse', this.formData.adresse);
                 formData.append('nb_enfant', this.formData.nb_enfant);
 
-                // Append files
                 if (this.formData.piece_avant) {
                     formData.append('piece_avant', this.formData.piece_avant);
                 }
@@ -247,22 +249,19 @@
                         body: formData,
                     });
 
+                    const result = await response.json();
+
                     if (response.ok) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Inscription réussie',
-                            showConfirmButton: false,
-                            timer: 1500,
-                        });
+                        this.message = result.message;
+                        this.messageType = 'alert-success'; // Affiche en vert
                     } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Erreur lors de l\'inscription',
-                            showConfirmButton: true,
-                        });
+                        this.message = 'Une erreur est survenue.';
+                        this.messageType = 'alert-danger'; // Affiche en rouge
                     }
                 } catch (error) {
-                    console.error('Erreur lors de la soumission du formulaire:', error);
+                    this.message = 'Erreur lors de la soumission.';
+                    this.messageType = 'alert-danger';
+                    console.error('Erreur:', error);
                 }
             }
 

@@ -30,6 +30,20 @@ class Parents extends Model
         'adhesion'
     ];
 
+
+    public static function generateUniquePromotion()
+    {
+        // On commence avec la génération d'un code de 4 chiffres
+        do {
+            // Générer un code secret aléatoire de 4 chiffres
+            $codepromotion = str_pad(rand(0, 9999), 4, '0', STR_PAD_LEFT); // Exemple: 0001, 0999, etc.
+        } while (self::where('code_affiliation', $codepromotion)->exists()); // Vérifie l'unicité du code
+
+        return $codepromotion; // Retourne le code secret unique
+    }
+
+
+
     public function commune()
     {
         return $this->belongsTo(Commune::class);

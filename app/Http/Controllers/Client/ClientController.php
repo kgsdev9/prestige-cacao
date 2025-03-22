@@ -28,48 +28,61 @@ class ClientController extends Controller
      */
     public function create()
     {
-        //
+        // dd($request->all());
     }
 
     public function store(Request $request)
     {
-        // dd($request->all());
-        // Générer un codesecret unique (par exemple, avec un UUID ou un random string)
         $codesecret = User::generateUniqueCodeSecret();
+        $codepromotion = Parents::generateUniquePromotion();
+        $user = User::where('email', $request->email)->first();
 
         // Générer le QR code à partir du code secret
         // $qrcode = User::generateUniqueQRCode($codesecret);
 
-        // Création de l'utilisateur sans validation
-        $user = User::create([
-            'name' => $request->name ?? 'MOYOASSURANCE' . rand(100, 9998),
-            'codesecret' => $codesecret,  // Ajouter le code secret
-            'qrcode' => rand(190, 99998),          // Ajouter le QR code généré
-            'email' => "dd" . rand(999, 9909),
-            'password' => Hash::make($request->password), // Assurez-vous que le mot de passe est haché
-            'role_id' => 1,
-        ]);
+        if (!$user) {
+            $user = User::create([
+                'name' => $request->nom,
+                'codesecret' => $codesecret,
+                'qrcode' => rand(190, 99998),
+                'email' => $request->email,
+                'password' => Hash::make($codesecret),
+                'role_id' => 1,
+            ]);
 
-        // Création du parent sans validation
-        $client = Parents::create([
-            'nom' => $request->nom,
-            'prenom' => $request->prenom,
-            'code_affiliation' => rand(100, 34544),
-            'piece_parent' => $request->piece_parent,
-            'nombre_enfant' => $request->nb_enfant,
-            'adresse' => $request->adresse,
-            'telephone' => $request->telephone,
-            'telephone_1' => $request->telephone_1,
-            // 'piece_avant' => $request->piece_avant,
-            // 'piece_arriere' => $request->piece_arriere,
-            'photo' => $request->photo,
-            'user_id' => $user->id,
-        ]);
 
-        // Retourner une réponse ou rediriger
-        return response()->json([
-            'message' => 'Parent créé avec succès!',
-        ], 201);
+            $telephone = Parents::where('telephone', $request->telephone)->first();
+
+            if (!$telephone) {
+                $client = Parents::create([
+                    'nom' => $request->nom,
+                    'prenom' => $request->prenom,
+                    'code_affiliation' => $codepromotion,
+                    'piece_parent' => $request->piece_parent,
+                    'nombre_enfant' => $request->nb_enfant,
+                    'adresse' => $request->adresse,
+                    'telephone' => $request->telephone,
+                    'telephone_1' => $request->telephone_1,
+                    'piece_avant' => $request->piece_avant,
+                    'piece_arriere' => $request->piece_arriere,
+                    'photo' => $request->photo,
+                    'user_id' => $user->id,
+                ]);
+
+                return response()->json([
+                    'message' => 'Parent créé avec succès!',
+                ], 201);
+            } else {
+
+                return response()->json([
+                    'message' => 'Ce numero de télephone a deja été utilisé pour une inscription, veuillez contacter notre service client pour une pris en charge!',
+                ], 201);
+            }
+        } else {
+            return response()->json([
+                'message' => 'Vous existe deja dans notre base de données!',
+            ], 201);
+        }
     }
     /**
      * Display the specified resource.
