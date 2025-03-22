@@ -10,7 +10,7 @@
     <meta name="keywords"
         content="assurance scolaire, coaching parental, paiement frais scolaires, encadrement scolaire, Côte d'Ivoire">
     <meta name="author" content="Moyo Assurance">
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon et icônes -->
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/png" href="{{ asset('flaticon-moyo.png') }}" sizes="32x32">

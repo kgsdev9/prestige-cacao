@@ -18,6 +18,16 @@ return [
     |
     */
 
+
+    'session' => [
+        'cookie' => 'auth_token',
+        'secure' => env('SESSION_SECURE_COOKIE', false), // En développement, tu peux mettre false
+        // 'same_site' => 'strict', // Cela peut varier, essaie 'lax' ou 'none' si 'strict' pose problème
+        'same_site' => 'lax',  // Ou 'strict' si tu veux éviter les requêtes cross-site
+    ],
+
+
+
     'driver' => env('SESSION_DRIVER', 'file'),
 
     /*
@@ -128,7 +138,7 @@ return [
 
     'cookie' => env(
         'SESSION_COOKIE',
-        Str::slug(env('APP_NAME', 'laravel'), '_').'_session'
+        Str::slug(env('APP_NAME', 'laravel'), '_') . '_session'
     ),
 
     /*

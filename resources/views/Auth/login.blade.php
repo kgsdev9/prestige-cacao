@@ -19,30 +19,32 @@
                 </p>
 
                 <form id="loginForm" method="POST">
-                    <div x-show="step === 1">
+                    <div>
                         <h3 class="pb-3">Étape 1 : Choisir la méthode de connexion</h3>
                         <div class="mb-4">
                             <label for="connexion-email" class="form-label">Connexion par Email et Mot de Passe</label>
                             <div>
-                                <input type="email" class="form-control form-control-lg" placeholder="Email" x-model="formData.email" required>
-                                <input type="password" class="form-control form-control-lg mt-3" placeholder="Mot de passe" x-model="formData.password" required>
+                                <input type="email" class="form-control form-control-lg" placeholder="Email"
+                                    x-model="formData.email" required>
+                                <input type="password" class="form-control form-control-lg mt-3"
+                                    placeholder="Mot de passe" x-model="formData.password" required>
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label for="connexion-code" class="form-label">Ou Connexion par Code d'accès</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Code d'accès" x-model="formData.code" required>
+                            <input type="text" class="form-control form-control-lg" placeholder="Code d'accès"
+                                x-model="formData.code" required>
                         </div>
 
-                        <button type="button" class="btn btn-primary w-100 mb-4" @click="nextStep()">Se connecter</button>
+                        <button type="button" class="btn btn-primary w-100 mb-4" @click="nextStep()">Se
+                            connecter</button>
+
+                        <p x-show="message" x-text="message" class="alert" :class="messageType"></p>
                     </div>
 
-                    <!-- Step 2 -->
-                    <div x-show="step === 2" style="display: none;">
-                        <h3 class="pb-3">Bienvenue dans votre espace</h3>
-                        <p class="pb-3">Vous êtes maintenant connecté avec succès. Vous pouvez maintenant gérer vos informations et votre assurance scolaire.</p>
-                        <button type="button" class="btn btn-success w-100 mb-4" @click="logout()">Se déconnecter</button>
-                    </div>
+
+
 
                 </form>
 
@@ -51,7 +53,8 @@
             <!-- Copyright -->
             <p class="nav w-100 fs-sm pt-5 mt-auto mb-5" style="max-width: 526px;">
                 <span class="text-body-secondary">&copy; Tous droits réservés. Fait par</span>
-                <a class="nav-link d-inline-block p-0 ms-1" href="https://moyo-ci.com" target="_blank" rel="noopener">Moyo Assurance</a>
+                <a class="nav-link d-inline-block p-0 ms-1" href="https://moyo-ci.com" target="_blank"
+                    rel="noopener">Moyo Assurance</a>
             </p>
 
         </div>
@@ -71,23 +74,59 @@
             formData: {
                 email: '',
                 password: '',
-                code: '',
+                code: '', // Ajoute ici la logique pour le code d'accès
             },
+            message: '',
+            messageType: '',
+
             nextStep() {
-                if (this.formData.email && this.formData.password || this.formData.code) {
-                    this.step = 2;
-                } else {
-                    alert("Veuillez remplir un champ de connexion.");
+                // Vérification de l'étape choisie
+                if (this.step === 1) {
+                    this.loginWithEmailPassword();
                 }
             },
-            logout() {
-                this.step = 1;
-                this.formData.email = '';
-                this.formData.password = '';
-                this.formData.code = '';
+
+            loginWithEmailPassword() {
+
+                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                
+                fetch('/login', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': csrfToken, // Ajouter le token CSRF dans les en-têtes
+                        },
+                        body: JSON.stringify({
+                            email: this.formData.email,
+                            password: this.formData.password,
+                        }),
+                    })
+                    .then(response => response.json())
+                    .then(result => {
+                        // Vérifier si la connexion a réussi (message de succès)
+                        if (result.message === 'Connexion réussie') {
+                            // Message de succès
+                            this.message = result.message;
+                            this.messageType = 'alert-success';
+
+                            // Redirection après 10 secondes
+                            setTimeout(() => {
+                                window.location.href =
+                                    "/dashboard"; // Remplace par l'URL du tableau de bord
+                            }, 10000);
+                        } else {
+                            // Message d'erreur si la connexion échoue
+                            this.message = result.message;
+                            this.messageType = 'alert-danger';
+                        }
+                    })
+                    .catch(error => {
+                        this.message = 'Une erreur est survenue';
+                        this.messageType = 'alert-danger';
+                    });
             }
-        };
+
+
+        }
     }
 </script>
-
-

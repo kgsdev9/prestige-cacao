@@ -5,33 +5,29 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Laravel\Sanctum\PersonalAccessToken;
 
 class LoginController extends Controller
 {
 
-    public function __construct()
+    public function loginForm(Request $request)
     {
-        // $this->middleware(['guest', 'admin']);
+
+        // Si le token n'existe pas ou n'est pas valide, afficher le formulaire de connexion
+        return view('auth.login');
     }
 
-    public function loginForm()
-    {
-        return view('Auth.login');
-    }
 
-    public function loginForUser(Request $request)
+    public function login(Request $request)
     {
+        $credentials = $request->only('email', 'password');
 
-        $verifications = $request->only('email', 'password');
-        if (Auth::attempt($verifications)) {
-            // flashy()->success('Bienvenue '. Auth::user()->name);
-            return redirect()->intended('/');
+        if (Auth::attempt($credentials)) {
+            // Connexion réussie
+            return response()->json([
+                'message' => 'Connexion réussie',
+            ]);
         }
-
-        return back()->withErrors([
-            'email' => 'Identifiants incorrects.',
-        ])->onlyInput('email');
+        // return redirect()->back()->withErrors(['email' => 'Identifiants incorrects']);
     }
-
-
 }

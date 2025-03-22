@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use App\Notifications\NotificationSuccesRegister;
+use Illuminate\Support\Facades\URL;
 
 class ClientController extends Controller
 {
@@ -70,7 +71,9 @@ class ClientController extends Controller
 
             return response()->json([
                 'message' => 'Parent créé avec succès!',
-                'existe' => false
+                'existe' => false,
+                'user_id' => $user->id,
+                'signature' => URL::signedRoute('register.success', ['user' => $user->id])
             ], 201);
         } else {
             return response()->json([

@@ -143,19 +143,8 @@
                             <span x-show="!formData.loading">Confirmer l'inscription</span>
                         </button>
 
-
-                        {{-- <button type="button" @click="submitForm()" class="btn btn-success w-100 mb-4"
-                            :disabled="!formData.acceptConditions || formData.loading">
-                            <span v-if="formData.loading" class="spinner-border spinner-border-sm" role="status"
-                                aria-hidden="true"></span>
-                            <span v-else>Confirmer l'inscription</span>
-                        </button> --}}
-
                         <p x-show="message" x-text="message" class="alert" :class="messageType"></p>
                     </div>
-
-
-
                 </div>
 
             </div>
@@ -275,7 +264,7 @@
                             this.messageType = 'alert-danger';
                         } else {
                             this.messageType = 'alert-success';
-                            window.location.href = "/success";
+                            window.location.href = result.signature;
                         }
 
                     } else {

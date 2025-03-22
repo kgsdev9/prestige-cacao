@@ -9,47 +9,54 @@ use App\Http\Controllers\Home\HomeController;
 use App\Http\Controllers\Promoteur\PromoteurController;
 
 /*
-|--------------------------------------------------------------------------
+|----------------------------------------------------------------------
 | Web Routes
-|--------------------------------------------------------------------------
+|----------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
+| Register web routes with signed middleware for protection.
 |
 */
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
-Route::get('/devenir-membre', [HomeController::class, 'becomeMembre'])->name('become.membership');
-Route::get('/promoteur', [PromoteurController::class, 'becomePromoteur'])->name('become.promoteur');
-Route::resource('/clients', ClientController::class);
-Route::get('/success', [HomeController::class, 'successRegister'])->name('register.success');
 
+// Pages statiques protégées
+Route::get('/devenir-membre', [HomeController::class, 'becomeMembre'])->name('become.membership')->middleware('signed');
+Route::get('/promoteur', [PromoteurController::class, 'becomePromoteur'])->name('become.promoteur')->middleware('signed');
 Route::get('/fac', function () {
     return view('home.faq');
-})->name('fac');
-
+})->name('fac')->middleware('signed');
 
 Route::get('/about', function () {
     return view('home.about');
-})->name('about');
+})->name('about')->middleware('signed');
 
 Route::get('/assurance-scolaire', function () {
     return view('home.assurance');
-})->name('assurance.scolaire');
-
+})->name('assurance.scolaire')->middleware('signed');
 
 Route::get('/cotisations', function () {
     return view('home.cotisation');
-})->name('cotisations.scolaire');
-
+})->name('cotisations.scolaire')->middleware('signed');
 
 Route::get('/conseils', function () {
     return view('home.conseil');
-})->name('conseils.scolaire');
+})->name('conseils.scolaire')->middleware('signed');
 
-Route::get('/dashboards', [DashboardController::class, 'index'])->name('dashboard');
+// Route dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
+// Route pour register et login protégées
+Route::get('/registerForm', [RegisterController::class, 'registerForm'])->name('register.assurance')->middleware('signed');
+Route::get('/login/form', [LoginController::class, 'loginForm'])
+    ->name('login.assurance')
+    ->middleware('guest');
+// Route des clients protégée
+//Route::resource('/clients', ClientController::class)->middleware('signed');
 
-Route::get('/registerForm', [RegisterController::class, 'registerForm'])->name('register.assurance');
-Route::get('/login', [LoginController::class, 'loginForm'])->name('login.assurance');
+Route::resource('/clients', ClientController::class);
+// Page de succès après inscription
+Route::get('/success/{user}', [HomeController::class, 'successRegister'])
+    ->name('register.success')
+    ->middleware('signed');
+
+Route::post('/login', [LoginController::class, 'login']);

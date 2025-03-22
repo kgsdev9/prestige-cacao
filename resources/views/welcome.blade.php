@@ -17,7 +17,7 @@
             <p class="fs-lg pb-3 mb-2 mb-sm-3 mb-lg-4 mx-auto" style="max-width: 640px;">
                 Une couverture adaptée à vos besoins, pour une tranquillité d'esprit totale.
             </p>
-            <a class="btn btn-lg btn-primary" href="{{ route('become.membership') }}">Rejoindre Moyo </a>
+            <a class="btn btn-lg btn-primary" href="{{ URL::signedRoute('become.membership') }}">Rejoindre Moyo </a>
         </div>
         <div class="container-fluid overflow-hidden px-4 pt-3 pt-sm-4 pb-sm-2 pb-md-3 py-lg-4 py-xl-5 mt-4">
             <div class="parallax mx-auto"

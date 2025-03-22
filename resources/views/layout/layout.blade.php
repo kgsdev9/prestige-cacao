@@ -2,13 +2,11 @@
 <html lang="en" data-bs-theme="light">
 <!-- Added by HTTrack -->
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-
 @include('layout.head')
 
 
-<!-- Body -->
 
-<body class="bg-secondary">
+<body x-data="beginPage()" x-init="init()">
     <a class="position-fixed top-50 bg-light text-dark fw-medium border rounded-pill shadow text-decoration-none"
         href="#customizer" data-bs-toggle="offcanvas"
         style="right: -1.75rem; margin-top: -1rem; padding: .25rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;">
@@ -110,16 +108,9 @@
             <div class="container">
 
                 <!-- Navbar brand (Logo) -->
-                <a class="navbar-brand pe-sm-3" href="/">
+                <a class="navbar-brand pe-sm-3" href="{{ URL::signedRoute('home') }}">
                     <span class="text-primary flex-shrink-0 me-2">
-
                         <img src="{{ asset('logo-m-moyo.png') }}" style="height:32px;width:35px;" alt="">
-
-                        {{-- <svg width="35" height="32" viewBox="0 0 36 33" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="currentColor"
-                                d="M35.6,29c-1.1,3.4-5.4,4.4-7.9,1.9c-2.3-2.2-6.1-3.7-9.4-3.7c-3.1,0-7.5,1.8-10,4.1c-2.2,2-5.8,1.5-7.3-1.1c-1-1.8-1.2-4.1,0-6.2l0.6-1.1l0,0c0.6-0.7,4.4-5.2,12.5-5.7c0.5,1.8,2,3.1,3.9,3.1c2.2,0,4.1-1.9,4.1-4.2s-1.8-4.2-4.1-4.2c-2,0-3.6,1.4-4,3.3H7.7c-0.8,0-1.3-0.9-0.9-1.6l5.6-9.8c2.5-4.5,8.8-4.5,11.3,0L35.1,24C36,25.7,36.1,27.5,35.6,29z">
-                            </path>
-                        </svg> --}}
                     </span>
                     oyo
                 </a>
@@ -135,11 +126,22 @@
                     </label>
                 </div>
 
-                <!-- Bouton d'action -->
-                <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex" href="{{ route('login.assurance') }}">
-                    <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
-                    Mon Espace
-                </a>
+
+                @guest
+                    <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
+                        href="{{ URL::signedRoute('login.assurance') }}">
+                        <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
+                        Connexion
+                    </a>
+                    @else
+                    <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
+                        href="{{ route('dashboard') }}">
+                        <i class="ai-home fs-xl me-2 ms-n1"></i>
+                        Tableau de bord
+                    </a>
+
+                @endguest
+
 
                 <!-- Mobile menu toggler (Hamburger) -->
                 <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse"
@@ -151,30 +153,28 @@
                 <nav class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
                         <li class="nav-item">
-                            <a class="nav-link active" href="/">Accueil</a>
+                            <a class="nav-link active" href="{{ URL::signedRoute('home') }}">Accueil</a>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Nos
                                 services</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="{{ route('assurance.scolaire') }}">Assurance
-                                        scolaire</a>
-                                </li>
+                                <li><a class="dropdown-item"
+                                        href="{{ URL::signedRoute('assurance.scolaire') }}">Assurance scolaire</a></li>
                                 <li><a class="dropdown-item" href="#">Encadrement</a></li>
                                 <li><a class="dropdown-item" href="#">Coaching</a></li>
-                                <li><a class="dropdown-item" href="{{ route('cotisations.scolaire') }}">Cotisation
-                                        rentrée</a>
+                                <li><a class="dropdown-item"
+                                        href="{{ URL::signedRoute('cotisations.scolaire') }}">Cotisation rentrée</a>
                                 </li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('conseils.scolaire') }}">Conseils</a>
+                            <a class="nav-link" href="{{ URL::signedRoute('conseils.scolaire') }}">Conseils</a>
                         </li>
 
-
                         <li class="nav-item">
-                            <a class="nav-link" href="/about">À propos</a>
+                            <a class="nav-link" href="{{ URL::signedRoute('about') }}">À propos</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Contact</a>
@@ -183,6 +183,7 @@
                 </nav>
             </div>
         </header>
+
 
         @yield('content')
 
@@ -193,7 +194,7 @@
         <div class="container pt-md-2 pt-lg-3 pt-xl-4">
             <div class="row pb-4 pb-md-5 pt-sm-2 mb-lg-2">
                 <div class="col-md-4 col-lg-3 pb-2 pb-md-0 mb-4 mb-md-0">
-                    <a class="navbar-brand text-nav py-0 mb-3 mb-md-4" href="#">
+                    <a class="navbar-brand text-nav py-0 mb-3 mb-md-4" href="{{ URL::signedRoute('home') }}">
                         <span class="text-primary flex-shrink-0 me-2">
                             <img src="{{ asset('logo-m-moyo.png') }}" style="height:60px;" alt="">
                         </span>
@@ -207,13 +208,11 @@
                             <i class="ai-facebook"></i>
                         </a>
 
-
                         <a class="btn btn-icon btn-sm btn-success btn-whatsapp rounded-circle"
                             href="https://whatsapp.com/channel/0029Vb4oJ7DDTkK6Pv3XDh2h" target="_blank"
                             aria-label="WhatsApp">
                             <i class="ai-whatsapp"></i>
                         </a>
-
                     </div>
                 </div>
                 <div class="col-md-8 col-lg-7 col-xl-6 offset-lg-2 offset-xl-3">
@@ -221,46 +220,40 @@
                         <div class="col mb-3 mb-md-0">
                             <ul class="nav flex-column">
                                 <li><a class="nav-link fw-normal py-1 px-0" href="#">Nos services</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Dévenir promoteur</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Investir</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Comment ça marche</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Avis clients</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="">Devenir promoteur</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="">Investir</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="">Comment ça marche</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="">Avis clients</a></li>
                             </ul>
                         </div>
                         <div class="col mb-4 mb-md-0">
                             <ul class="nav flex-column">
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Fas</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Conditions générales</a>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="">Fas</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="">Conditions générales</a>
                                 </li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Mentions légales</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Politique de
+                                <li><a class="nav-link fw-normal py-1 px-0" href="">Mentions légales</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="">Politique de
                                         confidentialité</a></li>
                             </ul>
                         </div>
                         <div class="col">
-                            <a class="btn btn-secondary px-3 py-2 mb-3 me-3 me-md-0" href="#">
+                            <a class="btn btn-secondary px-3 py-2 mb-3 me-3 me-md-0" href="">
                                 <img class="ms-sm-auto" src="{{ asset('orange-logo.png') }}" width="120"
                                     alt="Orange Bank logo">
                                 <img class="mx-1 d-none" src="assets/img/market/appstore-light.svg" width="120"
                                     alt="App Store">
                             </a>
-
                         </div>
                     </div>
                 </div>
             </div>
             <p class="nav fs-sm mb-0">
                 <span class="text-body-secondary">&copy; Tous droits réservés</span>
-                <a class="nav-link d-inline fw-normal p-0 ms-1" href="#" target="_blank" rel="noopener">Moyo
+                <a class="nav-link d-inline fw-normal p-0 ms-1" href="" target="_blank" rel="noopener">Moyo
                     Assurance</a>
             </p>
-
-
         </div>
-
-
     </footer>
-
 
     <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
         <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -269,9 +262,7 @@
         </svg>
         <i class="ai-arrow-up"></i>
     </a>
-
     @include('layout.script')
-
 </body>
 
 </html>
