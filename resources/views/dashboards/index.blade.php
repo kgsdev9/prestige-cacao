@@ -1,8 +1,5 @@
 @extends('layout.layout')
-
-
 @section('content')
-
     <body class="bg-secondary">
         <div class=" container py-5 mt-4 mt-lg-5 mb-lg-4 my-xl-5">
             <div class="row pt-sm-2 pt-lg-0">
@@ -106,9 +103,7 @@
                 </div>
             </div>
         </div>
-
         @include('dashboards.sidebarbuttonresponsive')
-
     </body>
 
 @endsection

@@ -27,9 +27,40 @@ Route::get('/', [HomeController::class, 'home'])->name('home');
 // Pages statiques protégées
 Route::get('/devenir-membre', [HomeController::class, 'becomeMembre'])->name('become.membership')->middleware('signed');
 Route::get('/promoteur', [PromoteurController::class, 'becomePromoteur'])->name('become.promoteur')->middleware('signed');
-Route::get('/fac', function () {
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact.page')->middleware('signed');
+Route::get('/faq', function () {
     return view('home.faq');
-})->name('fac')->middleware('signed');
+})->name('faq')->middleware('signed');
+
+Route::get('/condtion-generale-utilisisation', function () {
+    return view('home.conditionutilisation');
+})->name('condition.utilisation')->middleware('signed');
+
+
+Route::get('/devenir-partenaire', function () {
+    return view('home.partenaire');
+})->name('partenaire.home')->middleware('signed');
+
+
+Route::get('/comment-ca-marche', function () {
+    return view('home.commentcamarche');
+})->name('comment.ca.marche')->middleware('signed');
+
+Route::get('/emploi', function () {
+    return view('home.emploi');
+})->name('emploi')->middleware('signed');
+
+
+
+Route::get('/devenir-promoteur', function () {
+    return view('pages.devenirpromoteur');
+})->name('home.promoteur')->middleware('signed');
+
+
+Route::get('/termes-condition', function () {
+    return view('home.termeconditon');
+})->name('terme.conditon')->middleware('signed');
+
 
 Route::get('/about', function () {
     return view('home.about');

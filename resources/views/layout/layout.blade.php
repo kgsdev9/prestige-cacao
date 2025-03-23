@@ -6,7 +6,7 @@
 
 
 
-<body >
+<body>
     <a class="position-fixed top-50 bg-light text-dark fw-medium border rounded-pill shadow text-decoration-none"
         href="#customizer" data-bs-toggle="offcanvas"
         style="right: -1.75rem; margin-top: -1rem; padding: .25rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;">
@@ -133,7 +133,7 @@
                         <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
                         Connexion
                     </a>
-                    @else
+                @else
                     <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
                         href="{{ route('dashboard') }}">
                         <i class="ai-home fs-xl me-2 ms-n1"></i>
@@ -153,34 +153,37 @@
                 <nav class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ URL::signedRoute('home') }}">Accueil</a>
+                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
+                                href="{{ URL::signedRoute('home') }}">Accueil</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Nos
-                                services</a>
+                            <a class="nav-link dropdown-toggle {{ request()->routeIs('assurance.scolaire', 'cotisations.scolaire') ? 'active' : '' }}"
+                                href="#" data-bs-toggle="dropdown">Nos services</a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item"
+                                <li><a class="dropdown-item {{ request()->routeIs('assurance.scolaire') ? 'active' : '' }}"
                                         href="{{ URL::signedRoute('assurance.scolaire') }}">Assurance scolaire</a></li>
                                 <li><a class="dropdown-item" href="#">Encadrement</a></li>
                                 <li><a class="dropdown-item" href="#">Coaching</a></li>
-                                <li><a class="dropdown-item"
+                                <li><a class="dropdown-item {{ request()->routeIs('cotisations.scolaire') ? 'active' : '' }}"
                                         href="{{ URL::signedRoute('cotisations.scolaire') }}">Cotisation rentrée</a>
                                 </li>
                             </ul>
                         </li>
-
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::signedRoute('conseils.scolaire') }}">Conseils</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ URL::signedRoute('about') }}">À propos</a>
+                            <a class="nav-link {{ request()->routeIs('conseils.scolaire') ? 'active' : '' }}"
+                                href="{{ URL::signedRoute('conseils.scolaire') }}">Conseils</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contact</a>
+                            <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
+                                href="{{ URL::signedRoute('about') }}">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('contact.page') ? 'active' : '' }}"
+                                href="{{ URL::signedRoute('contact.page') }}">Contact</a>
                         </li>
                     </ul>
                 </nav>
+
             </div>
         </header>
 
@@ -219,19 +222,31 @@
                     <div class="row row-cols-1 row-cols-sm-3">
                         <div class="col mb-3 mb-md-0">
                             <ul class="nav flex-column">
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Nos services</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="">Devenir promoteur</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="">Investir</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="">Comment ça marche</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="">Avis clients</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0"
+                                        href="{{ URL::signedRoute('partenaire.home') }}">Dévenir partenaire</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0"
+                                        href="{{ URL::signedRoute('home.promoteur') }}">Devenir promoteur</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0"
+                                        href="{{ URL::signedRoute('emploi') }}">Offre d'emploi</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0"
+                                        href="{{ URL::signedRoute('comment.ca.marche') }}">Comment ça marche</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Assistante téchnique</a>
+                                </li>
+
                             </ul>
                         </div>
                         <div class="col mb-4 mb-md-0">
                             <ul class="nav flex-column">
-                                <li><a class="nav-link fw-normal py-1 px-0" href="">Fas</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="">Conditions générales</a>
+                                <li><a class="nav-link fw-normal py-1 px-0"
+                                        href="{{ URL::signedRoute('faq') }}">Faq</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0"
+                                        href="{{ URL::signedRoute('condition.utilisation') }}">Conditions
+                                        générales</a>
                                 </li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="">Mentions légales</a></li>
+                                <li><a class="nav-link fw-normal py-1 px-0"
+                                        href="{{ URL::signedRoute('terme.conditon') }}">Termes
+                                        et condition</a>
+                                </li>
                                 <li><a class="nav-link fw-normal py-1 px-0" href="">Politique de
                                         confidentialité</a></li>
                             </ul>
