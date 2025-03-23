@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Models\Solde;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,9 +22,17 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        $listetransactions = Transaction::with('modereglement')
+            ->where('user_id', Auth::user()->id)
+            ->orderByDesc('created_at')
+            ->take(10)
+            ->get();
 
-        return view('dashboards.index');
+        $solde = Solde::where('user_id', Auth::user()->id)->first();
+
+        return view('dashboards.index', compact('listetransactions', 'solde'));
     }
+
 
     /**
      * Show the form for creating a new resource.

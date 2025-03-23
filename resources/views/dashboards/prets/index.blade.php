@@ -35,6 +35,9 @@
 
                                 <a class="btn btn-sm btn-secondary " href="#">Mes prets</a>
                             </div>
+                            @can('after')
+
+
                             <table class="table align-middle w-100" style="min-width: 450px;">
                                 <tbody>
                                     <tr>
@@ -71,7 +74,7 @@
                                     </tr>
                                 </tbody>
                             </table>
-
+                            @endcan
                         </div>
                     </section>
                 </div>

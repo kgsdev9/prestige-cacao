@@ -20,7 +20,7 @@
                                 Mes rapports
                             </button>
 
-                          
+
 
                         </div>
                     </div>
@@ -31,42 +31,44 @@
 
                                 <a class="btn btn-sm btn-secondary " href="#">Mes rapports</a>
                             </div>
-                            <table class="table align-middle w-100" style="min-width: 450px;">
-                                <tbody>
-                                    <tr>
-                                        <td class="border-0 py-1 px-0">
-                                            <div class="d-flex align-items-center">
-                                                <div
-                                                    class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-md-2 p-lg-3">
-                                                    <img src="assets/img/transactions/transaction-icon.png" width="80"
-                                                        alt="Transaction">
-                                                </div>
-                                                <div class="ps-3 ps-sm-4">
-                                                    <h4 class="h6 mb-2">Paiement reçu</h4>
-                                                    <div class="text-body-secondary fs-sm me-3">ID de transaction :
-                                                        <span class="text-dark fw-medium">#TXN123456</span>
+                            @can('after')
+                                <table class="table align-middle w-100" style="min-width: 450px;">
+                                    <tbody>
+                                        <tr>
+                                            <td class="border-0 py-1 px-0">
+                                                <div class="d-flex align-items-center">
+                                                    <div
+                                                        class="d-inline-block flex-shrink-0 bg-secondary rounded-1 p-md-2 p-lg-3">
+                                                        <img src="assets/img/transactions/transaction-icon.png" width="80"
+                                                            alt="Transaction">
                                                     </div>
-                                                    <div class="text-body-secondary fs-sm me-3">Date :
-                                                        <span class="text-dark fw-medium">22 mars 2025</span>
+                                                    <div class="ps-3 ps-sm-4">
+                                                        <h4 class="h6 mb-2">Paiement reçu</h4>
+                                                        <div class="text-body-secondary fs-sm me-3">ID de transaction :
+                                                            <span class="text-dark fw-medium">#TXN123456</span>
+                                                        </div>
+                                                        <div class="text-body-secondary fs-sm me-3">Date :
+                                                            <span class="text-dark fw-medium">22 mars 2025</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                        <td class="border-0 py-1 pe-0 ps-3 ps-sm-4">
-                                            <div class="fs-sm text-body-secondary mb-2">Statut</div>
-                                            <div class="fs-sm fw-medium text-success">Terminé</div>
-                                        </td>
-                                        <td class="border-0 py-1 pe-0 ps-3 ps-sm-4">
-                                            <div class="fs-sm text-body-secondary mb-2">Montant</div>
-                                            <div class="fs-sm fw-medium text-dark">250 €</div>
-                                        </td>
-                                        <td class="border-0 text-end py-1 pe-0 ps-3 ps-sm-4">
-                                            <div class="fs-sm text-body-secondary mb-2">Moyen de paiement</div>
-                                            <div class="fs-sm fw-medium text-dark">Carte bancaire</div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                            </td>
+                                            <td class="border-0 py-1 pe-0 ps-3 ps-sm-4">
+                                                <div class="fs-sm text-body-secondary mb-2">Statut</div>
+                                                <div class="fs-sm fw-medium text-success">Terminé</div>
+                                            </td>
+                                            <td class="border-0 py-1 pe-0 ps-3 ps-sm-4">
+                                                <div class="fs-sm text-body-secondary mb-2">Montant</div>
+                                                <div class="fs-sm fw-medium text-dark">250 €</div>
+                                            </td>
+                                            <td class="border-0 text-end py-1 pe-0 ps-3 ps-sm-4">
+                                                <div class="fs-sm text-body-secondary mb-2">Moyen de paiement</div>
+                                                <div class="fs-sm fw-medium text-dark">Carte bancaire</div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            @endcan
 
                         </div>
                     </section>

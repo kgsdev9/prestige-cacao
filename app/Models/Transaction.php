@@ -35,7 +35,7 @@ class Transaction extends Model
     /**
      * Relation avec le mode de règlement (ModeReglement).
      */
-    public function modeReglement()
+    public function modereglement()
     {
         return $this->belongsTo(ModeReglement::class, 'modereglement_id');
     }

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Cotisation;
 
 use App\Http\Controllers\Controller;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CotisationController extends Controller
 {
@@ -20,7 +22,14 @@ class CotisationController extends Controller
      */
     public function index()
     {
-        return view('dashboards.cotisations.index');
+
+        $listetransactions = Transaction::with('modereglement')
+            ->where('user_id', Auth::user()->id)
+            ->orderByDesc('created_at')
+            ->take(10)
+            ->get();
+
+        return view('dashboards.cotisations.index', compact('listetransactions'));
     }
 
     /**

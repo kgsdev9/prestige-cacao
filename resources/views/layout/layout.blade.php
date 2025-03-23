@@ -278,6 +278,7 @@
         <i class="ai-arrow-up"></i>
     </a>
     @include('layout.script')
+    @stack('script')
 </body>
 
 </html>
