@@ -1,6 +1,6 @@
 @include('layout.head')
 
-<main class="page-wrapper">
+<main class="page-wrapper" x-data="loginForm()">
     <div class="d-lg-flex position-relative h-100">
 
         <!-- Home button -->
@@ -18,35 +18,35 @@
                     Connectez-vous pour accéder à votre espace et gérer votre assurance scolaire.
                 </p>
 
-                <form id="loginForm" method="POST">
-                    <div>
-                        <h3 class="pb-3">Étape 1 : Choisir la méthode de connexion</h3>
-                        <div class="mb-4">
-                            <label for="connexion-email" class="form-label">Connexion par Email et Mot de Passe</label>
-                            <div>
-                                <input type="email" class="form-control form-control-lg" placeholder="Email"
-                                    x-model="formData.email" required>
-                                <input type="password" class="form-control form-control-lg mt-3"
-                                    placeholder="Mot de passe" x-model="formData.password" required>
-                            </div>
+
+                <div>
+                    <h3 class="pb-3">Étape 1 : Choisir la méthode de connexion</h3>
+                    <div class="mb-4">
+
+                        <div>
+                            <input type="email" class="form-control form-control-lg" placeholder="Email"
+                                x-model="formData.email" required>
+                            <input type="password" class="form-control form-control-lg mt-3" placeholder="Mot de passe"
+                                x-model="formData.password" required>
                         </div>
-
-                        <div class="mb-4">
-                            <label for="connexion-code" class="form-label">Ou Connexion par Code d'accès</label>
-                            <input type="text" class="form-control form-control-lg" placeholder="Code d'accès"
-                                x-model="formData.code" required>
-                        </div>
-
-                        <button type="button" class="btn btn-primary w-100 mb-4" @click="nextStep()">Se
-                            connecter</button>
-
-                        <p x-show="message" x-text="message" class="alert" :class="messageType"></p>
                     </div>
 
 
+                    <button type="button" class="btn btn-primary w-100 mb-4" @click="login()"
+                        :disabled="formData.loading">
+                        <template x-if="formData.loading">
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        </template>
+                        <template x-if="!formData.loading">
+                            <span>Se connecter</span>
+                        </template>
+                    </button>
 
 
-                </form>
+                    <p x-show="message" x-text="message" class="alert" :class="messageType"></p>
+                </div>
+
+
 
             </div>
 
@@ -60,8 +60,10 @@
         </div>
 
         <!-- Cover image -->
-        <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center" style="background-image: url(education-2.jpg);">
+        <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center"
+            style="background-image: url('{{ asset('education-2.jpg') }}');">
         </div>
+
     </div>
 </main>
 
@@ -74,27 +76,22 @@
             formData: {
                 email: '',
                 password: '',
-                code: '', // Ajoute ici la logique pour le code d'accès
+                code: '',
+                loading: false,
             },
             message: '',
             messageType: '',
 
-            nextStep() {
-                // Vérification de l'étape choisie
-                if (this.step === 1) {
-                    this.loginWithEmailPassword();
-                }
-            },
 
-            loginWithEmailPassword() {
-
+            login() {
+                this.formData.loading = true;
                 const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-                
+
                 fetch('/login', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken, // Ajouter le token CSRF dans les en-têtes
+                            'X-CSRF-TOKEN': csrfToken,
                         },
                         body: JSON.stringify({
                             email: this.formData.email,
@@ -103,28 +100,27 @@
                     })
                     .then(response => response.json())
                     .then(result => {
-                        // Vérifier si la connexion a réussi (message de succès)
-                        if (result.message === 'Connexion réussie') {
-                            // Message de succès
-                            this.message = result.message;
-                            this.messageType = 'alert-success';
+                        console.log(result); // Debug: voir ce que retourne l'API
 
-                            // Redirection après 10 secondes
-                            setTimeout(() => {
-                                window.location.href =
-                                    "/dashboard"; // Remplace par l'URL du tableau de bord
-                            }, 10000);
+                        if (result.success === true) { // ✅ Correction ici !
+                            this.message = "Bienvenue";
+                            this.messageType = 'alert-success';
+                            window.location.href = "/dashboard"; // Redirection
+
                         } else {
-                            // Message d'erreur si la connexion échoue
-                            this.message = result.message;
+                            this.message = "Email ou mot de passe incorrect";
                             this.messageType = 'alert-danger';
                         }
                     })
                     .catch(error => {
-                        this.message = 'Une erreur est survenue';
+                        this.message = 'euillez réessayer dans 10 secondes, nos serveurs sont surchargés';
                         this.messageType = 'alert-danger';
+                    })
+                    .finally(() => {
+                        this.formData.loading = false; // Désactive le loader
                     });
             }
+
 
 
         }

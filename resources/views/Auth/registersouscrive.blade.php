@@ -23,7 +23,7 @@
 
                 <!-- Step 1 -->
                 <div x-show="step === 1">
-                    <h3 class="pb-3">Étape 1 : Informations personnelles</h3>
+                    <h3 class="pb-3">Étape 2 : Informations personnelles</h3>
                     <div class="row">
                         <!-- Nom -->
                         <div class="col-md-6 mb-4">
@@ -162,7 +162,7 @@
         <!-- Copyright -->
         <p class="nav w-100 fs-sm pt-5 mt-auto mb-5" style="max-width: 700px;">
             <span class="text-body-secondary">&copy; Tous droits réservés. Fait par</span>
-            <a class="nav-link d-inline-block p-0 ms-1" href="https://myoo.com" target="_blank" rel="noopener">Myoo Assurance</a>
+            <a class="nav-link d-inline-block p-0 ms-1" href="https://moyo-ci.com" target="_blank" rel="noopener">Myoo Assurance</a>
         </p>
     </div>
 </main>

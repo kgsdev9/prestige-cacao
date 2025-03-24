@@ -56,10 +56,16 @@
 
                 </nav>
                 <nav class="nav flex-column">
-                    <a class="nav-link fw-semibold py-2 px-0" href="#">
+                    <a class="nav-link fw-semibold py-2 px-0" href="#"
+                        onclick="document.getElementById('logoutForm').submit();">
                         <i class="ai-logout fs-5 opacity-60 me-2"></i>
                         Quitter
                     </a>
+
+                    <form id="logoutForm" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+
                 </nav>
             </div>
         </div>

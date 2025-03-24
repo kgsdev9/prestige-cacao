@@ -160,7 +160,7 @@
 
         <!-- Cover image -->
         <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center"
-            style="background-image: url(education-2.jpg);">
+            style="background-image: url('{{ asset('education-2.jpg') }}');">
         </div>
     </div>
 </main>

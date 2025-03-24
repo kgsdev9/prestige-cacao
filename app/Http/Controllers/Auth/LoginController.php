@@ -23,11 +23,15 @@ class LoginController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            // Connexion réussie
             return response()->json([
+                'success' => true, // ✅ Utilisation de 'success' au lieu de 'message'
                 'message' => 'Connexion réussie',
             ]);
         }
-        // return redirect()->back()->withErrors(['email' => 'Identifiants incorrects']);
+
+        return response()->json([
+            'success' => false,
+            'message' => 'Email ou mot de passe incorrect',
+        ], 401);
     }
 }
