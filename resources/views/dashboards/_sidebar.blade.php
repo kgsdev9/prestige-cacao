@@ -53,6 +53,71 @@
                         Mon profile
                     </a>
 
+                    @can('is_admins')
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mode reglement
+                        </a>
+
+
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mes clients
+                        </a>
+
+
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mes promoteurs
+                        </a>
+
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mes invistisseurs
+                        </a>
+
+
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mes etablissments
+                        </a>
+
+
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mes Clases
+                        </a>
+
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mes
+                            communes
+                        </a>
+
+
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mes
+                            avis
+                        </a>
+
+                        <a class="nav-link fw-semibold py-2 px-0 {{ Route::is('profile.update') ? 'active' : '' }}"
+                            href="{{ route('profile.update') }}">
+                            <i class="ai-settings fs-5 opacity-60 me-2"></i>
+                            Mon entreprise
+                        </a>
+                    @endcan
+
+
+
 
                 </nav>
                 <nav class="nav flex-column">
