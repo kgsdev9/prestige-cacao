@@ -1,5 +1,5 @@
 @extends('layout.layout')
-@section('title', 'Conditions Générales d\'Utilisation - Moyo Assurance')
+@section('title', 'Conditions Générales d\'Utilisation - Moyo')
 @section('content')
     <main class="page-wrapper">
         <!-- Hero -->
@@ -8,88 +8,76 @@
                 <div class="row justify-content-center py-4">
                     <div class="col-lg-11 col-xl-10 text-center pb-2 pb-sm-3 mb-lg-2 mb-xl-3">
                         <h1 class="display-2 fw-normal mb-0">
-                            <span class="fw-bold">Conditions Générales d'Utilisation</span> de Moyo Assurance
+                            <span class="fw-bold">Conditions Générales d'Utilisation</span> de Moyo
                         </h1>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Conditions Générales d'Utilisation (Accordion) -->
+        <!-- CGU Accordion -->
         <section class="bg-secondary py-5">
             <div class="container py-md-2 py-lg-3 py-xl-5 my-2 my-sm-3 my-md-4 my-xxl-5">
                 <div class="row">
                     <div class="col-md-4 text-center text-md-start">
                         <h2 class="h1">Conditions Générales d'Utilisation</h2>
-                        <p class="pb-3 pb-sm-4">Moyo Assurance CI est une assurance scolaire offrant une couverture adaptée
-                            aux enfants en milieu scolaire. En adhérant à nos services, vous bénéficiez également d’un
-                            encadrement scolaire, d’un coaching parental et d’un service financier facilitant la rentrée
-                            académique.</p>
+                        <p class="pb-3 pb-sm-4">
+                            Moyo est une solution éducative innovante qui accompagne les familles avec des services de cotisation scolaire flexible, d’achat groupé de fournitures et de coaching parental.
+                        </p>
                     </div>
                     <div class="col-md-8 col-lg-7 offset-lg-1">
                         <div class="accordion" id="cgu">
+
                             <!-- Adhésion -->
                             <div class="accordion-item bg-light">
                                 <h3 class="accordion-header" id="headingAdhesion">
                                     <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#adhesion" aria-expanded="true" aria-controls="adhesion">
+                                            data-bs-target="#adhesion" aria-expanded="true" aria-controls="adhesion">
                                         Adhésion et Tarification
                                     </button>
                                 </h3>
                                 <div class="accordion-collapse collapse show" id="adhesion"
-                                    aria-labelledby="headingAdhesion" data-bs-parent="#cgu">
+                                     aria-labelledby="headingAdhesion" data-bs-parent="#cgu">
                                     <div class="accordion-body fs-sm">
-                                        L’adhésion à Moyo Assurance CI est ouverte à tous les parents souhaitant assurer la
-                                        protection scolaire de leur enfant. Le coût de l’adhésion est de 1€ (soit 655 FCFA).
-                                        Ce montant couvre les frais administratifs et permet d’accéder aux services
-                                        d’assurance, d’encadrement scolaire et de coaching parental.
+                                        L’adhésion à Moyo est ouverte à tous les parents souhaitant bénéficier d’un accompagnement scolaire et financier. Le coût de l’adhésion est de 1,52€ (soit 1000 FCFA) pour couvrir les frais administratifs.
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Couverture et Services -->
+                            <!-- Services -->
                             <div class="accordion-item bg-light">
                                 <h3 class="accordion-header" id="headingServices">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#services" aria-expanded="false" aria-controls="services">
-                                        Couverture et Services Inclus
+                                            data-bs-target="#services" aria-expanded="false" aria-controls="services">
+                                        Services Inclus
                                     </button>
                                 </h3>
                                 <div class="accordion-collapse collapse" id="services" aria-labelledby="headingServices"
-                                    data-bs-parent="#cgu">
+                                     data-bs-parent="#cgu">
                                     <div class="accordion-body fs-sm">
                                         <ul>
-                                            <li><strong>Assurance scolaire</strong> : Protection en cas d’accident survenant
-                                                durant les activités scolaires.</li>
-                                            <li><strong>Encadrement scolaire</strong> : Accompagnement des enfants dans leur
-                                                parcours éducatif.</li>
-                                            <li><strong>Coaching parental</strong> : Conseils et soutien aux parents pour
-                                                mieux suivre la scolarité de leur enfant.</li>
-                                            <li><strong>Service financier</strong> : Système de cotisation pour une rentrée
-                                                académique sereine.</li>
-                                            <li><strong>Suivi des cotisations</strong> : Les parents recevront des rapports
-                                                mensuels et journaliers de leurs cotisations ainsi que des notifications
-                                                automatiques à chaque versement pour une fiabilité optimale.</li>
+                                            <li><strong>Encadrement scolaire</strong> : Suivi des enfants dans leur parcours éducatif.</li>
+                                            <li><strong>Coaching parental</strong> : Accompagnement pour aider les parents à mieux suivre la scolarité de leurs enfants.</li>
+                                            <li><strong>Service financier</strong> : Cotisations flexibles pour préparer sereinement la rentrée scolaire.</li>
+                                            <li><strong>Suivi des cotisations</strong> : Rapports mensuels et journaliers, avec alertes automatiques après chaque versement.</li>
+                                            <li><strong>Achat groupé de fournitures</strong> : Accès à du matériel scolaire de qualité à prix réduit.</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- Disponibilité Internationale -->
+                            <!-- Diaspora -->
                             <div class="accordion-item bg-light">
                                 <h3 class="accordion-header" id="headingDispo">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#dispo" aria-expanded="false" aria-controls="dispo">
+                                            data-bs-target="#dispo" aria-expanded="false" aria-controls="dispo">
                                         Disponibilité pour la Diaspora
                                     </button>
                                 </h3>
                                 <div class="accordion-collapse collapse" id="dispo" aria-labelledby="headingDispo"
-                                    data-bs-parent="#cgu">
+                                     data-bs-parent="#cgu">
                                     <div class="accordion-body fs-sm">
-                                        Les parents vivant à l’étranger peuvent également souscrire à Moyo Assurance CI pour
-                                        assurer la protection scolaire de leurs enfants restés au pays. Nos services restent
-                                        accessibles aux familles de la diaspora souhaitant garantir une scolarité sereine à
-                                        leurs enfants en Côte d’Ivoire.
+                                        Les parents vivant à l’étranger peuvent souscrire aux services de Moyo pour accompagner la scolarité de leurs enfants en Côte d’Ivoire.
                                     </div>
                                 </div>
                             </div>
@@ -98,30 +86,27 @@
                             <div class="accordion-item bg-light">
                                 <h3 class="accordion-header" id="headingConditions">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                        data-bs-target="#conditions" aria-expanded="false" aria-controls="conditions">
+                                            data-bs-target="#conditions" aria-expanded="false" aria-controls="conditions">
                                         Conditions d’Utilisation
                                     </button>
                                 </h3>
                                 <div class="accordion-collapse collapse" id="conditions" aria-labelledby="headingConditions"
-                                    data-bs-parent="#cgu">
+                                     data-bs-parent="#cgu">
                                     <div class="accordion-body fs-sm">
-                                        En adhérant à Moyo Assurance CI, vous acceptez les conditions suivantes :
+                                        En adhérant à Moyo, vous acceptez les conditions suivantes :
                                         <ul>
                                             <li>Fournir des informations exactes et à jour lors de l’inscription.</li>
-                                            <li>Utiliser les services exclusivement pour la protection scolaire et le suivi
-                                                éducatif de votre enfant.</li>
-                                            <li>Respecter les règles et engagements liés au service financier de cotisation.
-                                            </li>
+                                            <li>Utiliser les services exclusivement pour l'accompagnement éducatif de votre enfant.</li>
+                                            <li>Respecter les engagements liés au service de cotisation.</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-
     </main>
 @endsection

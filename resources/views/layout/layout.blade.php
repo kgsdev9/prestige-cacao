@@ -34,7 +34,7 @@
                 <div id="chat-box" class="mb-3" style="max-height: 300px; overflow-y: auto;">
                     <!-- Exemple de message de bienvenue dans le chat -->
                     <div class="chat-message system-message">
-                        <p>Bonjour ! Comment pouvons-nous vous aider aujourd'hui ? 😊</p>
+                        <p>Bonjour ! Comment pouvons-nous vous aider aujourd'hui ? ð</p>
                     </div>
                     <div class="chat-message system-message">
                         <p>Si vous avez une question fréquente, vous pouvez aussi consulter notre FAQ pour obtenir une
@@ -156,26 +156,16 @@
                             <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
                                 href="{{ URL::signedRoute('home') }}">Accueil</a>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ request()->routeIs('assurance.scolaire', 'cotisations.scolaire') ? 'active' : '' }}"
-                                href="#" data-bs-toggle="dropdown">Nos services</a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item {{ request()->routeIs('assurance.scolaire') ? 'active' : '' }}"
-                                        href="{{ URL::signedRoute('assurance.scolaire') }}">Assurance scolaire</a></li>
-                                <li><a class="dropdown-item" href="#">Encadrement</a></li>
-                                <li><a class="dropdown-item" href="#">Coaching</a></li>
-                                <li><a class="dropdown-item {{ request()->routeIs('cotisations.scolaire') ? 'active' : '' }}"
-                                        href="{{ URL::signedRoute('cotisations.scolaire') }}">Cotisation rentrée</a>
-                                </li>
-                            </ul>
-                        </li>
+                       
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('conseils.scolaire') ? 'active' : '' }}"
-                                href="{{ URL::signedRoute('conseils.scolaire') }}">Conseils</a>
+                                href="{{ URL::signedRoute('conseils.scolaire') }}">Bank Finance</a>
                         </li>
+
+                        
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
-                                href="{{ URL::signedRoute('about') }}">À propos</a>
+                                href="{{ URL::signedRoute('about') }}">Pourquoi nous ?</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('contact.page') ? 'active' : '' }}"
@@ -222,16 +212,14 @@
                     <div class="row row-cols-1 row-cols-sm-3">
                         <div class="col mb-3 mb-md-0">
                             <ul class="nav flex-column">
-                                <li><a class="nav-link fw-normal py-1 px-0"
-                                        href="{{ URL::signedRoute('partenaire.home') }}">Dévenir partenaire</a></li>
+                              
                                 <li><a class="nav-link fw-normal py-1 px-0"
                                         href="{{ URL::signedRoute('home.promoteur') }}">Devenir promoteur</a></li>
                                 <li><a class="nav-link fw-normal py-1 px-0"
                                         href="{{ URL::signedRoute('emploi') }}">Offre d'emploi</a></li>
                                 <li><a class="nav-link fw-normal py-1 px-0"
                                         href="{{ URL::signedRoute('comment.ca.marche') }}">Comment ça marche</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="#">Assistante téchnique</a>
-                                </li>
+                              
 
                             </ul>
                         </div>
@@ -247,8 +235,7 @@
                                         href="{{ URL::signedRoute('terme.conditon') }}">Termes
                                         et condition</a>
                                 </li>
-                                <li><a class="nav-link fw-normal py-1 px-0" href="">Politique de
-                                        confidentialité</a></li>
+                               
                             </ul>
                         </div>
                         <div class="col">
@@ -264,8 +251,8 @@
             </div>
             <p class="nav fs-sm mb-0">
                 <span class="text-body-secondary">&copy; Tous droits réservés</span>
-                <a class="nav-link d-inline fw-normal p-0 ms-1" href="" target="_blank" rel="noopener">Moyo
-                    Assurance</a>
+                <a class="nav-link d-inline fw-normal p-0 ms-1" href="" target="_blank" rel="noopener">Moyo CI
+                    </a>
             </p>
         </div>
     </footer>

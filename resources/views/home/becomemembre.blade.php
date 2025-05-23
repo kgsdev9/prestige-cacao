@@ -13,14 +13,11 @@
         <!-- Sign up form -->
         <div class="d-flex flex-column align-items-center w-lg-50 h-100 px-3 px-lg-5 pt-5" x-data="formSteps()">
             <div class="w-100 mt-auto" style="max-width: 526px;">
-                <h1>Moyo Assurance L'Assurance Scolaire N°1</h1>
+               <h1>Moyo Éducation — La Fintech Éducative N°1 en Côte d'Ivoire</h1>
                 <p class="pb-3 mb-3 mb-lg-4">
-                    Protégez l'avenir de vos enfants avec Moyo Assurance, le leader de l'assurance scolaire en Côte
-                    d'Ivoire.
-                    Inscrivez-vous dès maintenant et bénéficiez d'une couverture complète pour leur sécurité et leur
-                    éducation.
-                </p>
-
+                    Moyo transforme l'expérience scolaire en Côte d’Ivoire grâce au numérique. Paiement simplifié des frais, accompagnement éducatif, outils pour les parents et élèves — tout est réuni pour booster la réussite scolaire. 
+                    Rejoignez la révolution éducative dès aujourd’hui.
+                </p
 
                 <div>
                     <div x-show="step === 1">

@@ -1,15 +1,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
-        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
-
+    content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover">
     <!-- SEO meta tags -->
-    <title>Moyo Assurance | Assurance Scolaire en Côte d'Ivoire</title>
+    <title>Moyo Éducation | Fintech éducative en Côte d'Ivoire</title>
     <meta name="description"
-        content="Moyo Assurance vous accompagne avec une couverture complète pour la sécurité et l'éducation de vos enfants : assurance scolaire, coaching parental et encadrement éducatif.">
+        content="Moyo est une startup innovante qui transforme l'éducation en Côte d'Ivoire à travers des solutions numériques de paiement, de gestion scolaire et d'accompagnement éducatif.">
     <meta name="keywords"
-        content="assurance scolaire, coaching parental, paiement frais scolaires, encadrement scolaire, Côte d'Ivoire">
-    <meta name="author" content="Moyo Assurance">
+        content="fintech éducation, paiement frais scolaires, accompagnement scolaire, startup éducation, Côte d'Ivoire, Moyo Éducation">
+    <meta name="author" content="Moyo Éducation">
+
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Favicon et icônes -->
   

@@ -12,6 +12,7 @@ use App\Http\Controllers\Pret\PretController;
 use App\Http\Controllers\Profile\UpdateProfileController;
 use App\Http\Controllers\Promoteur\PromoteurController;
 use App\Http\Controllers\Rapport\RapportController;
+use App\Http\Controllers\Sondage\SondageController;
 use App\Http\Controllers\Statistique\StatistiqueController;
 
 /*
@@ -75,6 +76,11 @@ Route::get('/cotisations', function () {
     return view('home.cotisation');
 })->name('cotisations.scolaire')->middleware('signed');
 
+Route::get('/file-attente-service', function () {
+    return view('home.sondage');
+})->name('sondages.scolaire')->middleware('signed');
+
+
 Route::get('/conseils', function () {
     return view('home.conseil');
 })->name('conseils.scolaire')->middleware('signed');
@@ -106,3 +112,6 @@ Route::get('/success/{user}', [HomeController::class, 'successRegister'])
 
 Route::post('/login', [LoginController::class, 'login']);
 Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');;
+
+
+Route::post('/sondage', [SondageController::class, 'store'])->name('sondage.store');
