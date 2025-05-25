@@ -18,7 +18,10 @@ class CreateSondagesTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->string('telephone');
-             $table->string('zone_couverture');
+            $table->string('zone_couverture')->nullable();
+            $table->string('profession');
+            $table->unsignedBigInteger('commune_id')->nullable();
+            $table->foreign('commune_id')->references('id')->on('communes');
             $table->timestamps();
         });
     }

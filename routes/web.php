@@ -76,9 +76,6 @@ Route::get('/cotisations', function () {
     return view('home.cotisation');
 })->name('cotisations.scolaire')->middleware('signed');
 
-Route::get('/file-attente-service', function () {
-    return view('home.sondage');
-})->name('sondages.scolaire')->middleware('signed');
 
 
 Route::get('/conseils', function () {
@@ -115,3 +112,4 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');;
 
 
 Route::post('/sondage', [SondageController::class, 'store'])->name('sondage.store');
+Route::get('/file-attente-service', [SondageController::class, 'index'])->name('sondages.scolaire');

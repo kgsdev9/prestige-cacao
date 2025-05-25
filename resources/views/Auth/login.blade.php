@@ -16,7 +16,7 @@
                 <h1>Moyo La Fintech Éducative N°1 en Côte d'Ivoire</h1>
 
                 <p class="pb-3 mb-3 mb-lg-4">
-                    Connectez-vous pour accéder à votre espace et gérer votre assurance scolaire.
+                    Connectez-vous pour accéder à votre espace et gérer votre espace.
                 </p>
 
 

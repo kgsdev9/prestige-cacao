@@ -4,11 +4,10 @@
     <main>
         <section class="position-relative pt-2 pt-sm-0 pt-md-2 pt-lg-3 pt-xl-4 pb-lg-4 mt-5"> <!-- Ajout de mt-5 ici -->
             <div class="container pb-2">
-                <h2 class="h1 text-center">Rejoignez Moyo Assurance CI</h2>
-                <p class="fs-lg text-center pb-4 pb-lg-5 mb-2 mb-sm-3 mb-xl-4">Moyo Assurance, leader de l'assurance scolaire
+                <h2 class="h1 text-center">Rejoignez Moyo  CI</h2>
+                <p class="fs-lg text-center pb-4 pb-lg-5 mb-2 mb-sm-3 mb-xl-4">Moyo Ci, la startup leader dans l'education 
                     en Côte d'Ivoire, recrute !</p>
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
-
                     <!-- Offre 1 -->
                     <div class="col">
                         <div class="card border-0 bg-secondary p-3">

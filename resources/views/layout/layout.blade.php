@@ -128,17 +128,17 @@
 
 
                 @guest
-                    <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
-                        href="{{ URL::signedRoute('login.assurance') }}">
-                        <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
-                        Connexion
-                    </a>
+                <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
+                    href="{{ URL::signedRoute('login.assurance') }}">
+                    <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
+                    Connexion
+                </a>
                 @else
-                    <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
-                        href="{{ route('dashboard') }}">
-                        <i class="ai-home fs-xl me-2 ms-n1"></i>
-                        Tableau de bord
-                    </a>
+                <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
+                    href="{{ route('dashboard') }}">
+                    <i class="ai-home fs-xl me-2 ms-n1"></i>
+                    Tableau de bord
+                </a>
 
                 @endguest
 
@@ -156,13 +156,7 @@
                             <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
                                 href="{{ URL::signedRoute('home') }}">Accueil</a>
                         </li>
-                       
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('conseils.scolaire') ? 'active' : '' }}"
-                                href="{{ URL::signedRoute('conseils.scolaire') }}">Bank Finance</a>
-                        </li>
 
-                        
                         <li class="nav-item">
                             <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
                                 href="{{ URL::signedRoute('about') }}">Pourquoi nous ?</a>
@@ -197,29 +191,32 @@
                         d'assurance.</p>
                     <div class="d-flex gap-3">
                         <a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle"
-                            href="https://www.facebook.com/share/1XA7hsYVpJ/" target="" aria-label="Facebook">
+                            href="https://www.facebook.com/share/1XA7hsYVpJ/" target="_blank" aria-label="Facebook">
                             <i class="ai-facebook"></i>
                         </a>
 
-                        <a class="btn btn-icon btn-sm btn-success btn-whatsapp rounded-circle"
-                            href="https://whatsapp.com/channel/0029Vb4oJ7DDTkK6Pv3XDh2h" target="_blank"
-                            aria-label="WhatsApp">
-                            <i class="ai-whatsapp"></i>
+                        <a class="btn btn-icon btn-sm btn-dark btn-tiktok rounded-circle"
+                            href="https://www.tiktok.com/@moyo.ci" target="_blank"
+                            aria-label="TikTok">
+                            <i class="ai-tiktok"></i>
                         </a>
+
                     </div>
                 </div>
                 <div class="col-md-8 col-lg-7 col-xl-6 offset-lg-2 offset-xl-3">
                     <div class="row row-cols-1 row-cols-sm-3">
                         <div class="col mb-3 mb-md-0">
                             <ul class="nav flex-column">
-                              
+
                                 <li><a class="nav-link fw-normal py-1 px-0"
                                         href="{{ URL::signedRoute('home.promoteur') }}">Devenir promoteur</a></li>
                                 <li><a class="nav-link fw-normal py-1 px-0"
                                         href="{{ URL::signedRoute('emploi') }}">Offre d'emploi</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0"
-                                        href="{{ URL::signedRoute('comment.ca.marche') }}">Comment ça marche</a></li>
-                              
+                                <a href="mailto:contact@moyo-ci.com?subject=Demande%20d'information&body=Bonjour,%20je%20voudrais%20plus%20d'informations...">
+                                    contact@moyo-ci.com
+                                </a>
+
+
 
                             </ul>
                         </div>
@@ -235,7 +232,7 @@
                                         href="{{ URL::signedRoute('terme.conditon') }}">Termes
                                         et condition</a>
                                 </li>
-                               
+
                             </ul>
                         </div>
                         <div class="col">
@@ -252,7 +249,7 @@
             <p class="nav fs-sm mb-0">
                 <span class="text-body-secondary">&copy; Tous droits réservés</span>
                 <a class="nav-link d-inline fw-normal p-0 ms-1" href="" target="_blank" rel="noopener">Moyo CI
-                    </a>
+                </a>
             </p>
         </div>
     </footer>

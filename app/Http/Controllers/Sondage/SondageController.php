@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Sondage;
 
 use App\Http\Controllers\Controller;
+use App\Models\Commune;
 use App\Models\Sondage;
 use Illuminate\Http\Request;
 
@@ -15,7 +16,9 @@ class SondageController extends Controller
      */
     public function index()
     {
-        //
+        $communes = Commune::all();
+     
+       return view('home.sondage', compact('communes'));
     }
 
     /**
@@ -36,18 +39,21 @@ class SondageController extends Controller
      */
     public function store(Request $request)
     {
+      
         // Récupérer directement les données du request
         $nom = $request->input('nom');
         $prenom = $request->input('prenom');
         $telephone = $request->input('telephone');
-        $commune = $request->input('commune');
+        $commune = $request->input('commune_id');
+        $profession = $request->input('profession');
 
         // Créer le sondage en précisant chaque champ
         Sondage::create([
             'nom' => $nom,
             'prenom' => $prenom,
+            'profession' => $profession,
             'telephone' => $telephone,
-            'zone_couverture' => $commune,
+            'commune_id' => $commune,
         ]);
         // Retourner la réponse JSON
         return response()->json([

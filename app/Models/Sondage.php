@@ -13,7 +13,8 @@ class Sondage extends Model
         'nom',
         'prenom',
         'telephone',
+        'profession',
+        'commune_id',
         'zone_couverture',
-        
     ];
 }

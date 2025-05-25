@@ -3,9 +3,6 @@
 @section('content')
 <main class="page-wrapper">
 
-
-
-
     <!-- Hero -->
     <section class="bg-secondary position-relative overflow-hidden pt-5">
         <div class="container position-relative z-2 pt-4 pt-sm-5 mt-2 mt-sm-0 mt-md-2 mt-lg-3 mt-xl-4 mt-xxl-5">
@@ -63,7 +60,7 @@
                         <span class="badge fs-sm bg-primary bg-opacity-10 text-primary mb-3">Étape 01</span>
                         <h3 class="h2 mb-3">Cotisez en toute simplicité pour la scolarité</h3>
                         <p class="mb-4">Avec Moyo, les parents peuvent cotiser chaque mois pour couvrir les frais de scolarité, sans stress. Tout est planifié à l’avance pour que la rentrée ne soit plus un fardeau.</p>
-                        <a class="btn btn-outline-primary rounded-pill" href="#">Commencer à cotiser</a>
+                        <a class="btn btn-outline-primary rounded-pill" href="{{route('sondages.scolaire')}}">Commencer à cotiser</a>
                     </div>
                 </div>
             </div>
@@ -102,14 +99,14 @@
             <!-- Étape 3 -->
             <div class="row align-items-center position-relative">
                 <div class="col-md-6 col-xl-5 offset-lg-1 order-md-2 d-md-flex justify-content-end mb-4 mb-md-0" data-aos="fade-left">
-                    <img src="{{ asset('moyo-app.jpg') }}" width="473" alt="Image">
+                    <img src="{{ asset('banner.png') }}" width="473" alt="Image">
                 </div>
                 <div class="col-md-6 col-lg-5 col-xl-4 offset-xl-1 order-md-1" data-aos="fade-right">
                     <div class="pe-md-4 pe-lg-0">
                         <span class="badge fs-sm bg-primary bg-opacity-10 text-primary mb-3">Étape 03</span>
                         <h3 class="h2 mb-3">Bénéficiez d’un accompagnement éducatif</h3>
                         <p class="mb-4">Suivi personnalisé des enfants, conseils pédagogiques pour les parents, plateforme intuitive : Moyo vous aide à construire un vrai cadre de réussite scolaire, même à distance.</p>
-                        <a class="btn btn-outline-primary rounded-pill" href="#">Créer un compte</a>
+                        <a class="btn btn-outline-primary rounded-pill" href="{{route('sondages.scolaire')}}">Créer un compte</a>
                     </div>
                 </div>
             </div>
@@ -126,7 +123,7 @@
             data-aos-duration="600" data-aos-offset="300" data-disable-parallax-down="md">
 
             <div class="col-md-7 offset-xl-1 pb-3 pb-md-0 mb-3 mb-md-0 order-md-2">
-                <img class="d-dark-mode-none" src="assets/img/about/product/features/02-light.png" width="744" alt="Image">
+                <img class="d-dark-mode-none" src="{{asset('image-1.jpg')}}" width="500" alt="Image">
                 <img class="d-none d-dark-mode-block" src="assets/img/about/product/features/02-dark.png" width="744" alt="Image">
             </div>
 
@@ -153,7 +150,7 @@
                     </li>
                 </ul>
 
-                <a class="btn btn-outline-primary rounded-pill" href="#">Découvrir la carte Moyo</a>
+                <a class="btn btn-outline-primary rounded-pill" href="{{route('sondages.scolaire')}}">Découvrir la carte Moyo</a>
             </div>
         </div>
     </section>

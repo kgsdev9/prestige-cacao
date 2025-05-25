@@ -34,17 +34,17 @@
                                 x-model="formData.telephone">
                             <span class="text-danger" x-text="errors.telephone"></span>
 
-                            <select class="form-control form-control-lg mb-1 mt-3" x-model="formData.commune">
-                                <option value="">Choisissez une zone de couverture</option>
-                                <option value="Abobo">Abobo</option>
-                                <option value="Yopougon">Yopougon</option>
-                                <option value="Ndotré">Ndotré</option>
-                                <option value="Anyama">Anyama</option>
-                                <option value="Adjamé">Adjamé</option>
-                                <option value="France">France</option>
-                                <option value="Belgique">Belgique</option>
+                            <input type="text" class="form-control form-control-lg mb-1 mt-3" placeholder="Profession"
+                                x-model="formData.profession">
+                            <span class="text-danger" x-text="errors.profession"></span>
+
+                            <select class="form-control form-control-lg mb-1 mt-3" x-model="formData.commune_id">
+                                <option value="">Choisissez une commune</option>
+                                @foreach ($communes as $commune)
+                                    <option value="{{ $commune->id }}">{{ $commune->name }}</option>
+                                @endforeach
                             </select>
-                            <span class="text-danger" x-text="errors.commune"></span>
+                            <span class="text-danger" x-text="errors.commune_id"></span>
                         </div>
 
                         <button type="button" class="btn btn-primary w-100 mb-4" @click="submit()" :disabled="formData.loading">
@@ -93,7 +93,8 @@
                 nom: '',
                 prenom: '',
                 telephone: '',
-                commune: '',
+                profession: '',
+                commune_id: '',
                 loading: false,
             },
             message: '',
@@ -102,16 +103,17 @@
                 nom: '',
                 prenom: '',
                 telephone: '',
-                commune: '',
+                profession: '',
+                commune_id: '',
             },
 
             validate() {
-                // Reset errors
                 this.errors = {
                     nom: '',
                     prenom: '',
                     telephone: '',
-                    commune: '',
+                    profession: '',
+                    commune_id: '',
                 };
 
                 let valid = true;
@@ -130,15 +132,20 @@
                     this.errors.telephone = 'Le téléphone est requis.';
                     valid = false;
                 } else {
-                    const phoneRegex = /^\d{10}$/; // 10 chiffres
+                    const phoneRegex = /^\d{10}$/;
                     if (!phoneRegex.test(this.formData.telephone)) {
                         this.errors.telephone = 'Le téléphone doit contenir 10 chiffres.';
                         valid = false;
                     }
                 }
 
-                if (!this.formData.commune.trim()) {
-                    this.errors.commune = 'La commune est requise.';
+                if (!this.formData.profession.trim()) {
+                    this.errors.profession = 'La profession est requise.';
+                    valid = false;
+                }
+
+                if (!this.formData.commune_id) {
+                    this.errors.commune_id = 'La commune est requise.';
                     valid = false;
                 }
 
@@ -192,13 +199,15 @@
                     nom: '',
                     prenom: '',
                     telephone: '',
-                    commune: '',
+                    profession: '',
+                    commune_id: '',
                 };
                 this.formData = {
                     nom: '',
                     prenom: '',
                     telephone: '',
-                    commune: '',
+                    profession: '',
+                    commune_id: '',
                     loading: false,
                 };
             }

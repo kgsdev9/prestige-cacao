@@ -39,7 +39,7 @@
                                 <div class="accordion-collapse collapse show" id="adhesion"
                                      aria-labelledby="headingAdhesion" data-bs-parent="#cgu">
                                     <div class="accordion-body fs-sm">
-                                        L’adhésion à Moyo est ouverte à tous les parents souhaitant bénéficier d’un accompagnement scolaire et financier. Le coût de l’adhésion est de 1,52€ (soit 1000 FCFA) pour couvrir les frais administratifs.
+                                      L’adhésion à Moyo est ouverte à tous les parents souhaitant bénéficier d’un accompagnement scolaire et financier. Le coût de l’adhésion est de 2000 FCFA (soit environ 3,05 €) pour couvrir les frais administratifs.
                                     </div>
                                 </div>
                             </div>

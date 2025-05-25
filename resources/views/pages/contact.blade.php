@@ -41,8 +41,8 @@
                             <option value="">Sélectionnez un service</option>
                             <option value="Moyo Scolaire">Moyo Scolaire</option>
                             <option value="Encadrement scolaire">Encadrement scolaire</option>
-                            <option value="Frais scolaires">Frais scolaires</option>
-                            <option value="Carte d'assurance scolaire">Carte d'assurance scolaire</option>
+                            <option value="Frais scolaires">Scolarite</option>
+                            <option value="Carte d'assurance scolaire">Carte digitale Moyo</option>
                             <option value="Recherche de répétiteur">Recherche de répétiteur</option>
                         </select>
                     </div>
