@@ -128,17 +128,17 @@
 
 
                 @guest
-                <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
-                    href="{{ URL::signedRoute('login.assurance') }}">
-                    <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
-                    Connexion
-                </a>
+                    <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
+                        href="{{ URL::signedRoute('login.assurance') }}">
+                        <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
+                        Connexion
+                    </a>
                 @else
-                <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
-                    href="{{ route('dashboard') }}">
-                    <i class="ai-home fs-xl me-2 ms-n1"></i>
-                    Tableau de bord
-                </a>
+                    <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
+                        href="{{ route('dashboard') }}">
+                        <i class="ai-home fs-xl me-2 ms-n1"></i>
+                        Tableau de bord
+                    </a>
 
                 @endguest
 
@@ -196,8 +196,7 @@
                         </a>
 
                         <a class="btn btn-icon btn-sm btn-dark btn-tiktok rounded-circle"
-                            href="https://www.tiktok.com/@moyo.ci" target="_blank"
-                            aria-label="TikTok">
+                            href="https://www.tiktok.com/@moyo.ci" target="_blank" aria-label="TikTok">
                             <i class="ai-tiktok"></i>
                         </a>
 
@@ -212,9 +211,16 @@
                                         href="{{ URL::signedRoute('home.promoteur') }}">Devenir promoteur</a></li>
                                 <li><a class="nav-link fw-normal py-1 px-0"
                                         href="{{ URL::signedRoute('emploi') }}">Offre d'emploi</a></li>
-                                <a href="mailto:contact@moyo-ci.com?subject=Demande%20d'information&body=Bonjour,%20je%20voudrais%20plus%20d'informations...">
+                                <a
+                                    href="mailto:contact@moyo-ci.com?subject=Demande%20d'information&body=Bonjour,%20je%20voudrais%20plus%20d'informations...">
                                     contact@moyo-ci.com
                                 </a>
+
+                                <a href="https://wa.me/33758946962?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d'informations%20sur%20les%20formules%20de%20MOYO."
+                                    target="_blank">
+                                    Écrivez-nous sur WhatsApp
+                                </a>
+
 
 
 
@@ -248,7 +254,8 @@
             </div>
             <p class="nav fs-sm mb-0">
                 <span class="text-body-secondary">&copy; Tous droits réservés</span>
-                <a class="nav-link d-inline fw-normal p-0 ms-1" href="" target="_blank" rel="noopener">Moyo CI
+                <a class="nav-link d-inline fw-normal p-0 ms-1" href="" target="_blank" rel="noopener">Moyo
+                    CI
                 </a>
             </p>
         </div>
