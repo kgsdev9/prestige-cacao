@@ -1,129 +1,73 @@
-@include('layout.head')
+@extends('layouts.app')
 
-<main class="page-wrapper" x-data="loginForm()">
-    <div class="d-lg-flex position-relative h-100">
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">{{ __('Login') }}</div>
 
-        <!-- Home button -->
-        <a class="text-nav btn btn-icon bg-light border rounded-circle position-absolute top-0 end-0 p-0 mt-3 me-3 mt-sm-4 me-sm-4"
-            href="/" data-bs-toggle="tooltip" data-bs-placement="left" title="Retourner à la page d'accueil"
-            aria-label="Retourner à la page d'accueil">
-            <i class="ai-home"></i>
-        </a>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
 
-        <!-- Login form -->
-        <div class="d-flex flex-column align-items-center w-lg-50 h-100 px-3 px-lg-5 pt-5" x-data="loginForm()">
-            <div class="w-100 mt-auto" style="max-width: 526px;">
-                <h1>Moyo La Fintech Éducative N°1 en Côte d'Ivoire</h1>
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
-                <p class="pb-3 mb-3 mb-lg-4">
-                    Connectez-vous pour accéder à votre espace et gérer votre espace.
-                </p>
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-
-                <div>
-                    
-                    <div class="mb-4">
-
-                        <div>
-                            <input type="email" class="form-control form-control-lg" placeholder="Email"
-                                x-model="formData.email" required>
-                            <input type="password" class="form-control form-control-lg mt-3" placeholder="Mot de passe"
-                                x-model="formData.password" required>
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
                         </div>
-                    </div>
 
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
-                    <button type="button" class="btn btn-primary w-100 mb-4" @click="login()"
-                        :disabled="formData.loading">
-                        <template x-if="formData.loading">
-                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                        </template>
-                        <template x-if="!formData.loading">
-                            <span>Se connecter</span>
-                        </template>
-                    </button>
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
-                    <p x-show="message" x-text="message" class="alert" :class="messageType"></p>
+                        <div class="row mb-3">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+                                    <label class="form-check-label" for="remember">
+                                        {{ __('Remember Me') }}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Login') }}
+                                </button>
+
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                    </a>
+                                @endif
+                            </div>
+                        </div>
+                    </form>
                 </div>
-
-
-
             </div>
-
-            <!-- Copyright -->
-            <p class="nav w-100 fs-sm pt-5 mt-auto mb-5" style="max-width: 526px;">
-                <span class="text-body-secondary">&copy; Tous droits réservés. Fait par</span>
-                <a class="nav-link d-inline-block p-0 ms-1" href="https://moyo-ci.com" target="_blank"
-                    rel="noopener">Moyo Ci</a>
-            </p>
-
         </div>
-
-        <!-- Cover image -->
-        <div class="w-50 bg-size-cover bg-repeat-0 bg-position-center"
-            style="background-image: url('{{ asset('education-2.jpg') }}');">
-        </div>
-
     </div>
-</main>
-
-@include('layout.script')
-
-<script>
-    function loginForm() {
-        return {
-            step: 1,
-            formData: {
-                email: '',
-                password: '',
-                code: '',
-                loading: false,
-            },
-            message: '',
-            messageType: '',
-
-
-            login() {
-                this.formData.loading = true;
-                const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-                fetch('/login', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'X-CSRF-TOKEN': csrfToken,
-                        },
-                        body: JSON.stringify({
-                            email: this.formData.email,
-                            password: this.formData.password,
-                        }),
-                    })
-                    .then(response => response.json())
-                    .then(result => {
-                        console.log(result); // Debug: voir ce que retourne l'API
-
-                        if (result.success === true) { // â Correction ici !
-                            this.message = "Bienvenue";
-                            this.messageType = 'alert-success';
-                            window.location.href = "/dashboard"; // Redirection
-
-                        } else {
-                            this.message = "Email ou mot de passe incorrect";
-                            this.messageType = 'alert-danger';
-                        }
-                    })
-                    .catch(error => {
-                        this.message = 'euillez réessayer dans 10 secondes, nos serveurs sont surchargés';
-                        this.messageType = 'alert-danger';
-                    })
-                    .finally(() => {
-                        this.formData.loading = false; // Désactive le loader
-                    });
-            }
-
-
-
-        }
-    }
-</script>
+</div>
+@endsection

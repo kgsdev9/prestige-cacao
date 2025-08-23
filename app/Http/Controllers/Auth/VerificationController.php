@@ -3,43 +3,40 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\EmailVerificationRequest;
-use App\Notifications\AccountVerifiedNotification;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Foundation\Auth\VerifiesEmails;
 
 class VerificationController extends Controller
 {
+    /*
+    |--------------------------------------------------------------------------
+    | Email Verification Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller is responsible for handling email verification for any
+    | user that recently registered with the application. Emails may also
+    | be re-sent if the user didn't receive the original email message.
+    |
+    */
+
+    use VerifiesEmails;
+
     /**
-     * Display a listing of the resource.
+     * Where to redirect users after verification.
      *
-     * @return \Illuminate\Http\Response
+     * @var string
      */
-    public function verify(Request $request)
+    protected $redirectTo = RouteServiceProvider::HOME;
+
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $user = User::find($request->route('id'));
-        if (! $user) {
-            return redirect('/')->withErrors(['message' => 'Utilisateur introuvable']);
-        }
-        if ($user->hasVerifiedEmail())
-        {
-            Alert::error('Erreur', 'Votre email est déjà vérifié');
-            return redirect('/')->with('message', 'Votre email est déjà vérifié.');
-        }
-
-        // Marquer l'email comme vérifié et envoyer l'événement
-        if ($user->markEmailAsVerified())
-        {
-            $user->email_verified_at = now();
-            $user->confirmated_at = 1;
-            $user->save();
-            $user->notify(new AccountVerifiedNotification());
-        }
-
-        Alert::success('success', 'Votre email a été confirmé avec sucess');
-        return redirect('/')->with('message', 'Votre compte a été confirmé avec succès.');
+        $this->middleware('auth');
+        $this->middleware('signed')->only('verify');
+        $this->middleware('throttle:6,1')->only('verify', 'resend');
     }
-
-
 }

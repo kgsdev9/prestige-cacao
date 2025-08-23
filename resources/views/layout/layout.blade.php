@@ -1,275 +1,571 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=utf-8" />
-@include('layout.head')
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+    <!-- Description optimisée -->
+    <meta name="description"
+        content="Prestige Cacao est une boisson pétillante à base de cacao, alliant raffinement, tradition ivoirienne et élégance moderne. Découvrez nos événements, nos ambassadeurs et notre univers.">
+    <meta name="keywords"
+        content="Prestige Cacao, boisson cacao, champagne ivoirien, boisson pétillante, marque ivoirienne, boisson de luxe, cacao, ambassadeur, événement, Côte d'Ivoire">
+    <meta name="author" content="Prestige Cacao Officiel">
+
+    <!-- Titre de la page -->
+    <title>Prestige Cacao – L'élégance en bouteille</title>
+
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('flaticons.jpeg') }}">
+
+    <!-- Google Fonts Css -->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="{{ asset('css/slicknav.min.css') }}" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="{{ asset('css/swiper-bundle.min.css') }}">
+    <!-- Font Awesome Icon Css-->
+    <link href="{{ asset('css/all.min.css') }}" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="{{ asset('css/animate.css') }}" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="{{ asset('css/magnific-popup.css') }}">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="{{ asset('css/mousecursor.css') }}">
+    <!-- Main Custom Css -->
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" media="screen">
+</head>
 
 
 
 <body>
-    <a class="position-fixed top-50 bg-light text-dark fw-medium border rounded-pill shadow text-decoration-none"
-        href="#customizer" data-bs-toggle="offcanvas"
-        style="right: -1.75rem; margin-top: -1rem; padding: .25rem .75rem; transform: rotate(-90deg); font-size: calc(var(--ar-body-font-size) * .8125); letter-spacing: .075rem; z-index: 1030;">
-        <i class="ai-chat text-body-secondary fs-4 me-2"></i>
-        Chat live
-    </a>
-    <div class="offcanvas offcanvas-end" id="customizer" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1">
-        <div class="offcanvas-header border-bottom">
-            <h4 class="offcanvas-title">Moyo Support</h4>
-            <button class="btn-close" type="button" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <!-- Message de bienvenue -->
-            <div class="alert alert-info mb-3">
-                <strong>Bienvenue dans notre support en ligne !</strong> Si vous avez des questions ou si vous avez
-                besoin d'aide, n'hésitez pas à discuter avec nous.
-            </div>
 
-            <!-- Section Chat en Live -->
-            <div class="d-flex flex-column">
-                <div class="d-flex align-items-center mb-3">
-                    <i class="ai-chat text-body-secondary fs-4 me-2"></i>
-                    <h5 class="mb-0">Support en ligne</h5>
-                </div>
-                <div id="chat-box" class="mb-3" style="max-height: 300px; overflow-y: auto;">
-                    <!-- Exemple de message de bienvenue dans le chat -->
-                    <div class="chat-message system-message">
-                        <p>Bonjour ! Comment pouvons-nous vous aider aujourd'hui ? ð</p>
+
+
+    <!-- Header Start -->
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <!-- Logo Start -->
+                    <a class="navbar-brand" href="/">
+                        <img src="{{ asset('logo-prestige-cacao.png') }}" alt="Logo" style="height:100px;">
+                    </a>
+                    <!-- Logo End -->
+
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <!-- Menu supprimé -->
+                        </div>
+
+                        <!-- Header Contact Box Start -->
+                        <div class="header-contact-box">
+                            <!-- Header Social List Start -->
+                            <div class="header-social-list">
+                                <ul>
+                                    <li><a href="#"><i class="fa-brands fa-x-twitter text-dark"></i></a>
+                                    </li>
+                                    <li><a href="#" class="text-dark"><i
+                                                class="fa-brands fa-facebook-f text-dark"></i></a>
+                                    </li>
+                                    <li><a href="#" class="text-dark"><i
+                                                class="fa-brands fa-instagram text-dark"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Header Social List End -->
+
+                            <!-- Header Contact Btn Start -->
+                            <div class="header-contact-btn">
+                                <a href="contact.html" class="btn-default btn-highlighted text-dark">Contact</a>
+                            </div>
+                            <!-- Header Contact Btn End -->
+                        </div>
+                        <!-- Header Contact Box End -->
                     </div>
-                    <div class="chat-message system-message">
-                        <p>Si vous avez une question fréquente, vous pouvez aussi consulter notre FAQ pour obtenir une
-                            réponse rapide.</p>
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <input id="message-input" type="text" class="form-control" placeholder="Tapez un message..." />
-                    <button id="send-message" class="btn btn-primary ms-2">Envoyer</button>
-                </div>
-            </div>
+                    <!-- Main Menu End -->
 
-            <!-- Section FAQ -->
-            <div class="d-flex flex-column mt-4">
-                <div class="d-flex align-items-center mb-3">
-                    <i class="ai-question-circle text-body-secondary fs-4 me-2"></i>
-                    <h5 class="mb-0">Questions Fréquentes</h5>
+                    <div class="navbar-toggle"></div>
                 </div>
-                <ul class="list-unstyled">
-                    <li>
-                        <a href="#" class="text-body-secondary" data-bs-toggle="collapse" data-bs-target="#faq1">
-                            Comment puis-je réinitialiser mon mot de passe ?
-                        </a>
-                        <div id="faq1" class="collapse">
-                            <p>Vous pouvez réinitialiser votre mot de passe en cliquant sur "Mot de passe oublié" sur la
-                                page de connexion.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="text-body-secondary" data-bs-toggle="collapse" data-bs-target="#faq2">
-                            Comment contacter le support ?
-                        </a>
-                        <div id="faq2" class="collapse">
-                            <p>Vous pouvez nous contacter directement via ce chat en ligne ou par email à
-                                support@moyo.com.</p>
-                        </div>
-                    </li>
-                    <li>
-                        <a href="#" class="text-body-secondary" data-bs-toggle="collapse" data-bs-target="#faq3">
-                            Que faire si je rencontre un problème technique ?
-                        </a>
-                        <div id="faq3" class="collapse">
-                            <p>Si vous rencontrez un problème technique, veuillez décrire le problème dans ce chat, et
-                                notre équipe vous aidera à le résoudre rapidement.</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+            </nav>
+            <div class="responsive-menu"></div>
         </div>
+    </header>
 
-        <div class="offcanvas-header border-top d-none" id="customizer-btns">
-            <button class="btn btn-secondary w-100 me-3" type="button" id="customizer-reset-btn">
-                <i class="ai-undo fs-lg me-2 ms-n1"></i>
-                Reset
-            </button>
-            <button class="btn btn-primary w-100" type="button" data-bs-toggle="modal"
-                data-bs-target="#customizer-modal">
-                <i class="ai-code-curly fs-lg me-2 ms-n1"></i>
-                Show styles
-            </button>
+    <!-- Header End -->
+    <br><br><br><br>
+    <!-- Hero Section Start -->
+    <div class="mb-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <!-- Hero Content Start -->
+                    <div class="hero-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Découvrez l’excellence à l’état pur</h3>
+                            <h1 class="text-anime-style-2" data-cursor="-opaque">
+                                Prestige Cacao Champagne
+                                <span>l’élégance qui se savoure.</span>
+                            </h1>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">
+                                Prestige Cacao Champagne incarne le luxe, la finesse et l’audace.
+                                Fusion subtile entre le raffinement du champagne traditionnel et la douceur noble du
+                                cacao, chaque flûte vous transporte dans un univers de plaisir sensoriel rare.
+                                Pensé pour les connaisseurs et les moments d’exception, Prestige Cacao sublime vos
+                                célébrations avec caractère, émotion et distinction.
+                            </p>
+                        </div>
+
+                        <!-- Section Title End -->
+
+                        <!-- Hero Content Body Start -->
+                        <div class="hero-content-body wow fadeInUp" data-wow-delay="0.4s">
+                            <!-- Hero Button Start -->
+                            <div class="hero-btn">
+                                <a href="contact.html" class="btn-default btn-highlighted">Purchase Now</a>
+                            </div>
+                            <!-- Hero Button End -->
+
+                            <!-- Contact Now Box Start -->
+                            <div class="contact-now-box">
+                                <div class="icon-box">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div class="contact-now-box-content">
+                                    <h3 class="text-dark">Call Us</h3>
+                                    <p><a href="tel:+123468963" class="text-dark">+91 - 123 468 963</a></p>
+                                </div>
+                            </div>
+                            <!-- Contact Now Box End -->
+                        </div>
+                        <!-- Hero Content Body End -->
+                    </div>
+                    <!-- Hero Content End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Hero Image Start -->
+                    <div class="hero-image">
+                        <figure>
+                            <img src="{{ asset('champagne-1.png') }}" alt="">
+                        </figure>
+
+
+                    </div>
+                    <!-- Hero Image End -->
+                </div>
+            </div>
         </div>
     </div>
+    <!-- Hero Section End -->
 
-
-
-    <!-- Page wrapper -->
-    <main class="page-wrapper">
-
-        <!-- Navbar. Remove 'fixed-top' class to make the navigation bar scrollable with the page -->
-        <header class="navbar navbar-expand-lg fixed-top">
-            <div class="container">
-
-                <!-- Navbar brand (Logo) -->
-                <a class="navbar-brand pe-sm-3" href="{{ URL::signedRoute('home') }}">
-                    <span class="text-primary flex-shrink-0 me-2">
-                        <img src="{{ asset('logo-m-moyo.png') }}" style="height:32px;width:35px;" alt="">
-                    </span>
-                    oyo
-                </a>
-
-                <!-- Theme switcher -->
-                <div class="form-check form-switch mode-switch order-lg-2 me-3 me-lg-4 ms-auto" data-bs-toggle="mode">
-                    <input class="form-check-input" type="checkbox" id="theme-mode">
-                    <label class="form-check-label" for="theme-mode">
-                        <i class="ai-sun fs-lg"></i>
-                    </label>
-                    <label class="form-check-label" for="theme-mode">
-                        <i class="ai-moon fs-lg"></i>
-                    </label>
-                </div>
-
-
-                @guest
-                    <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
-                        href="{{ URL::signedRoute('login.assurance') }}">
-                        <i class="ai-user-plus fs-xl me-2 ms-n1"></i>
-                        Connexion
-                    </a>
-                @else
-                    <a class="btn btn-primary btn-sm fs-sm order-lg-3 d-none d-sm-inline-flex"
-                        href="{{ route('dashboard') }}">
-                        <i class="ai-home fs-xl me-2 ms-n1"></i>
-                        Tableau de bord
-                    </a>
-
-                @endguest
-
-
-                <!-- Mobile menu toggler (Hamburger) -->
-                <button class="navbar-toggler ms-sm-3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- Navbar collapse (Main navigation) -->
-                <nav class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav navbar-nav-scroll me-auto" style="--ar-scroll-height: 520px;">
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
-                                href="{{ URL::signedRoute('home') }}">Accueil</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}"
-                                href="{{ URL::signedRoute('about') }}">Pourquoi nous ?</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {{ request()->routeIs('contact.page') ? 'active' : '' }}"
-                                href="{{ URL::signedRoute('contact.page') }}">Contact</a>
-                        </li>
-                    </ul>
-                </nav>
-
-            </div>
-        </header>
-
-
-        @yield('content')
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer py-5">
-        <div class="container pt-md-2 pt-lg-3 pt-xl-4">
-            <div class="row pb-4 pb-md-5 pt-sm-2 mb-lg-2">
-                <div class="col-md-4 col-lg-3 pb-2 pb-md-0 mb-4 mb-md-0">
-                    <a class="navbar-brand text-nav py-0 mb-3 mb-md-4" href="{{ URL::signedRoute('home') }}">
-                        <span class="text-primary flex-shrink-0 me-2">
-                            <img src="{{ asset('logo-m-moyo.png') }}" style="height:60px;" alt="">
-                        </span>
-                        <span>oyo</span>
-                    </a>
-                    <p class="fs-sm pb-2 pb-md-3 mb-3">Moyo vous accompagne avec des solutions adaptées à vos besoins
-                        d'assurance.</p>
-                    <div class="d-flex gap-3">
-                        <a class="btn btn-icon btn-sm btn-secondary btn-facebook rounded-circle"
-                            href="https://www.facebook.com/share/1XA7hsYVpJ/" target="_blank" aria-label="Facebook">
-                            <i class="ai-facebook"></i>
-                        </a>
-
-                        <a class="btn btn-icon btn-sm btn-dark btn-tiktok rounded-circle"
-                            href="https://www.tiktok.com/@moyo.ci" target="_blank" aria-label="TikTok">
-                            <i class="ai-tiktok"></i>
-                        </a>
-
+    <!-- Nos Produits Section Start -->
+    <div class="our-products">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-6">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">Nos produits</h3>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">
+                            L'excellence de Prestige Cacao dans chaque <span>gorgée raffinée</span>
+                        </h2>
                     </div>
+                    <!-- Section Title End -->
                 </div>
-                <div class="col-md-8 col-lg-7 col-xl-6 offset-lg-2 offset-xl-3">
-                    <div class="row row-cols-1 row-cols-sm-3">
-                        <div class="col mb-3 mb-md-0">
-                            <ul class="nav flex-column">
 
-                                <li><a class="nav-link fw-normal py-1 px-0"
-                                        href="{{ URL::signedRoute('home.promoteur') }}">Devenir promoteur</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0"
-                                        href="{{ URL::signedRoute('emploi') }}">Offre d'emploi</a></li>
-                                <a
-                                    href="mailto:contact@moyo-ci.com?subject=Demande%20d'information&body=Bonjour,%20je%20voudrais%20plus%20d'informations...">
-                                    contact@moyo-ci.com
-                                </a>
+                <div class="col-lg-6">
+                    <!-- Section Button Start -->
+                    <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
+                        <a href="#" class="btn-default">Voir tous les produits</a>
+                    </div>
+                    <!-- Section Button End -->
+                </div>
+            </div>
 
-                                <a href="https://wa.me/33758946962?text=Bonjour%2C%20je%20souhaite%20avoir%20plus%20d'informations%20sur%20les%20formules%20de%20MOYO."
-                                    target="_blank">
-                                    Écrivez-nous sur WhatsApp
-                                </a>
-
-
-
-
-                            </ul>
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <!-- Product Item Start -->
+                    <div class="product-item wow fadeInUp">
+                        <div class="product-image">
+                            <figure>
+                                <img src="{{ asset('champagne-1.png') }}" alt="">
+                            </figure>
                         </div>
-                        <div class="col mb-4 mb-md-0">
-                            <ul class="nav flex-column">
-                                <li><a class="nav-link fw-normal py-1 px-0"
-                                        href="{{ URL::signedRoute('faq') }}">Faq</a></li>
-                                <li><a class="nav-link fw-normal py-1 px-0"
-                                        href="{{ URL::signedRoute('condition.utilisation') }}">Conditions
-                                        générales</a>
-                                </li>
-                                <li><a class="nav-link fw-normal py-1 px-0"
-                                        href="{{ URL::signedRoute('terme.conditon') }}">Termes
-                                        et condition</a>
-                                </li>
-
-                            </ul>
+                        <div class="product-content">
+                            <h3>Prestige Brut Classique</h3>
+                            <p>8 000 FCFA</p>
                         </div>
-                        <div class="col">
-                            <a class="btn btn-secondary px-3 py-2 mb-3 me-3 me-md-0" href="">
-                                <img class="ms-sm-auto" src="{{ asset('orange-logo.png') }}" width="120"
-                                    alt="Orange Bank logo">
-                                <img class="mx-1 d-none" src="assets/img/market/appstore-light.svg" width="120"
-                                    alt="App Store">
+                    </div>
+                    <!-- Product Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Product Item Start -->
+                    <div class="product-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="product-image">
+                            <figure>
+                                <img src="{{ asset('champagne2.jpg') }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="product-content">
+                            <h3>Prestige Rosé Élégance</h3>
+                            <p>9 500 FCFA</p>
+                        </div>
+                    </div>
+                    <!-- Product Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Product Item Start -->
+                    <div class="product-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="product-image">
+                            <figure>
+                                <img src="{{ asset('champgne-3.png') }}" alt="">
+                            </figure>
+                        </div>
+                        <div class="product-content">
+                            <h3>Cacao Prestige Édition Or</h3>
+                            <p>12 000 FCFA</p>
+                        </div>
+                    </div>
+                    <!-- Product Item End -->
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <!-- Product Item Start -->
+                    <div class="product-item wow fadeInUp" data-wow-delay="0.6s">
+                        <div class="product-image">
+                            <figure>
+                                <img src="{{asset('champagne-4.png')}}" alt="">
+                            </figure>
+                        </div>
+                        <div class="product-content">
+                            <h3>Prestige Doux Plaisir</h3>
+                            <p>7 500 FCFA</p>
+                        </div>
+                    </div>
+                    <!-- Product Item End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Section Footer Text Start -->
+                    <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
+                        <p>
+                            <span>Offert :</span> Pour toute commande en ligne, la livraison est gratuite.
+                            <a href="contact.html">Contactez-nous</a>
+                        </p>
+                    </div>
+                    <!-- Section Footer Text End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Nos Produits Section End -->
+
+    <!-- Événements & Ambassadeurs Section Start -->
+    <div class="premium-products">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <!-- Contenu Section Start -->
+                    <div class="premium-products-content">
+                        <!-- Titre Section Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Prestige Cacao</h3>
+                            <h2 class="text-anime-style-2" data-cursor="-opaque">
+                                Une marque validée par les <span>personnalités les plus influentes</span>
+                            </h2>
+                        </div>
+                        <!-- Titre Section End -->
+
+                        <!-- Corps Section Start -->
+                        <div class="premium-products-body">
+                            <div class="premium-products-body-content wow fadeInUp" data-wow-delay="0.2s">
+                                <p>
+                                    Prestige Cacao a brillé lors de nombreux événements d’exception en Côte d’Ivoire et
+                                    à l’international.
+                                    Des artistes, célébrités, chefs d’entreprise et influenceurs ont tous validé
+                                    l’élégance de notre boisson.
+                                </p>
+                                <a href="contact.html" class="btn-default">En savoir plus</a>
+                            </div>
+
+                            <div class="premium-products-list wow fadeInUp" data-wow-delay="0.4s">
+                                <ul>
+                                    <li>Présent dans les soirées de gala et cérémonies de prestige</li>
+                                    <li>Approuvé par des ambassadeurs de renom</li>
+                                    <li>Plébiscité par des figures publiques du showbiz et de la mode</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Corps Section End -->
+
+                        <!-- Liste Visuels Start -->
+                        <div class="premium-products-item-box">
+                            <!-- Item 1 -->
+                            <div class="premium-products-item wow fadeInUp">
+                                <div class="premium-products-image">
+                                    <figure class="image-anime">
+                                        <img src="{{ asset('sery-die-photo.jpg') }}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="premium-products-item-content">
+                                    <h3><a href="#">Soirée Prestige 2024</a></h3>
+                                </div>
+                            </div>
+
+                            <!-- Item 2 -->
+                            <div class="premium-products-item wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="premium-products-image">
+                                    <figure class="image-anime">
+                                        <img src="{{ asset('ambassadeur-prestige-1.jpg') }}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="premium-products-item-content">
+                                    <h3><a href="#">Ambassadeur Officiel : DJ Arafat Jr</a></h3>
+                                </div>
+                            </div>
+
+                            <!-- Item 3 -->
+                            <div class="premium-products-item wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="premium-products-image">
+                                    <figure class="image-anime">
+                                        <img src="{{ asset('evenementiels.jpg') }}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="premium-products-item-content">
+                                    <h3><a href="#">Prestige à Abidjan Fashion Week</a></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Liste Visuels End -->
+                    </div>
+                    <!-- Contenu Section End -->
+                </div>
+
+                <div class="col-lg-5">
+                    <!-- Vidéo Événement Start -->
+                    <div class="products-intro-video">
+                        <div class="products-intro-image">
+                            <figure class="image-anime reveal">
+                                <img src="{{ asset('event-2.jpg') }}" alt="Prestige Cacao">
+                            </figure>
+                        </div>
+
+                        <div class="video-play-button">
+                            <a href="https://web.facebook.com/reel/407226694375752" class="popup-video"
+                                data-cursor-text="Play">
+                                <i class="fa-solid fa-play"></i>
                             </a>
                         </div>
                     </div>
+                    <!-- Vidéo Événement End -->
                 </div>
             </div>
-            <p class="nav fs-sm mb-0">
-                <span class="text-body-secondary">&copy; Tous droits réservés</span>
-                <a class="nav-link d-inline fw-normal p-0 ms-1" href="" target="_blank" rel="noopener">Moyo
-                    CI
-                </a>
-            </p>
+        </div>
+    </div>
+    <!-- Événements & Ambassadeurs Section End -->
+
+    <!-- Actualités Prestige Cacao Start -->
+    <div class="our-blog">
+        <div class="container">
+            <div class="row section-row align-items-center">
+                <div class="col-lg-6">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h3 class="wow fadeInUp">Actualités</h3>
+                        <h2 class="text-anime-style-2" data-cursor="-opaque">
+                            Découvrez les dernières <span>nouvelles de Prestige Cacao</span>
+                        </h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Blog Button Start -->
+                    <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
+                        <a href="blog.html" class="btn-default">Voir toutes les actualités</a>
+                    </div>
+                    <!-- Blog Button End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Article 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="post-item wow fadeInUp">
+                        <div class="post-featured-image">
+                            <a href="blog-single.html" data-cursor-text="Voir">
+                                <figure class="image-anime">
+                                    <img src="{{asset('blog-image-1.jpg')}}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="post-item-body">
+                            <div class="post-item-content">
+                                <h2>
+                                    <a href="blog-single.html">
+                                        Prestige Cacao à la SARA 2025 : un franc succès !
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="post-item-footer">
+                                <div class="post-meta">
+                                    <ul>
+                                        <li><i class="fa-solid fa-calendar-days"></i> 12 Juin 2025</li>
+                                    </ul>
+                                </div>
+                                <div class="post-item-btn">
+                                    <a href="blog-single.html" class="readmore-btn">Lire la suite</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="post-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="post-featured-image">
+                            <a href="blog-single.html" data-cursor-text="Voir">
+                                <figure class="image-anime">
+                                    <img src="{{asset('prestige-chocoloat-champagne-boisson.jpg')}}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="post-item-body">
+                            <div class="post-item-content">
+                                <h2>
+                                    <a href="blog-single.html">
+                                        Une collaboration inédite avec la Fashion Week d’Abidjan
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="post-item-footer">
+                                <div class="post-meta">
+                                    <ul>
+                                        <li><i class="fa-solid fa-calendar-days"></i> 27 Mai 2025</li>
+                                    </ul>
+                                </div>
+                                <div class="post-item-btn">
+                                    <a href="blog-single.html" class="readmore-btn">Lire la suite</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="post-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="post-featured-image">
+                            <a href="blog-single.html" data-cursor-text="Voir">
+                                <figure class="image-anime">
+                                    <img src="{{asset('image-prestige-blog.jpg')}}" alt="">
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="post-item-body">
+                            <div class="post-item-content">
+                                <h2>
+                                    <a href="blog-single.html">
+                                        Lancement de notre nouvelle bouteille Prestige Édition Or
+                                    </a>
+                                </h2>
+                            </div>
+                            <div class="post-item-footer">
+                                <div class="post-meta">
+                                    <ul>
+                                        <li><i class="fa-solid fa-calendar-days"></i> 8 Mai 2025</li>
+                                    </ul>
+                                </div>
+                                <div class="post-item-btn">
+                                    <a href="blog-single.html" class="readmore-btn">Lire la suite</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Actualités Prestige Cacao End -->
+
+
+    <!-- Main Footer Start -->
+    <footer class="main-footer bg-light text-dark py-5">
+        <div class="container text-center">
+            <!-- Logo -->
+            <div class="mb-3">
+                <img src="{{ asset('logo-prestige-cacao.png') }}" alt="Prestige Cacao" style="max-height:80px;">
+            </div>
+
+            <!-- Slogan ou courte description -->
+            <p class="mb-3">L'élégance en bouteille. Découvrez l'expérience Prestige Cacao.</p>
+
+            <!-- Réseaux sociaux -->
+            <div class="footer-social-links mb-4">
+                <a href="#" class="mx-2 text-dark"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="mx-2 text-dark"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="mx-2 text-dark"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+
+            <!-- Contact rapide -->
+            <p class="mb-1"><a href="mailto:contact@prestigecacao.com"
+                    class="text-dark">contact@prestigecacao.com</a></p>
+            <p class="mb-3"><a href="tel:+2250102030405" class="text-dark">+225 01 02 03 04 05</a></p>
+
+            <!-- Copyright -->
+            <p class="small text-muted">&copy; 2025 Prestige Cacao. Tous droits réservés.</p>
         </div>
     </footer>
 
-    <a class="btn-scroll-top" href="#top" data-scroll aria-label="Scroll back to top">
-        <svg viewBox="0 0 40 40" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="19" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-miterlimit="10"></circle>
-        </svg>
-        <i class="ai-arrow-up"></i>
-    </a>
-    @include('layout.script')
-    @stack('script')
+    <!-- Main Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
+    <!-- Bootstrap js file -->
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- Validator js file -->
+    <script src="{{ asset('js/validator.min.js') }}"></script>
+    <!-- SlickNav js file -->
+    <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
+    <!-- Swiper js file -->
+    <script src="{{ asset('js/swiper-bundle.min.js') }}"></script>
+    <!-- Counter js file -->
+    <script src="{{ asset('js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.counterup.min.js') }}"></script>
+    <!-- Magnific js file -->
+    <script src="{{ asset('js/jquery.magnific-popup.min.js') }}"></script>
+    <!-- SmoothScroll -->
+    <script src="{{ asset('js/SmoothScroll.js') }}"></script>
+    <!-- Parallax js -->
+    <script src="{{ asset('js/parallaxie.js') }}"></script>
+    <!-- MagicCursor js file -->
+    <script src="{{ asset('js/gsap.min.js') }}"></script>
+    <script src="{{ asset('js/magiccursor.js') }}"></script>
+    <!-- Text Effect js file -->
+    <script src="{{ asset('js/SplitText.js') }}"></script>
+    <script src="{{ asset('js/ScrollTrigger.min.js') }}"></script>
+    <!-- YTPlayer js File -->
+    <script src="{{ asset('js/jquery.mb.YTPlayer.min.js') }}"></script>
+    <!-- Wow js file -->
+    <script src="{{ asset('js/wow.min.js') }}"></script>
+    <!-- Main Custom js file -->
+    <script src="{{ asset('js/function.js') }}"></script>
+
 </body>
 
 </html>

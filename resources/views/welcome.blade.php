@@ -57,29 +57,37 @@
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <!-- Logo Start -->
-                    <a class="navbar-brand" href="/">
-                        <img src="{{ asset('logo-prestige-cacao.png') }}" alt="Logo" style="height:100px;">
+                    <a class="navbar-brand d-flex align-items-center" href="/">
+                        <img src="{{ asset('logo-prestige-cacao.png') }}" alt="Logo" class="img-fluid"
+                            style="max-height: 80px;">
                     </a>
                     <!-- Logo End -->
 
+                    <!-- Burger Button for Mobile -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarContent">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
                     <!-- Main Menu Start -->
-                    <div class="collapse navbar-collapse main-menu">
-                        <div class="nav-menu-wrapper">
+                    <div class="collapse navbar-collapse main-menu" id="navbarContent">
+                        <div class="nav-menu-wrapper ms-auto">
                             <!-- Menu supprimé -->
                         </div>
 
                         <!-- Header Contact Box Start -->
-                        <div class="header-contact-box">
+                        <div class="header-contact-box d-flex align-items-center ms-3">
                             <!-- Header Social List Start -->
-                            <div class="header-social-list">
-                                <ul>
-                                    <li><a href="#"><i class="fa-brands fa-x-twitter text-dark"></i></a>
+                            <div class="header-social-list me-3">
+                                <ul class="d-flex list-unstyled mb-0">
+                                    <li class="me-2">
+                                        <a href="#"><i class="fa-brands fa-x-twitter text-dark"></i></a>
                                     </li>
-                                    <li><a href="#" class="text-dark"><i
-                                                class="fa-brands fa-facebook-f text-dark"></i></a>
+                                    <li class="me-2">
+                                        <a href="#"><i class="fa-brands fa-facebook-f text-dark"></i></a>
                                     </li>
-                                    <li><a href="#" class="text-dark"><i
-                                                class="fa-brands fa-instagram text-dark"></i></a>
+                                    <li>
+                                        <a href="#"><i class="fa-brands fa-instagram text-dark"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -87,25 +95,23 @@
 
                             <!-- Header Contact Btn Start -->
                             <div class="header-contact-btn">
-                                <a href="contact.html" class="btn-default btn-highlighted text-dark">Contact</a>
+                                <a href="#" class="btn btn-outline-dark">Contact</a>
                             </div>
                             <!-- Header Contact Btn End -->
                         </div>
                         <!-- Header Contact Box End -->
                     </div>
                     <!-- Main Menu End -->
-
-                    <div class="navbar-toggle"></div>
                 </div>
             </nav>
-            <div class="responsive-menu"></div>
         </div>
     </header>
+
 
     <!-- Header End -->
     <br><br><br><br>
     <!-- Hero Section Start -->
-    <div class="mb-4">
+    <div class="mt-5 mt-lg-0 mb-4">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -126,14 +132,13 @@
                                 célébrations avec caractère, émotion et distinction.
                             </p>
                         </div>
-
                         <!-- Section Title End -->
 
                         <!-- Hero Content Body Start -->
                         <div class="hero-content-body wow fadeInUp" data-wow-delay="0.4s">
                             <!-- Hero Button Start -->
                             <div class="hero-btn">
-                                <a href="contact.html" class="btn-default btn-highlighted">Purchase Now</a>
+                                <a href="#" class="btn-default btn-highlighted">Commander</a>
                             </div>
                             <!-- Hero Button End -->
 
@@ -143,8 +148,8 @@
                                     <i class="fa-solid fa-phone"></i>
                                 </div>
                                 <div class="contact-now-box-content">
-                                    <h3 class="text-dark">Call Us</h3>
-                                    <p><a href="tel:+123468963" class="text-dark">+91 - 123 468 963</a></p>
+                                    <h3 class="text-dark">Contact</h3>
+                                    <p><a href="tel:+123468963" class="text-dark">+33 - 123 468 963</a></p>
                                 </div>
                             </div>
                             <!-- Contact Now Box End -->
@@ -160,14 +165,13 @@
                         <figure>
                             <img src="{{ asset('champagne-1.png') }}" alt="">
                         </figure>
-
-
                     </div>
                     <!-- Hero Image End -->
                 </div>
             </div>
         </div>
     </div>
+
     <!-- Hero Section End -->
 
 
@@ -207,7 +211,7 @@
                         </div>
                         <div class="product-content">
                             <h3>Prestige Brut Classique</h3>
-                            <p>8 000 FCFA</p>
+                             <p>20 €</p>
                         </div>
                     </div>
                     <!-- Product Item End -->
@@ -223,7 +227,7 @@
                         </div>
                         <div class="product-content">
                             <h3>Prestige Rosé Élégance</h3>
-                            <p>9 500 FCFA</p>
+                              <p>20 €</p>
                         </div>
                     </div>
                     <!-- Product Item End -->
@@ -239,7 +243,7 @@
                         </div>
                         <div class="product-content">
                             <h3>Cacao Prestige Édition Or</h3>
-                            <p>12 000 FCFA</p>
+                            <p>20 €</p>
                         </div>
                     </div>
                     <!-- Product Item End -->
@@ -250,12 +254,12 @@
                     <div class="product-item wow fadeInUp" data-wow-delay="0.6s">
                         <div class="product-image">
                             <figure>
-                                <img src="{{asset('champagne-4.png')}}" alt="">
+                                <img src="{{ asset('champagne-4.png') }}" alt="">
                             </figure>
                         </div>
                         <div class="product-content">
                             <h3>Prestige Doux Plaisir</h3>
-                            <p>7 500 FCFA</p>
+                             <p>20 €</p>
                         </div>
                     </div>
                     <!-- Product Item End -->
@@ -266,7 +270,7 @@
                     <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
                         <p>
                             <span>Offert :</span> Pour toute commande en ligne, la livraison est gratuite.
-                            <a href="contact.html">Contactez-nous</a>
+                            <a href="#">Contactez-nous</a>
                         </p>
                     </div>
                     <!-- Section Footer Text End -->
@@ -303,7 +307,7 @@
                                     Des artistes, célébrités, chefs d’entreprise et influenceurs ont tous validé
                                     l’élégance de notre boisson.
                                 </p>
-                                <a href="contact.html" class="btn-default">En savoir plus</a>
+                                <a href="#" class="btn-default">En savoir plus</a>
                             </div>
 
                             <div class="premium-products-list wow fadeInUp" data-wow-delay="0.4s">
@@ -400,7 +404,7 @@
                 <div class="col-lg-6">
                     <!-- Blog Button Start -->
                     <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="blog.html" class="btn-default">Voir toutes les actualités</a>
+                        <a href="#" class="btn-default">Voir toutes les actualités</a>
                     </div>
                     <!-- Blog Button End -->
                 </div>
@@ -411,16 +415,16 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="post-item wow fadeInUp">
                         <div class="post-featured-image">
-                            <a href="blog-single.html" data-cursor-text="Voir">
+                            <a href="#" data-cursor-text="Voir">
                                 <figure class="image-anime">
-                                    <img src="{{asset('blog-image-1.jpg')}}" alt="">
+                                    <img src="{{ asset('blog-image-1.jpg') }}" alt="">
                                 </figure>
                             </a>
                         </div>
                         <div class="post-item-body">
                             <div class="post-item-content">
                                 <h2>
-                                    <a href="blog-single.html">
+                                    <a href="#">
                                         Prestige Cacao à la SARA 2025 : un franc succès !
                                     </a>
                                 </h2>
@@ -432,7 +436,7 @@
                                     </ul>
                                 </div>
                                 <div class="post-item-btn">
-                                    <a href="blog-single.html" class="readmore-btn">Lire la suite</a>
+                                    <a href="#" class="readmore-btn">Lire la suite</a>
                                 </div>
                             </div>
                         </div>
@@ -443,16 +447,17 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="post-item wow fadeInUp" data-wow-delay="0.2s">
                         <div class="post-featured-image">
-                            <a href="blog-single.html" data-cursor-text="Voir">
+                            <a href="#" data-cursor-text="Voir">
                                 <figure class="image-anime">
-                                    <img src="{{asset('prestige-chocoloat-champagne-boisson.jpg')}}" alt="">
+                                    <img src="{{ asset('prestige-chocoloat-champagne-boisson.jpg') }}"
+                                        alt="">
                                 </figure>
                             </a>
                         </div>
                         <div class="post-item-body">
                             <div class="post-item-content">
                                 <h2>
-                                    <a href="blog-single.html">
+                                    <a href="#">
                                         Une collaboration inédite avec la Fashion Week d’Abidjan
                                     </a>
                                 </h2>
@@ -464,7 +469,7 @@
                                     </ul>
                                 </div>
                                 <div class="post-item-btn">
-                                    <a href="blog-single.html" class="readmore-btn">Lire la suite</a>
+                                    <a href="#" class="readmore-btn">Lire la suite</a>
                                 </div>
                             </div>
                         </div>
@@ -475,16 +480,16 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="post-item wow fadeInUp" data-wow-delay="0.4s">
                         <div class="post-featured-image">
-                            <a href="blog-single.html" data-cursor-text="Voir">
+                            <a href="#" data-cursor-text="Voir">
                                 <figure class="image-anime">
-                                    <img src="{{asset('image-prestige-blog.jpg')}}" alt="">
+                                    <img src="{{ asset('image-prestige-blog.jpg') }}" alt="">
                                 </figure>
                             </a>
                         </div>
                         <div class="post-item-body">
                             <div class="post-item-content">
                                 <h2>
-                                    <a href="blog-single.html">
+                                    <a href="#">
                                         Lancement de notre nouvelle bouteille Prestige Édition Or
                                     </a>
                                 </h2>
@@ -496,7 +501,7 @@
                                     </ul>
                                 </div>
                                 <div class="post-item-btn">
-                                    <a href="blog-single.html" class="readmore-btn">Lire la suite</a>
+                                    <a href="#" class="readmore-btn">Lire la suite</a>
                                 </div>
                             </div>
                         </div>
@@ -529,9 +534,10 @@
             <!-- Contact rapide -->
             <p class="mb-1"><a href="mailto:contact@prestigecacao.com"
                     class="text-dark">contact@prestigecacao.com</a></p>
-            <p class="mb-3"><a href="tel:+2250102030405" class="text-dark">+225 01 02 03 04 05</a></p>
+            <p class="mb-3"><a href="tel:+2250102030405" class="text-dark">+33 01 02 03 04 05</a></p>
 
-            <!-- Copyright -->
+            <!-- Copyrigh
+                t -->
             <p class="small text-muted">&copy; 2025 Prestige Cacao. Tous droits réservés.</p>
         </div>
     </footer>
