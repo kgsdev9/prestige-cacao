@@ -15,7 +15,17 @@ class CreateCommandesTable extends Migration
     {
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('codeCommande')->unique();
+            $table->string('nom')->nullable();;
+            $table->string('prenom')->nullable();
+            $table->string('telephone')->nullable();
+            $table->string('email')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('set null'); // si la commande peut être liée à un utilisateur
+            $table->string('adresse')->nullable();
+            $table->decimal('montant_ht', 10, 2)->default(0);
+            $table->decimal('montant_tva', 10, 2)->default(0);
+            $table->decimal('montant_ttc', 10, 2)->default(0);
+            $table->enum('payment_status', ['en_attente', 'paye', 'annule'])->default('en_attente');
         });
     }
 
