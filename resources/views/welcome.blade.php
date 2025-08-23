@@ -190,14 +190,6 @@
                     </div>
                     <!-- Section Title End -->
                 </div>
-
-                <div class="col-lg-6">
-                    <!-- Section Button Start -->
-                    <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="#" class="btn-default">Voir tous les produits</a>
-                    </div>
-                    <!-- Section Button End -->
-                </div>
             </div>
 
             <div class="row">
@@ -399,14 +391,6 @@
                         </h2>
                     </div>
                     <!-- Section Title End -->
-                </div>
-
-                <div class="col-lg-6">
-                    <!-- Blog Button Start -->
-                    <div class="section-btn wow fadeInUp" data-wow-delay="0.2s">
-                        <a href="#" class="btn-default">Voir toutes les actualités</a>
-                    </div>
-                    <!-- Blog Button End -->
                 </div>
             </div>
 
