@@ -299,7 +299,6 @@
                                     Des artistes, célébrités, chefs d’entreprise et influenceurs ont tous validé
                                     l’élégance de notre boisson.
                                 </p>
-                                <a href="#" class="btn-default">En savoir plus</a>
                             </div>
 
                             <div class="premium-products-list wow fadeInUp" data-wow-delay="0.4s">
