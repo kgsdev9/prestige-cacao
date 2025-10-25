@@ -80,14 +80,9 @@
                             <!-- Header Social List Start -->
                             <div class="header-social-list me-3">
                                 <ul class="d-flex list-unstyled mb-0">
-                                    <li class="me-2">
-                                        <a href="#"><i class="fa-brands fa-x-twitter text-dark"></i></a>
-                                    </li>
-                                    <li class="me-2">
-                                        <a href="#"><i class="fa-brands fa-facebook-f text-dark"></i></a>
-                                    </li>
                                     <li>
-                                        <a href="#"><i class="fa-brands fa-instagram text-dark"></i></a>
+                                        <a href="https://www.instagram.com/prestige_chocolat?igsh=MXJya2RyN2YzM3gxZQ=="><i
+                                                class="fa-brands fa-instagram text-dark"></i></a>
                                     </li>
                                 </ul>
                             </div>
@@ -95,8 +90,11 @@
 
                             <!-- Header Contact Btn Start -->
                             <div class="header-contact-btn">
-                                <a href="#" class="btn btn-outline-dark">Contact</a>
+                                <a href="https://wa.me/33761773364" target="_blank" class="btn btn-outline-dark">
+                                    Contact
+                                </a>
                             </div>
+
                             <!-- Header Contact Btn End -->
                         </div>
                         <!-- Header Contact Box End -->
@@ -119,17 +117,17 @@
                     <div class="hero-content">
                         <!-- Section Title Start -->
                         <div class="section-title">
-                            <h3 class="wow fadeInUp">Découvrez l’excellence à l’état pur</h3>
+
                             <h1 class="text-anime-style-2" data-cursor="-opaque">
-                                Prestige Cacao Champagne
+                                Prestige Cacao
                                 <span>l’élégance qui se savoure.</span>
                             </h1>
                             <p class="wow fadeInUp" data-wow-delay="0.2s">
-                                Prestige Cacao Champagne incarne le luxe, la finesse et l’audace.
-                                Fusion subtile entre le raffinement du champagne traditionnel et la douceur noble du
-                                cacao, chaque flûte vous transporte dans un univers de plaisir sensoriel rare.
-                                Pensé pour les connaisseurs et les moments d’exception, Prestige Cacao sublime vos
-                                célébrations avec caractère, émotion et distinction.
+                                Notre prestige Chocolat est un vin effervescent, symbole d'audace et d'originalité. Nous
+                                avons réussi à associer deux univers et deux savoirs faire, C'est un véritable voyage
+                                gustatif
+                                qui viendra vous surprendre. <br>
+                                le vin français blanc de blanc et le cacao Ivoire.
                             </p>
                         </div>
                         <!-- Section Title End -->
@@ -138,7 +136,7 @@
                         <div class="hero-content-body wow fadeInUp" data-wow-delay="0.4s">
                             <!-- Hero Button Start -->
                             <div class="hero-btn">
-                                <a href="#" class="btn-default btn-highlighted">Commander</a>
+                                <a href="tel:+33761773364" class="btn-default btn-highlighted">Commander</a>
                             </div>
                             <!-- Hero Button End -->
 
@@ -149,7 +147,7 @@
                                 </div>
                                 <div class="contact-now-box-content">
                                     <h3 class="text-dark">Contact</h3>
-                                    <p><a href="tel:+123468963" class="text-dark">+33 - 123 468 963</a></p>
+                                    <p><a href="tel:+33761773364" class="text-dark">+33761773364</a></p>
                                 </div>
                             </div>
                             <!-- Contact Now Box End -->
@@ -192,7 +190,7 @@
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row justify-content-center">
                 <div class="col-lg-3 col-md-6">
                     <!-- Product Item Start -->
                     <div class="product-item wow fadeInUp">
@@ -203,27 +201,13 @@
                         </div>
                         <div class="product-content">
                             <h3>Prestige Brut Classique</h3>
-                             <p>20 €</p>
+                            <p>20 €</p>
                         </div>
                     </div>
                     <!-- Product Item End -->
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <!-- Product Item Start -->
-                    <div class="product-item wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="product-image">
-                            <figure>
-                                <img src="{{ asset('champagne2.jpg') }}" alt="">
-                            </figure>
-                        </div>
-                        <div class="product-content">
-                            <h3>Prestige Rosé Élégance</h3>
-                              <p>20 €</p>
-                        </div>
-                    </div>
-                    <!-- Product Item End -->
-                </div>
+
 
                 <div class="col-lg-3 col-md-6">
                     <!-- Product Item Start -->
@@ -241,28 +225,13 @@
                     <!-- Product Item End -->
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <!-- Product Item Start -->
-                    <div class="product-item wow fadeInUp" data-wow-delay="0.6s">
-                        <div class="product-image">
-                            <figure>
-                                <img src="{{ asset('champagne-4.png') }}" alt="">
-                            </figure>
-                        </div>
-                        <div class="product-content">
-                            <h3>Prestige Doux Plaisir</h3>
-                             <p>20 €</p>
-                        </div>
-                    </div>
-                    <!-- Product Item End -->
-                </div>
-
                 <div class="col-lg-12">
                     <!-- Section Footer Text Start -->
                     <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
                         <p>
                             <span>Offert :</span> Pour toute commande en ligne, la livraison est gratuite.
-                            <a href="#">Contactez-nous</a>
+                            <a href="https://wa.me/33761773364" target="_blank">Contactez-nous</a>
+
                         </p>
                     </div>
                     <!-- Section Footer Text End -->
@@ -313,17 +282,6 @@
 
                         <!-- Liste Visuels Start -->
                         <div class="premium-products-item-box">
-                            <!-- Item 1 -->
-                            <div class="premium-products-item wow fadeInUp">
-                                <div class="premium-products-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('sery-die-photo.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-                                <div class="premium-products-item-content">
-                                    <h3><a href="#">Soirée Prestige 2024</a></h3>
-                                </div>
-                            </div>
 
                             <!-- Item 2 -->
                             <div class="premium-products-item wow fadeInUp" data-wow-delay="0.2s">
@@ -333,21 +291,11 @@
                                     </figure>
                                 </div>
                                 <div class="premium-products-item-content">
-                                    <h3><a href="#">Ambassadeur Officiel : DJ Arafat Jr</a></h3>
+                                    <h3><a href="#">Salon international de la gastronomie</a></h3>
                                 </div>
                             </div>
 
-                            <!-- Item 3 -->
-                            <div class="premium-products-item wow fadeInUp" data-wow-delay="0.4s">
-                                <div class="premium-products-image">
-                                    <figure class="image-anime">
-                                        <img src="{{ asset('evenementiels.jpg') }}" alt="">
-                                    </figure>
-                                </div>
-                                <div class="premium-products-item-content">
-                                    <h3><a href="#">Prestige à Abidjan Fashion Week</a></h3>
-                                </div>
-                            </div>
+
                         </div>
                         <!-- Liste Visuels End -->
                     </div>
@@ -357,21 +305,18 @@
                 <div class="col-lg-5">
                     <!-- Vidéo Événement Start -->
                     <div class="products-intro-video">
-                        <div class="products-intro-image">
-                            <figure class="image-anime reveal">
-                                <img src="{{ asset('event-2.jpg') }}" alt="Prestige Cacao">
+                        <div>
+                            <figure>
+                                <iframe src="{{ asset('videoannonce.mp4') }}" width="100%" height="360"
+                                    frameborder="0" allow="autoplay; encrypted-media" allowfullscreen>
+                                </iframe>
                             </figure>
-                        </div>
-
-                        <div class="video-play-button">
-                            <a href="https://web.facebook.com/reel/407226694375752" class="popup-video"
-                                data-cursor-text="Play">
-                                <i class="fa-solid fa-play"></i>
-                            </a>
                         </div>
                     </div>
                     <!-- Vidéo Événement End -->
                 </div>
+
+
             </div>
         </div>
     </div>
@@ -400,7 +345,8 @@
                         <div class="post-featured-image">
                             <a href="#" data-cursor-text="Voir">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('blog-image-1.jpg') }}" alt="">
+                                    <img src="{{ asset('prestige-chocoloat-champagne-boisson.jpg') }}"
+                                        alt="">
                                 </figure>
                             </a>
                         </div>
@@ -408,7 +354,8 @@
                             <div class="post-item-content">
                                 <h2>
                                     <a href="#">
-                                        Prestige Cacao à la SARA 2025 : un franc succès !
+                                        Salon de l’agriculture France
+                                        Salon de l’agriculture Côte d’ivoire
                                     </a>
                                 </h2>
                             </div>
@@ -441,7 +388,7 @@
                             <div class="post-item-content">
                                 <h2>
                                     <a href="#">
-                                        Une collaboration inédite avec la Fashion Week d’Abidjan
+                                        Foire de paris
                                     </a>
                                 </h2>
                             </div>
@@ -465,7 +412,8 @@
                         <div class="post-featured-image">
                             <a href="#" data-cursor-text="Voir">
                                 <figure class="image-anime">
-                                    <img src="{{ asset('image-prestige-blog.jpg') }}" alt="">
+                                    <img src="{{ asset('prestige-chocoloat-champagne-boisson.jpg') }}"
+                                        alt="">
                                 </figure>
                             </a>
                         </div>
@@ -473,7 +421,10 @@
                             <div class="post-item-content">
                                 <h2>
                                     <a href="#">
-                                        Lancement de notre nouvelle bouteille Prestige Édition Or
+                                        Fashion week-end Afrique
+                                        Salon international de la gastronomie
+                                        Foire d’Afrique
+                                        Marchés de Noël
                                     </a>
                                 </h2>
                             </div>
@@ -507,17 +458,15 @@
             <!-- Slogan ou courte description -->
             <p class="mb-3">L'élégance en bouteille. Découvrez l'expérience Prestige Cacao.</p>
 
-            <!-- Réseaux sociaux -->
-            <div class="footer-social-links mb-4">
-                <a href="#" class="mx-2 text-dark"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="mx-2 text-dark"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="mx-2 text-dark"><i class="fa-brands fa-x-twitter"></i></a>
-            </div>
 
             <!-- Contact rapide -->
-            <p class="mb-1"><a href="mailto:contact@prestigecacao.com"
-                    class="text-dark">contact@prestigecacao.com</a></p>
-            <p class="mb-3"><a href="tel:+2250102030405" class="text-dark">+33 01 02 03 04 05</a></p>
+            <p class="mb-1"><a href="mailto:prestigechocolat.laho@gmail.com"
+                    class="text-dark">prestigechocolat.laho@gmail.com</a></p>
+
+            <p class="mb-1"><a href="#" class="text-dark">5 rue Saint Louis - 78100
+                    Saint Germain en Laye
+                </a></p>
+            <p class="mb-3"><a href="tel:+33761773364" class="text-dark">+33761773364</a></p>
 
             <!-- Copyrigh
                 t -->
